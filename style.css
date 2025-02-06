@@ -1,12 +1,78 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    text-align: center;
+* {
+  font-family: "Roboto", "Helvetica", sans-serif;
 }
-h1 {
-    font-size: 2em;
+
+header {
+  background-color: rgb(217, 224, 233);
 }
-a {
-    text-decoration: none;
-    color: blue;
+
+#sidebar {
+  padding-top: 50px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 50px;
+  /* overflow: hidden; */
+  height: 100vh;
+}
+
+.my-navlink {
+  color: rgb(61, 61, 61);
+}
+
+.my-social {
+  color: rgb(61, 61, 61);
+}
+
+.my-social:hover {
+  color: #0d6efd;
+}
+
+.my-download {
+  color: rgb(61, 61, 61);
+  border-color: rgb(61, 61, 61);
+}
+
+.my-download:hover {
+  color: #0d6efd;
+  background-color: transparent;
+}
+
+@media (min-width: 768px) {
+  header {
+    position: fixed;
+    height: 100vh;
+  }
+}
+
+#profile_picture {
+  background-color: white;
+}
+
+.profile_name {
+  color: rgb(0, 0, 0);
+}
+
+.social_icon {
+  /* color: rgb(0, 0, 0); */
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+/* .social_icon:hover {
+  color: rgb(56, 56, 56);
+} */
+
+main {
+  background-color: white;
+}
+
+.content {
+  padding: 5%;
+}
+
+
+@media (min-width: 768px) {
+  .content {
+    padding-right: 15%;
+  }
 }
