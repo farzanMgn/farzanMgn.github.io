@@ -1,5 +1,8 @@
 * {
   font-family: "Roboto", "Helvetica", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 header {
@@ -11,25 +14,57 @@ header {
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 50px;
-  /* overflow: hidden; */
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#profile_picture {
+  width: 150px; /* Adjust the size of the circle */
+  height: 150px; /* Adjust the size of the circle */
+  border-radius: 50%; /* Makes the image round */
+  overflow: hidden; /* Ensures the image stays within the circle */
+  margin-bottom: 20px; /* Adds space below the profile picture */
+  border: 3px solid white; /* Optional: Adds a border around the circle */
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the circle without distortion */
+}
+
+.profile_name {
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px; /* Adds space below the name */
 }
 
 .my-navlink {
   color: rgb(61, 61, 61);
+  text-decoration: none; /* Removes underline from links */
+  display: block; /* Makes each link take up its own line */
+  margin: 10px 0; /* Adds space between navigation links */
+}
+
+.my-navlink:hover {
+  color: #0d6efd; /* Changes color on hover */
 }
 
 .my-social {
   color: rgb(61, 61, 61);
+  text-decoration: none; /* Removes underline from links */
 }
 
 .my-social:hover {
-  color: #0d6efd;
+  color: #0d6efd; /* Changes color on hover */
 }
 
 .my-download {
   color: rgb(61, 61, 61);
   border-color: rgb(61, 61, 61);
+  text-decoration: none; /* Removes underline from links */
 }
 
 .my-download:hover {
@@ -37,30 +72,9 @@ header {
   background-color: transparent;
 }
 
-@media (min-width: 768px) {
-  header {
-    position: fixed;
-    height: 100vh;
-  }
+.social_links {
+  margin-top: 20px; /* Adds space above the social links */
 }
-
-#profile_picture {
-  background-color: white;
-}
-
-.profile_name {
-  color: rgb(0, 0, 0);
-}
-
-.social_icon {
-  /* color: rgb(0, 0, 0); */
-  margin-right: 5px;
-  margin-left: 5px;
-}
-
-/* .social_icon:hover {
-  color: rgb(56, 56, 56);
-} */
 
 main {
   background-color: white;
@@ -70,9 +84,15 @@ main {
   padding: 5%;
 }
 
-
 @media (min-width: 768px) {
+  header {
+    position: fixed;
+    height: 100vh;
+    width: 300px; /* Adjust the width of the sidebar */
+  }
+
   .content {
+    margin-left: 300px; /* Ensures content doesn't overlap with the sidebar */
     padding-right: 15%;
   }
 }
