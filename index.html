@@ -18,11 +18,10 @@
         
         <nav>
             <ul>
-                <li><a class="my-navlink" href="#about">About Me</a></li>
-                <li><a class="my-navlink" href="#experience">Experience</a></li>
-                <li><a class="my-navlink" href="#projects">Selected Projects</a></li>
-                <li><a class="my-navlink" href="#resume">Resume</a></li>
-                <li><a class="my-navlink" href="#contact">Contact</a></li>
+                <li><a class="my-navlink" href="#about" data-section="about">About Me</a></li>
+                <li><a class="my-navlink" href="#experience" data-section="experience">Experience</a></li>
+                <li><a class="my-navlink" href="#projects" data-section="projects">Selected Projects</a></li>
+                <li><a class="my-navlink" href="#resume" data-section="resume">Download Resume</a></li>
             </ul>
         </nav>
 
@@ -35,19 +34,27 @@
                 <i class="fab fa-github"></i>
             </a>
         </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <p>Email: farzanemoghani72@gmail.com</p>
+        </div>
     </header>
 
     <main class="content">
-        <section id="about">
+        <!-- About Me Section -->
+        <section id="about" class="active">
             <h2>About Me</h2>
             <p>Background in UX and data science, and aspirations in product management.</p>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience">
             <h2>Experience</h2>
             <p>My previous work experience, highlighting UX and data science roles.</p>
         </section>
 
+        <!-- Selected Projects Section -->
         <section id="projects">
             <h2>Selected Projects</h2>
             <ul>
@@ -57,17 +64,34 @@
             </ul>
         </section>
 
+        <!-- Resume Section -->
         <section id="resume">
             <h2>Resume</h2>
             <a class="my-download" href="resume.pdf" download>Download Resume</a>
         </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: farzanemoghani72@gmail.com</p>
-            <p>LinkedIn: <a class="my-social" href="https://linkedin.com/in/fazanmgn">Your Profile</a></p>
-            <p>GitHub: <a class="my-social" href="https://www.github.com/farzanMgn">Your Profile</a></p>
-        </section>
     </main>
+
+    <script>
+        // JavaScript to handle section switching
+        document.addEventListener("DOMContentLoaded", function () {
+            const navLinks = document.querySelectorAll(".my-navlink");
+            const sections = document.querySelectorAll("main section");
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault(); // Prevent default anchor behavior
+
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.classList.remove("active");
+                    });
+
+                    // Show the clicked section
+                    const targetSection = document.querySelector(this.getAttribute("href"));
+                    targetSection.classList.add("active");
+                });
+            });
+        });
+    </script>
 </body>
 </html>
