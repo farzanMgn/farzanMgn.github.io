@@ -21,7 +21,7 @@
                 <li><a class="my-navlink" href="#about" data-section="about">About Me</a></li>
                 <li><a class="my-navlink" href="#experience" data-section="experience">Experience</a></li>
                 <li><a class="my-navlink" href="#projects" data-section="projects">Selected Projects</a></li>
-                <li><a class="my-navlink" href="#resume" data-section="resume">Download Resume</a></li>
+                <li><a class="my-navlink" href="https://drive.google.com/file/d/1jfSleJ_JhGMo3M-nOPPaRSHntIBoDLRg/view?usp=share_link" target="_blank">Download Resume</a></li>
             </ul>
         </nav>
 
@@ -46,10 +46,6 @@
         <section id="about" class="active"></section>
         <section id="experience"></section>
         <section id="projects"></section>
-        <section id="resume">
-            <h2>Resume</h2>
-            <a class="my-download" href="resume.pdf" download>Download Resume</a>
-        </section>
     </main>
 
     <script>
@@ -80,10 +76,13 @@
             // Add event listeners to navigation links
             navLinks.forEach(link => {
                 link.addEventListener("click", function (e) {
-                    e.preventDefault(); // Prevent default anchor behavior
-                    const targetSection = this.getAttribute("data-section");
-                    loadMarkdown(targetSection);
-                    showSection(targetSection);
+                    if (this.getAttribute("data-section")) {
+                        e.preventDefault(); // Prevent default anchor behavior
+                        const targetSection = this.getAttribute("data-section");
+                        loadMarkdown(targetSection);
+                        showSection(targetSection);
+                    }
+                    // Allow the "Download Resume" link to open in a new tab
                 });
             });
         });
