@@ -41,6 +41,11 @@ header {
   white-space: nowrap; /* Ensures name stays on one line */
 }
 
+.no-bullets {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0;
+}
+
 .my-navlink {
   color: rgb(61, 61, 61);
   text-decoration: none;
@@ -78,11 +83,6 @@ header {
 .my-download:hover {
   color: #0d6efd;
   background-color: transparent;
-}
-
-.contact-info {
-  margin-top: 20px;
-  font-size: 14px;
 }
 
 main {
