@@ -21,23 +21,28 @@
                 <li><a class="my-navlink" href="#about" data-section="about">About Me</a></li>
                 <li><a class="my-navlink" href="#experience" data-section="experience">Experience</a></li>
                 <li><a class="my-navlink" href="#projects" data-section="projects">Selected Projects</a></li>
-                <li><a class="my-navlink" href="https://drive.google.com/file/d/1jfSleJ_JhGMo3M-nOPPaRSHntIBoDLRg/view?usp=share_link" target="_blank">Download Resume</a></li>
             </ul>
         </nav>
 
-        <div class="social_links">
-            <!-- LinkedIn Icon -->
-            <a class="my-social" href="https://www.linkedin.com/in/fazanmgn" target="_blank">
-                <i class="fab fa-linkedin"></i>
+        <!-- Contact Information and Icons -->
+        <div class="contact-section">
+            <!-- Download Resume Button -->
+            <a class="download-resume" href="https://drive.google.com/file/d/1jfSleJ_JhGMo3M-nOPPaRSHntIBoDLRg/view?usp=share_link" target="_blank">
+                <i class="fas fa-download"></i> Download Resume
             </a>
-            <!-- GitHub Icon -->
-            <a class="my-social" href="https://www.github.com/farzanMgn" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-            <!-- Email Icon -->
-            <a class="my-social" href="mailto:farzanemoghani72@gmail.com">
-                <i class="fas fa-envelope"></i>
-            </a>
+
+            <!-- Social Icons -->
+            <div class="social_links">
+                <a class="my-social" href="https://www.linkedin.com/in/fazanmgn" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a class="my-social" href="https://www.github.com/farzanMgn" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a class="my-social" href="mailto:farzanemoghani72@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -76,13 +81,10 @@
             // Add event listeners to navigation links
             navLinks.forEach(link => {
                 link.addEventListener("click", function (e) {
-                    if (this.getAttribute("data-section")) {
-                        e.preventDefault(); // Prevent default anchor behavior
-                        const targetSection = this.getAttribute("data-section");
-                        loadMarkdown(targetSection);
-                        showSection(targetSection);
-                    }
-                    // Allow the "Download Resume" link to open in a new tab
+                    e.preventDefault(); // Prevent default anchor behavior
+                    const targetSection = this.getAttribute("data-section");
+                    loadMarkdown(targetSection);
+                    showSection(targetSection);
                 });
             });
         });
