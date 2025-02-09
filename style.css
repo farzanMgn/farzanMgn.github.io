@@ -7,14 +7,13 @@
 
 header {
   background-color: rgb(217, 224, 233);
-}
-
-#sidebar {
+  width: 300px; /* Fixed width for the sidebar */
+  height: 100vh;
+  position: fixed;
   padding-top: 50px;
   padding-left: 5%;
   padding-right: 5%;
   padding-bottom: 50px;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,6 +38,7 @@ header {
 .profile_name {
   color: rgb(0, 0, 0);
   margin-bottom: 10px;
+  white-space: nowrap; /* Ensures name stays on one line */
 }
 
 .my-navlink {
@@ -55,14 +55,14 @@ header {
 .social_links {
   margin-top: 20px;
   display: flex;
-  gap: 25px; /* Adds space between the icons */
+  gap: 25px;
 }
 
 .my-social {
   color: rgb(61, 61, 61);
   text-decoration: none;
-  font-size: 35px; /* Adjust the size of the icons */
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  font-size: 35px;
+  transition: color 0.3s ease;
 }
 
 .my-social:hover {
@@ -80,23 +80,21 @@ header {
   background-color: transparent;
 }
 
-main {
-  background-color: white;
+.contact-info {
+  margin-top: 20px;
+  font-size: 14px;
 }
 
-.content {
+main {
+  background-color: white;
+  margin-left: 300px; /* Ensure content doesn't overlap with the sidebar */
   padding: 5%;
 }
 
-@media (min-width: 768px) {
-  header {
-    position: fixed;
-    height: 100vh;
-    width: 300px;
-  }
+.content section {
+  display: none; /* Hide all sections by default */
+}
 
-  .content {
-    margin-left: 300px;
-    padding-right: 15%;
-  }
+.content section.active {
+  display: block; /* Show the active section */
 }
