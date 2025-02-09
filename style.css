@@ -66,20 +66,22 @@ header {
 }
 
 .download-resume {
-  background-color: #e0e0e0;
-  color: white;
+  background-color: #f0f0f0; /* Light grey background */
+  color: rgb(61, 61, 61); /* Dark grey text */
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 5px;
   display: flex;
   align-items: center;
   gap: 10px; /* Space between icon and text */
-  font-size: 14px;
-  transition: background-color 0.3s ease;
+  font-size: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid #ccc; /* Optional: Add a subtle border */
 }
 
 .download-resume:hover {
-  background-color: ##f0f0f0;
+  background-color: #e0e0e0; /* Slightly darker grey on hover */
+  color: #0d6efd; /* Change text color to blue on hover */
 }
 
 .social_links {
