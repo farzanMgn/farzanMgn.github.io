@@ -57,32 +57,45 @@ header {
   color: #0d6efd;
 }
 
-.social_links {
-  margin-top: 20px;
+.contact-section {
+  margin-top: auto; /* Push contact section to the bottom */
   display: flex;
-  gap: 25px;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Space between elements */
+}
+
+.download-resume {
+  background-color: #0d6efd;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.download-resume:hover {
+  background-color: #0b5ed7;
+}
+
+.social_links {
+  display: flex;
+  gap: 20px; /* Space between icons */
 }
 
 .my-social {
   color: rgb(61, 61, 61);
   text-decoration: none;
-  font-size: 35px;
+  font-size: 24px;
   transition: color 0.3s ease;
 }
 
 .my-social:hover {
   color: #0d6efd;
-}
-
-.my-download {
-  color: rgb(61, 61, 61);
-  border-color: rgb(61, 61, 61);
-  text-decoration: none;
-}
-
-.my-download:hover {
-  color: #0d6efd;
-  background-color: transparent;
 }
 
 main {
