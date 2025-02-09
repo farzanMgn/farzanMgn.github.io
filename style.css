@@ -22,58 +22,62 @@ header {
 }
 
 #profile_picture {
-  width: 150px; /* Adjust the size of the circle */
-  height: 150px; /* Adjust the size of the circle */
-  border-radius: 50%; /* Makes the image round */
-  overflow: hidden; /* Ensures the image stays within the circle */
-  margin-bottom: 20px; /* Adds space below the profile picture */
-  border: 3px solid white; /* Optional: Adds a border around the circle */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 3px solid white;
 }
 
 .profile-pic {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image covers the circle without distortion */
+  object-fit: cover;
 }
 
 .profile_name {
   color: rgb(0, 0, 0);
-  margin-bottom: 10px; /* Adds space below the name */
+  margin-bottom: 10px;
 }
 
 .my-navlink {
   color: rgb(61, 61, 61);
-  text-decoration: none; /* Removes underline from links */
-  display: block; /* Makes each link take up its own line */
-  margin: 10px 0; /* Adds space between navigation links */
+  text-decoration: none;
+  display: block;
+  margin: 10px 0;
 }
 
 .my-navlink:hover {
-  color: #0d6efd; /* Changes color on hover */
+  color: #0d6efd;
+}
+
+.social_links {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px; /* Adds space between the icons */
 }
 
 .my-social {
   color: rgb(61, 61, 61);
-  text-decoration: none; /* Removes underline from links */
+  text-decoration: none;
+  font-size: 24px; /* Adjust the size of the icons */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
 .my-social:hover {
-  color: #0d6efd; /* Changes color on hover */
+  color: #0d6efd;
 }
 
 .my-download {
   color: rgb(61, 61, 61);
   border-color: rgb(61, 61, 61);
-  text-decoration: none; /* Removes underline from links */
+  text-decoration: none;
 }
 
 .my-download:hover {
   color: #0d6efd;
   background-color: transparent;
-}
-
-.social_links {
-  margin-top: 20px; /* Adds space above the social links */
 }
 
 main {
@@ -88,11 +92,11 @@ main {
   header {
     position: fixed;
     height: 100vh;
-    width: 300px; /* Adjust the width of the sidebar */
+    width: 300px;
   }
 
   .content {
-    margin-left: 300px; /* Ensures content doesn't overlap with the sidebar */
+    margin-left: 300px;
     padding-right: 15%;
   }
 }
