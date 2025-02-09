@@ -61,7 +61,7 @@ header {
 .my-social {
   color: rgb(61, 61, 61);
   text-decoration: none;
-  font-size: 44px; /* Adjust the size of the icons */
+  font-size: 35px; /* Adjust the size of the icons */
   transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
