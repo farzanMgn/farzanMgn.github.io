@@ -17,7 +17,7 @@
         <p>UX Designer | Data Scientist | Aspiring Product Manager</p>
         
         <nav>
-            <ul>
+            <ul class="no-bullets">
                 <li><a class="my-navlink" href="#about" data-section="about">About Me</a></li>
                 <li><a class="my-navlink" href="#experience" data-section="experience">Experience</a></li>
                 <li><a class="my-navlink" href="#projects" data-section="projects">Selected Projects</a></li>
@@ -26,45 +26,26 @@
         </nav>
 
         <div class="social_links">
-            <!-- Replace text links with Font Awesome icons -->
+            <!-- LinkedIn Icon -->
             <a class="my-social" href="https://www.linkedin.com/in/fazanmgn" target="_blank">
                 <i class="fab fa-linkedin"></i>
             </a>
+            <!-- GitHub Icon -->
             <a class="my-social" href="https://www.github.com/farzanMgn" target="_blank">
                 <i class="fab fa-github"></i>
             </a>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="contact-info">
-            <p>Email: farzanemoghani72@gmail.com</p>
+            <!-- Email Icon -->
+            <a class="my-social" href="mailto:farzanemoghani72@gmail.com">
+                <i class="fas fa-envelope"></i>
+            </a>
         </div>
     </header>
 
     <main class="content">
-        <!-- About Me Section -->
-        <section id="about" class="active">
-            <h2>About Me</h2>
-            <p>Background in UX and data science, and aspirations in product management.</p>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2>Experience</h2>
-            <p>My previous work experience, highlighting UX and data science roles.</p>
-        </section>
-
-        <!-- Selected Projects Section -->
-        <section id="projects">
-            <h2>Selected Projects</h2>
-            <ul>
-                <li><a href="project1.html">Project 1</a> - Short description</li>
-                <li><a href="project2.html">Project 2</a> - Short description</li>
-                <li><a href="project3.html">Project 3</a> - Short description</li>
-            </ul>
-        </section>
-
-        <!-- Resume Section -->
+        <!-- Content will be dynamically loaded here -->
+        <section id="about" class="active"></section>
+        <section id="experience"></section>
+        <section id="projects"></section>
         <section id="resume">
             <h2>Resume</h2>
             <a class="my-download" href="resume.pdf" download>Download Resume</a>
@@ -72,26 +53,43 @@
     </main>
 
     <script>
-        // JavaScript to handle section switching
+        // JavaScript to handle section switching and loading .md files
         document.addEventListener("DOMContentLoaded", function () {
             const navLinks = document.querySelectorAll(".my-navlink");
             const sections = document.querySelectorAll("main section");
 
+            // Function to load .md file content
+            async function loadMarkdown(sectionId) {
+                const response = await fetch(`./assets/${sectionId}.md`);
+                const text = await response.text();
+                document.getElementById(sectionId).innerHTML = marked.parse(text); // Use marked.js to parse markdown
+            }
+
+            // Hide all sections and show the active one
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    section.classList.remove("active");
+                });
+                document.getElementById(sectionId).classList.add("active");
+            }
+
+            // Load the default section (About Me)
+            loadMarkdown("about");
+            showSection("about");
+
+            // Add event listeners to navigation links
             navLinks.forEach(link => {
                 link.addEventListener("click", function (e) {
                     e.preventDefault(); // Prevent default anchor behavior
-
-                    // Hide all sections
-                    sections.forEach(section => {
-                        section.classList.remove("active");
-                    });
-
-                    // Show the clicked section
-                    const targetSection = document.querySelector(this.getAttribute("href"));
-                    targetSection.classList.add("active");
+                    const targetSection = this.getAttribute("data-section");
+                    loadMarkdown(targetSection);
+                    showSection(targetSection);
                 });
             });
         });
     </script>
+
+    <!-- Marked.js for parsing markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </body>
 </html>
