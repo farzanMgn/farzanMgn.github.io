@@ -7,7 +7,7 @@
 
 header {
   background-color: rgb(217, 224, 233);
-  width: 300px; /* Fixed width for the sidebar */
+  width: 320px; /* Fixed width for the sidebar */
   height: 100vh;
   position: fixed;
   padding-top: 50px;
