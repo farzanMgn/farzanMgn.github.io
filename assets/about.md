@@ -1,6 +1,6 @@
 # Farzaneh Moghani 
 
-I am a computer engineer with a strong foundation in data science, UX research, and product development. My journey began in Iran, where I was admitted to the country's elite high school for exceptional talents. I later earned my #Bachelor’s degree in Computer Engineering from Ferdowsi University of Mashhad, one of the top institutions in eastern Iran. During my time there, I served as the Head of the Computer Association, gaining hands-on experience in leadership, event management, and cross-functional collaboration.
+I am a computer engineer with a strong foundation in data science, UX research, and product development. My journey began in Iran, where I was admitted to the country's elite high school for exceptional talents. I later earned my # Bachelor’s degree in Computer Engineering from Ferdowsi University of Mashhad, one of the top institutions in eastern Iran. During my time there, I served as the Head of the Computer Association, gaining hands-on experience in leadership, event management, and cross-functional collaboration.
 
 For my undergraduate thesis, I worked on a robotic-assisted physiotherapy system in collaboration with the Mashhad University of Medical Sciences, developing an Android application to interact with the robotic system. This interdisciplinary project introduced me to the intersection of technology and healthcare, sparking my interest in real-world problem-solving.
 
