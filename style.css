@@ -37,7 +37,7 @@ header {
 
 .profile_name {
   color: rgb(0, 0, 0);
-  margin-bottom: 9px;
+  margin-bottom: 10px;
   white-space: nowrap; /* Ensures name stays on one line */
 }
 
