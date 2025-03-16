@@ -82,7 +82,7 @@
                 navLinks.forEach(link => {
                     link.classList.remove("active"); // Remove 'active' from all links
                 });
-                const activeLink = document.querySelector(`[data-section="${targetSection}"]`);
+                const activeLink = document.querySelector(`a[data-section="${targetSection}"]`);
                 activeLink.classList.add("active"); // Add 'active' to the clicked link
             }
 
