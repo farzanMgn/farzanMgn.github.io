@@ -56,8 +56,8 @@
         <section id="projects"></section>
     </main>
 
+    <!-- JavaScript for functionality -->
     <script>
-        // JavaScript to handle section switching and loading .md files
         document.addEventListener("DOMContentLoaded", function () {
             const navLinks = document.querySelectorAll(".my-navlink");
             const sections = document.querySelectorAll("main section");
@@ -77,9 +77,19 @@
                 document.getElementById(sectionId).classList.add("active");
             }
 
+            // Highlight the active navigation link
+            function highlightActiveLink(targetSection) {
+                navLinks.forEach(link => {
+                    link.classList.remove("active"); // Remove 'active' from all links
+                });
+                const activeLink = document.querySelector(`[data-section="${targetSection}"]`);
+                activeLink.classList.add("active"); // Add 'active' to the clicked link
+            }
+
             // Load the default section (About Me)
             loadMarkdown("about");
             showSection("about");
+            highlightActiveLink("about");
 
             // Add event listeners to navigation links
             navLinks.forEach(link => {
@@ -88,6 +98,7 @@
                     const targetSection = this.getAttribute("data-section");
                     loadMarkdown(targetSection);
                     showSection(targetSection);
+                    highlightActiveLink(targetSection); // Highlight the clicked link
                 });
             });
         });
