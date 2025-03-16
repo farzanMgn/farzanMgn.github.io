@@ -109,6 +109,44 @@ header {
 .my-social:hover {
     color: #0d6efd;
 }
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.timeline-item {
+    cursor: pointer;
+    background: #f0f0f0;
+    padding: 10px;
+    border-left: 4px solid #0d6efd;
+    transition: background 0.3s;
+}
+
+.timeline-item:hover {
+    background: #e0e0e0;
+}
+
+.year {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.experience-details {
+    margin-top: 20px;
+}
+
+.exp-content {
+    display: none; /* Hide all by default */
+    background: #f9f9f9;
+    padding: 15px;
+    border-left: 4px solid #0d6efd;
+}
+
+.exp-content.active {
+    display: block; /* Show only active one */
+}
 
 /* Main Content */
 main {
