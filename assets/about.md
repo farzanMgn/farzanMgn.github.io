@@ -1,4 +1,4 @@
-# About My Journey
+# About Me
 
 <br><br>
 I am a **computer engineer** with a strong foundation in **data science**, and **product development**. My journey began in Iran, where I was admitted to the country's elite high school for exceptional talents. I later earned my **Bachelor’s degree** in **Computer Engineering** from Ferdowsi University of Mashhad, one of the top institutions in eastern Iran. During my time there, I served as the Head of the Computer Association, gaining hands-on experience in leadership, event management, and cross-functional collaboration.
