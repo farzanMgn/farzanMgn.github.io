@@ -52,6 +52,12 @@ header {
   display: block;
   margin: 10px 0;
 }
+.my-navlink.active {
+    color: blue !important; /* Ensure it applies */
+    font-weight: bold;
+    text-decoration: underline; /* Optional for better visibility */
+}
+
 
 .my-navlink:hover {
   color: #0d6efd;
