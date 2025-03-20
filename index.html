@@ -91,21 +91,29 @@
         document.addEventListener("DOMContentLoaded", function () {
             const navLinks = document.querySelectorAll(".my-navlink");
             const sections = document.querySelectorAll("main section");
+            // Function to load .md file content
+            async function loadMarkdown(sectionId) {
+                try {
+                    const response = await fetch(`./assets/${sectionId}.md`);
+                    if (!response.ok) throw new Error("Failed to load markdown");
+                    const text = await response.text();
+                    document.getElementById(sectionId).innerHTML = marked.parse(text); // Use marked.js to parse markdown
+                } catch (error) {
+                    console.error("Error loading markdown:", error);
+                }
+            }
             // Function to show section
             function showSection(sectionId) {
-                sections.forEach(section => {
-                    section.classList.remove("active");
-                });
+                sections.forEach(section => section.classList.remove("active"));
                 const targetSection = document.getElementById(sectionId);
                 if (targetSection) {
                     targetSection.classList.add("active");
+                    loadMarkdown(sectionId); // Load markdown content when section is shown
                 }
             }
             // Highlight the active navigation link
             function highlightActiveLink(targetSection) {
-                navLinks.forEach(link => {
-                    link.classList.remove("active");
-                });
+                navLinks.forEach(link => link.classList.remove("active"));
                 const activeLink = document.querySelector(`a[data-section="${targetSection}"]`);
                 if (activeLink) {
                     activeLink.classList.add("active");
@@ -133,6 +141,7 @@
                     targetContent.classList.add("active");
                 }
             }
+            
             timelineItems.forEach(item => {
                 item.addEventListener("click", function () {
                     const targetSection = this.getAttribute("data-section");
@@ -140,6 +149,7 @@
                 });
             });
         });
+
 
         
         // document.addEventListener("DOMContentLoaded", function () {
