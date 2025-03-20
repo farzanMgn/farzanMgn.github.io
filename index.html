@@ -132,20 +132,7 @@
                 });
             });
         });
-        document.addEventListener("DOMContentLoaded", function () {
-            const timelineItems = document.querySelectorAll(".timeline-item");
-            const expContents = document.querySelectorAll(".exp-content");
-            function showExperience(sectionId) {
-                expContents.forEach(content => content.classList.remove("active"));
-                document.getElementById(sectionId).classList.add("active");
-            }
-            timelineItems.forEach(item => {
-                item.addEventListener("click", function () {
-                    const targetSection = this.getAttribute("data-section");
-                    showExperience(targetSection);
-                });
-            });
-        });
+       
         document.addEventListener("DOMContentLoaded", function () {
             const timelineItems = document.querySelectorAll(".timeline-item");
             const expContents = document.querySelectorAll(".exp-content");
