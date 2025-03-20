@@ -104,8 +104,12 @@
                 sections.forEach(section => {
                     section.classList.remove("active");
                 });
-                document.getElementById(sectionId).classList.add("active");
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add("active");
+                }
             }
+
 
             // Highlight the active navigation link
             function highlightActiveLink(targetSection) {
