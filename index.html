@@ -108,7 +108,10 @@
                 const targetSection = document.getElementById(sectionId);
                 if (targetSection) {
                     targetSection.classList.add("active");
-                    loadMarkdown(sectionId); // Load markdown content when section is shown
+                    // Only load Markdown for sections that actually have a .md file
+                    if (sectionId !== "experience") { 
+                        loadMarkdown(sectionId);
+                    }
                 }
             }
             // Highlight the active navigation link
