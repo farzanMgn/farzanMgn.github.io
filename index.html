@@ -91,15 +91,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             const navLinks = document.querySelectorAll(".my-navlink");
             const sections = document.querySelectorAll("main section");
-
-            // Function to load .md file content
-            async function loadMarkdown(sectionId) {
-                const response = await fetch(`./assets/${sectionId}.md`);
-                const text = await response.text();
-                document.getElementById(sectionId).innerHTML = marked.parse(text); // Use marked.js to parse markdown
-            }
-
-            // Hide all sections and show the active one
+            // Function to show section
             function showSection(sectionId) {
                 sections.forEach(section => {
                     section.classList.remove("active");
@@ -109,50 +101,112 @@
                     targetSection.classList.add("active");
                 }
             }
-
-
             // Highlight the active navigation link
             function highlightActiveLink(targetSection) {
                 navLinks.forEach(link => {
-                    link.classList.remove("active"); // Remove 'active' from all links
+                    link.classList.remove("active");
                 });
                 const activeLink = document.querySelector(`a[data-section="${targetSection}"]`);
-                activeLink.classList.add("active"); // Add 'active' to the clicked link
+                if (activeLink) {
+                    activeLink.classList.add("active");
+                }
             }
-
-            // Load the default section (About Me)
-            loadMarkdown("about");
+            // Load default section (About Me)
             showSection("about");
             highlightActiveLink("about");
-
             // Add event listeners to navigation links
             navLinks.forEach(link => {
                 link.addEventListener("click", function (e) {
-                    e.preventDefault(); // Prevent default anchor behavior
+                    e.preventDefault();
                     const targetSection = this.getAttribute("data-section");
-                    loadMarkdown(targetSection);
                     showSection(targetSection);
-                    highlightActiveLink(targetSection); // Highlight the clicked link
+                    highlightActiveLink(targetSection);
                 });
             });
-        });
-       
-        document.addEventListener("DOMContentLoaded", function () {
+            // Handle Experience Timeline
             const timelineItems = document.querySelectorAll(".timeline-item");
             const expContents = document.querySelectorAll(".exp-content");
             function showExperience(sectionId) {
                 expContents.forEach(content => content.classList.remove("active"));
-                document.getElementById(sectionId).classList.add("active");
+                const targetContent = document.getElementById(sectionId);
+                if (targetContent) {
+                    targetContent.classList.add("active");
+                }
             }
             timelineItems.forEach(item => {
                 item.addEventListener("click", function () {
                     const targetSection = this.getAttribute("data-section");
                     showExperience(targetSection);
-                    // Ensure the Experience section stays visible when clicking an item
-                    document.getElementById("experience").classList.add("active");
                 });
             });
         });
+
+        
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     const navLinks = document.querySelectorAll(".my-navlink");
+        //     const sections = document.querySelectorAll("main section");
+
+        //     // Function to load .md file content
+        //     async function loadMarkdown(sectionId) {
+        //         const response = await fetch(`./assets/${sectionId}.md`);
+        //         const text = await response.text();
+        //         document.getElementById(sectionId).innerHTML = marked.parse(text); // Use marked.js to parse markdown
+        //     }
+
+        //     // Hide all sections and show the active one
+        //     function showSection(sectionId) {
+        //         sections.forEach(section => {
+        //             section.classList.remove("active");
+        //         });
+        //         const targetSection = document.getElementById(sectionId);
+        //         if (targetSection) {
+        //             targetSection.classList.add("active");
+        //         }
+        //     }
+
+
+        //     // Highlight the active navigation link
+        //     function highlightActiveLink(targetSection) {
+        //         navLinks.forEach(link => {
+        //             link.classList.remove("active"); // Remove 'active' from all links
+        //         });
+        //         const activeLink = document.querySelector(`a[data-section="${targetSection}"]`);
+        //         activeLink.classList.add("active"); // Add 'active' to the clicked link
+        //     }
+
+        //     // Load the default section (About Me)
+        //     loadMarkdown("about");
+        //     showSection("about");
+        //     highlightActiveLink("about");
+
+        //     // Add event listeners to navigation links
+        //     navLinks.forEach(link => {
+        //         link.addEventListener("click", function (e) {
+        //             e.preventDefault(); // Prevent default anchor behavior
+        //             const targetSection = this.getAttribute("data-section");
+        //             loadMarkdown(targetSection);
+        //             showSection(targetSection);
+        //             highlightActiveLink(targetSection); // Highlight the clicked link
+        //         });
+        //     });
+        // });
+       
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     const timelineItems = document.querySelectorAll(".timeline-item");
+        //     const expContents = document.querySelectorAll(".exp-content");
+        //     function showExperience(sectionId) {
+        //         expContents.forEach(content => content.classList.remove("active"));
+        //         document.getElementById(sectionId).classList.add("active");
+        //     }
+        //     timelineItems.forEach(item => {
+        //         item.addEventListener("click", function () {
+        //             const targetSection = this.getAttribute("data-section");
+        //             showExperience(targetSection);
+        //             // Ensure the Experience section stays visible when clicking an item
+        //             document.getElementById("experience").classList.add("active");
+        //         });
+        //     });
+        // });
 
 
     </script>
