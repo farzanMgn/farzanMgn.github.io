@@ -139,59 +139,64 @@ header {
 */
 .tree-container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     position: relative;
-    margin-top: 20px;
 }
 
 .branch {
     display: flex;
     flex-direction: column;
-    position: relative;
+    align-items: center;
 }
 
 .leaf {
-    position: relative;
-    width: 45%;
-    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
     margin: 10px 0;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .leaf:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
-.leaf.left {
+.left {
     align-self: flex-start;
-    background-color: #e3f2fd;
-    text-align: left;
-    border-left: 5px solid #2196F3;
 }
 
-.leaf.right {
+.right {
     align-self: flex-end;
-    background-color: #fce4ec;
-    text-align: right;
-    border-right: 5px solid #E91E63;
+}
+
+.year {
+    font-weight: bold;
 }
 
 .experience-details {
-    margin-top: 20px;
-}
-
-.exp-content {
     display: none;
-    padding: 10px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
 }
 
 .exp-content.active {
     display: block;
+}
+
+.branch::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 
