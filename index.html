@@ -53,19 +53,21 @@
         <!-- Content will be dynamically loaded here -->
         <section id="about" class="active"></section>
         <section id="experience">
-            <h2>Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item" data-section="exp1">
-                    <span class="year">2025</span>
-                    <h3>Data Scientist - Company X</h3>
-                </div>
-                <div class="timeline-item" data-section="exp2">
-                    <span class="year">2023</span>
-                    <h3>UX Designer - Company Y</h3>
-                </div>
-                <div class="timeline-item" data-section="exp3">
-                    <span class="year">2021</span>
-                    <h3>Research Assistant - University Z</h3>
+            <h2>Explorations</h2>
+            <div class="tree-container">
+                <div class="branch">
+                    <div class="leaf left" data-section="exp1">
+                        <span class="year">2025</span>
+                        <h3>Data Scientist - Company X</h3>
+                    </div>
+                    <div class="leaf right" data-section="exp2">
+                        <span class="year">2023</span>
+                        <h3>UX Designer - Company Y</h3>
+                    </div>
+                    <div class="leaf left" data-section="exp3">
+                        <span class="year">2021</span>
+                        <h3>Research Assistant - University Z</h3>
+                    </div>
                 </div>
             </div>
             <div class="experience-details">
@@ -135,7 +137,26 @@
                 });
             });
             // Handle Experience Timeline
-            const timelineItems = document.querySelectorAll(".timeline-item");
+            // const timelineItems = document.querySelectorAll(".timeline-item");
+            // const expContents = document.querySelectorAll(".exp-content");
+            // function showExperience(sectionId) {
+            //     expContents.forEach(content => content.classList.remove("active"));
+            //     const targetContent = document.getElementById(sectionId);
+            //     if (targetContent) {
+            //         targetContent.classList.add("active");
+            //     }
+            // }
+            
+            // timelineItems.forEach(item => {
+            //     item.addEventListener("click", function () {
+            //         const targetSection = this.getAttribute("data-section");
+            //         showExperience(targetSection);
+            //     });
+            // });
+
+            
+            // Handle Experience Timeline
+            const leaves = document.querySelectorAll(".leaf");
             const expContents = document.querySelectorAll(".exp-content");
             function showExperience(sectionId) {
                 expContents.forEach(content => content.classList.remove("active"));
@@ -144,9 +165,8 @@
                     targetContent.classList.add("active");
                 }
             }
-            
-            timelineItems.forEach(item => {
-                item.addEventListener("click", function () {
+            leaves.forEach(leaf => {
+                leaf.addEventListener("click", function () {
                     const targetSection = this.getAttribute("data-section");
                     showExperience(targetSection);
                 });
