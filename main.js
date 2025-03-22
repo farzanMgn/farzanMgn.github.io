@@ -121,12 +121,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return months;
     }
 
-    // Function to update leaf width based on its duration
-    function updateLeafWidth(leaf) {
+    // Function to update leaf height based on its duration
+    function updateLeafHeight(leaf) {
         const start = leaf.getAttribute("data-start");
         const end = leaf.getAttribute("data-end");
         const duration = getDurationInMonths(start, end);
-        leaf.style.height = `${duration * 20}px`; // 20px per month for example
+        leaf.style.height = `${duration * 20}px`; // 30px per month for example
     }
 
     // Function to sort and position leaves based on start date (most recent first)
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Append sorted leaves back to the branch
             leaves.forEach(leaf => {
                 branch.appendChild(leaf);
-                updateLeafWidth(leaf); // Update width based on the duration
+                updateLeafHeight(leaf); // Update height based on the duration
             });
         });
     }
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Initialize the sorting and width adjustment for leaves
-    sortLeaves(); // Ensure leaves are sorted and width adjusted
+    // Initialize the sorting and height adjustment for leaves
+    sortLeaves(); // Ensure leaves are sorted and height adjusted
 
 });
