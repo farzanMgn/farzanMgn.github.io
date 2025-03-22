@@ -126,29 +126,32 @@ document.addEventListener("DOMContentLoaded", function () {
         const start = leaf.getAttribute("data-start");
         const end = leaf.getAttribute("data-end");
         const duration = getDurationInMonths(start, end);
-        leaf.style.height = `${duration * 20}px`; // 30px per month for example
+        leaf.style.height = `${duration * 30}px`; // 30px per month for example
     }
 
     // Function to sort and update leaves based on start date
     function sortLeaves() {
-        const leaves = Array.from(document.querySelectorAll(".leaf"));
-        
-        // Sort all leaves by start date (most recent first)
-        leaves.sort((a, b) => {
-            const startA = new Date(a.getAttribute("data-start"));
-            const startB = new Date(b.getAttribute("data-start"));
-            return startB - startA; // Sort leaves by start date (most recent first)
-        });
-
-        // Now, append them back to their respective branches
         const leftBranch = document.querySelector(".branch.left");
         const rightBranch = document.querySelector(".branch.right");
 
-        // Clear existing leaves from branches
+        // Combine both left and right leaves into one array
+        const leaves = [
+            ...Array.from(leftBranch.querySelectorAll(".leaf")),
+            ...Array.from(rightBranch.querySelectorAll(".leaf"))
+        ];
+        
+        // Sort leaves by start date (most recent first)
+        leaves.sort((a, b) => {
+            const startA = new Date(a.getAttribute("data-start"));
+            const startB = new Date(b.getAttribute("data-start"));
+            return startB - startA; // Sort by start date, most recent first
+        });
+
+        // Clear the branches
         leftBranch.innerHTML = "";
         rightBranch.innerHTML = "";
 
-        // Distribute leaves back into left and right branches based on their position
+        // Distribute leaves back into left and right branches
         leaves.forEach(leaf => {
             const isLeft = leaf.classList.contains("left");
             if (isLeft) {
