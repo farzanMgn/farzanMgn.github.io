@@ -21,7 +21,7 @@
 //             if (sectionId !== "experience") { 
 //                 loadMarkdown(sectionId);
 //             }
-//         }
+//         } 
 //     }
 
 //     function highlightActiveLink(targetSection) {
