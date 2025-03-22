@@ -44,57 +44,55 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    const leaves = document.querySelectorAll(".leaf");
-
-    // Function to sort all leaves based on the year in the '.year' span
     function sortLeaves() {
-        const leavesArray = Array.from(leaves);
+        const leaves = Array.from(document.querySelectorAll(".leaf")); // Get fresh list each time
 
-        // Sort all leaves based on the year (using the .year span)
-        const sortedLeaves = leavesArray.sort((a, b) => {
-            const dateA = parseInt(a.querySelector(".year").textContent, 10); // Extract year from the .year span
-            const dateB = parseInt(b.querySelector(".year").textContent, 10);
-            return dateA - dateB; // Sort in ascending order
+        // Sort all leaves based on the year inside .year span
+        leaves.sort((a, b) => {
+            const yearA = parseInt(a.querySelector(".year").textContent, 10);
+            const yearB = parseInt(b.querySelector(".year").textContent, 10);
+            return yearA - yearB; // Sort in ascending order
         });
 
-        // Log the sorted leaves for debugging
-        console.log("Sorted Leaves:", sortedLeaves);
-
-        // Now separate the leaves based on the left and right side and append them to their respective branches
+        // Reattach sorted leaves, keeping left and right branches
         const leftBranch = document.querySelector(".branch.left");
         const rightBranch = document.querySelector(".branch.right");
 
-        // Clear the existing leaves in both branches
-        leftBranch.innerHTML = '';
+        leftBranch.innerHTML = '';  // Clear previous content
         rightBranch.innerHTML = '';
 
-        // Append sorted leaves back to their respective branches
-        sortedLeaves.forEach(leaf => {
+        leaves.forEach(leaf => {
             if (leaf.classList.contains("left")) {
                 leftBranch.appendChild(leaf);
-            } else if (leaf.classList.contains("right")) {
+            } else {
                 rightBranch.appendChild(leaf);
             }
         });
+
+        // Re-apply event listeners after sorting
+        attachLeafClickEvents();
     }
 
-    // Call the sorting function to order the leaves
-    sortLeaves();
+    function attachLeafClickEvents() {
+        const leaves = document.querySelectorAll(".leaf");
+        const expContents = document.querySelectorAll(".exp-content");
 
-    const expContents = document.querySelectorAll(".exp-content");
-
-    function showExperience(sectionId) {
-        expContents.forEach(content => content.classList.remove("active"));
-        const targetContent = document.getElementById(sectionId);
-        if (targetContent) {
-            targetContent.classList.add("active");
+        function showExperience(sectionId) {
+            expContents.forEach(content => content.classList.remove("active"));
+            const targetContent = document.getElementById(sectionId);
+            if (targetContent) {
+                targetContent.classList.add("active");
+            }
         }
+
+        leaves.forEach(leaf => {
+            leaf.addEventListener("click", function () {
+                const targetSection = this.getAttribute("data-section");
+                showExperience(targetSection);
+            });
+        });
     }
 
-    leaves.forEach(leaf => {
-        leaf.addEventListener("click", function () {
-            const targetSection = this.getAttribute("data-section");
-            showExperience(targetSection);
-        });
-    });
+    // Sort leaves at the start
+    sortLeaves();
 });
