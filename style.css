@@ -131,6 +131,8 @@ header {
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    display: block; /* Ensure the leaf is block level for dynamic sizing */
+    margin-top: 20px;
 }
 
 .leaf:hover {
