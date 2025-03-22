@@ -44,55 +44,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    function sortLeaves() {
-        const leaves = Array.from(document.querySelectorAll(".leaf")); // Get fresh list each time
+    const leaves = document.querySelectorAll(".leaf");
+    const expContents = document.querySelectorAll(".exp-content");
 
-        // Sort all leaves based on the year inside .year span
-        leaves.sort((a, b) => {
-            const yearA = parseInt(a.querySelector(".year").textContent, 10);
-            const yearB = parseInt(b.querySelector(".year").textContent, 10);
-            return yearA - yearB; // Sort in ascending order
-        });
-
-        // Reattach sorted leaves, keeping left and right branches
-        const leftBranch = document.querySelector(".branch.left");
-        const rightBranch = document.querySelector(".branch.right");
-
-        leftBranch.innerHTML = '';  // Clear previous content
-        rightBranch.innerHTML = '';
-
-        leaves.forEach(leaf => {
-            if (leaf.classList.contains("left")) {
-                leftBranch.appendChild(leaf);
-            } else {
-                rightBranch.appendChild(leaf);
-            }
-        });
-
-        // Re-apply event listeners after sorting
-        attachLeafClickEvents();
-    }
-
-    function attachLeafClickEvents() {
-        const leaves = document.querySelectorAll(".leaf");
-        const expContents = document.querySelectorAll(".exp-content");
-
-        function showExperience(sectionId) {
-            expContents.forEach(content => content.classList.remove("active"));
-            const targetContent = document.getElementById(sectionId);
-            if (targetContent) {
-                targetContent.classList.add("active");
-            }
+    function showExperience(sectionId) {
+        expContents.forEach(content => content.classList.remove("active"));
+        const targetContent = document.getElementById(sectionId);
+        if (targetContent) {
+            targetContent.classList.add("active");
         }
-
-        leaves.forEach(leaf => {
-            leaf.addEventListener("click", function () {
-                const targetSection = this.getAttribute("data-section");
-                showExperience(targetSection);
-            });
-        });
     }
 
-    // Sort leaves at the start
-    sortLeaves();
+    leaves.forEach(leaf => {
+        leaf.addEventListener("click", function () {
+            const targetSection = this.getAttribute("data-section");
+            showExperience(targetSection);
+        });
+    });
 });
