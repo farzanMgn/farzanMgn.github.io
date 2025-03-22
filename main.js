@@ -126,10 +126,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const start = leaf.getAttribute("data-start");
         const end = leaf.getAttribute("data-end");
         const duration = getDurationInMonths(start, end);
-        leaf.style.width = `${duration * 20}px`; // 20px per month for example
+        leaf.style.height = `${duration * 20}px`; // 20px per month for example
     }
 
-    // Function to sort and position leaves based on start date
+    // Function to sort and position leaves based on start date (most recent first)
     function sortLeaves() {
         const branches = document.querySelectorAll(".branch");
         branches.forEach(branch => {
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
             leaves.sort((a, b) => {
                 const startA = new Date(a.getAttribute("data-start"));
                 const startB = new Date(b.getAttribute("data-start"));
-                return startA - startB; // Sort leaves by start date
+                return startB - startA; // Sort leaves by start date (most recent first)
             });
 
             // Append sorted leaves back to the branch
