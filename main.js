@@ -73,6 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Call the sorting function to order the leaves
     sortLeaves();
+     });
+  });
 
 
 
