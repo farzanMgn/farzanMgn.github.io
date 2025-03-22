@@ -66,68 +66,100 @@ document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.querySelectorAll(".my-navlink");
     const sections = document.querySelectorAll("main section");
 
-    // Function to calculate duration in months
+    function loadMarkdown(sectionId) {
+        fetch(`./assets/${sectionId}.md`)
+            .then(response => {
+                if (!response.ok) throw new Error("Failed to load markdown");
+                return response.text();
+            })
+            .then(text => {
+                document.getElementById(sectionId).innerHTML = marked.parse(text);
+            })
+            .catch(error => console.error("Error loading markdown:", error));
+    }
+
+    function showSection(sectionId) {
+        sections.forEach(section => section.classList.remove("active"));
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.classList.add("active");
+            if (sectionId !== "experience") { 
+                loadMarkdown(sectionId);
+            }
+        }
+    }
+
+    function highlightActiveLink(targetSection) {
+        navLinks.forEach(link => link.classList.remove("active"));
+        const activeLink = document.querySelector(`a[data-section="${targetSection}"]`);
+        if (activeLink) {
+            activeLink.classList.add("active");
+        }
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetSection = this.getAttribute("data-section");
+            showSection(targetSection);
+            highlightActiveLink(targetSection);
+        });
+    });
+
+    // Initially show the "about" section
+    showSection("about");
+    highlightActiveLink("about");
+
+    // --- Experience Section Handling ---
     function getDurationInMonths(startDate, endDate) {
         const start = new Date(startDate);
         const end = new Date(endDate);
         return (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
     }
 
-    // Function to update the height of each leaf based on duration
     function updateLeafHeight(leaf) {
         const start = leaf.getAttribute("data-start");
         const end = leaf.getAttribute("data-end");
         const duration = getDurationInMonths(start, end);
-        leaf.style.height = `${duration * 5}px`; // Adjust scale (5px per month)
+        leaf.style.height = `${duration * 5}px`; // Scale factor: 5px per month (adjust as needed)
     }
 
-    // Function to sort and arrange the leaves correctly
-    function sortLeaves() {
-        const branches = document.querySelector(".tree-container");
-
-        // Get all leaves from both sides
+    function sortAndArrangeLeaves() {
+        const treeContainer = document.querySelector(".tree-container");
         let leaves = Array.from(document.querySelectorAll(".leaf"));
 
-        // Sort all leaves by start date (most recent first)
-        leaves.sort((a, b) => {
-            return new Date(b.getAttribute("data-start")) - new Date(a.getAttribute("data-start"));
-        });
+        // Sort leaves by start date (most recent first)
+        leaves.sort((a, b) => new Date(b.getAttribute("data-start")) - new Date(a.getAttribute("data-start")));
 
-        // Clear current structure
-        branches.innerHTML = "";
+        // Clear existing branches
+        treeContainer.innerHTML = "";
 
-        // Rebuild tree structure with sorted leaves
+        // Create new branch container
         const newBranch = document.createElement("div");
         newBranch.classList.add("branch");
-        branches.appendChild(newBranch);
+        treeContainer.appendChild(newBranch);
 
-        // Assign left/right alternately
+        // Reassign left/right alternately and update height
         leaves.forEach((leaf, index) => {
             leaf.classList.remove("left", "right"); // Reset classes
-            if (index % 2 === 0) {
-                leaf.classList.add("left");
-            } else {
-                leaf.classList.add("right");
-            }
+            leaf.classList.add(index % 2 === 0 ? "left" : "right");
             updateLeafHeight(leaf);
             newBranch.appendChild(leaf);
         });
+
+        // Reattach event listeners after reordering
+        document.querySelectorAll(".leaf").forEach(leaf => {
+            leaf.addEventListener("click", function () {
+                showExperience(this.getAttribute("data-section"));
+            });
+        });
     }
 
-    // Function to show experience details when clicking a leaf
     function showExperience(sectionId) {
         document.querySelectorAll(".exp-content").forEach(content => content.classList.remove("active"));
         document.getElementById(sectionId)?.classList.add("active");
     }
 
-    // Click event for leaves
-    document.querySelectorAll(".leaf").forEach(leaf => {
-        leaf.addEventListener("click", function () {
-            showExperience(this.getAttribute("data-section"));
-        });
-    });
-
-    // Initialize sorting and resizing
-    sortLeaves();
+    // Sort leaves and apply styles
+    sortAndArrangeLeaves();
 });
-
