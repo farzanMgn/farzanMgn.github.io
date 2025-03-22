@@ -166,7 +166,7 @@ header {
 
 .left {
     align-self: flex-start;
-    fill: darkblue;
+    fill:  #00008B;
 }
 
 .right {
