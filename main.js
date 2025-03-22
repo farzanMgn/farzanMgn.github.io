@@ -66,16 +66,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.querySelectorAll(".my-navlink");
     const sections = document.querySelectorAll("main section");
 
-    function loadMarkdown(sectionId) {
-        fetch(`./assets/${sectionId}.md`)
-            .then(response => {
-                if (!response.ok) throw new Error("Failed to load markdown");
-                return response.text();
-            })
-            .then(text => {
-                document.getElementById(sectionId).innerHTML = marked.parse(text);
-            })
-            .catch(error => console.error("Error loading markdown:", error));
+    async function loadMarkdown(sectionId) {
+        try {
+            const response = await fetch(`./assets/${sectionId}.md`);
+            if (!response.ok) throw new Error("Failed to load markdown");
+            const text = await response.text();
+            document.getElementById(sectionId).innerHTML = marked.parse(text);
+        } catch (error) {
+            console.error("Error loading markdown:", error);
+        }
     }
 
     function showSection(sectionId) {
@@ -97,6 +96,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    showSection("about");
+    highlightActiveLink("about");
+
     navLinks.forEach(link => {
         link.addEventListener("click", function (e) {
             e.preventDefault();
@@ -106,11 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Initially show the "about" section
-    showSection("about");
-    highlightActiveLink("about");
-
-    // --- Experience Section Handling ---
     function getDurationInMonths(startDate, endDate) {
         const start = new Date(startDate);
         const end = new Date(endDate);
@@ -121,45 +118,78 @@ document.addEventListener("DOMContentLoaded", function () {
         const start = leaf.getAttribute("data-start");
         const end = leaf.getAttribute("data-end");
         const duration = getDurationInMonths(start, end);
-        leaf.style.height = `${duration * 5}px`; // Scale factor: 5px per month (adjust as needed)
+        leaf.style.height = `${duration * 10}px`; // Scale for better visibility
     }
 
     function sortAndArrangeLeaves() {
-        const treeContainer = document.querySelector(".tree-container");
-        let leaves = Array.from(document.querySelectorAll(".leaf"));
+        const leaves = [...document.querySelectorAll(".leaf")];
 
-        // Sort leaves by start date (most recent first)
-        leaves.sort((a, b) => new Date(b.getAttribute("data-start")) - new Date(a.getAttribute("data-start")));
-
-        // Clear existing branches
-        treeContainer.innerHTML = "";
-
-        // Create new branch container
-        const newBranch = document.createElement("div");
-        newBranch.classList.add("branch");
-        treeContainer.appendChild(newBranch);
-
-        // Reassign left/right alternately and update height
-        leaves.forEach((leaf, index) => {
-            leaf.classList.remove("left", "right"); // Reset classes
-            leaf.classList.add(index % 2 === 0 ? "left" : "right");
-            updateLeafHeight(leaf);
-            newBranch.appendChild(leaf);
+        // Sort events based on start date (most recent first)
+        leaves.sort((a, b) => {
+            const startA = new Date(a.getAttribute("data-start"));
+            const startB = new Date(b.getAttribute("data-start"));
+            return startB - startA; // Sort descending (latest first)
         });
 
-        // Reattach event listeners after reordering
-        document.querySelectorAll(".leaf").forEach(leaf => {
-            leaf.addEventListener("click", function () {
-                showExperience(this.getAttribute("data-section"));
-            });
+        const leftBranch = document.querySelector(".branch.left");
+        const rightBranch = document.querySelector(".branch.right");
+
+        leftBranch.innerHTML = "";
+        rightBranch.innerHTML = "";
+
+        const placedEvents = [];
+
+        leaves.forEach(leaf => {
+            const isLeft = leaf.classList.contains("left");
+            const start = new Date(leaf.getAttribute("data-start"));
+            const end = new Date(leaf.getAttribute("data-end"));
+            const duration = getDurationInMonths(start, end);
+
+            // Find correct vertical position
+            let positionIndex = placedEvents.length;
+            for (let i = 0; i < placedEvents.length; i++) {
+                const placedStart = placedEvents[i].start;
+                const placedEnd = placedEvents[i].end;
+
+                // If overlapping with an existing event, align it
+                if ((start <= placedEnd && end >= placedStart) || start >= placedStart) {
+                    positionIndex = i;
+                    break;
+                }
+            }
+
+            // Store event in correct position
+            placedEvents.splice(positionIndex, 0, { start, end, duration, isLeft });
+
+            // Set margin to correctly align the event
+            leaf.style.marginTop = `${positionIndex * 20}px`; // Offset each level slightly for better alignment
+
+            // Append back to the correct branch
+            if (isLeft) {
+                leftBranch.appendChild(leaf);
+            } else {
+                rightBranch.appendChild(leaf);
+            }
+
+            updateLeafHeight(leaf);
         });
     }
 
     function showExperience(sectionId) {
-        document.querySelectorAll(".exp-content").forEach(content => content.classList.remove("active"));
-        document.getElementById(sectionId)?.classList.add("active");
+        const expContents = document.querySelectorAll(".exp-content");
+        expContents.forEach(content => content.classList.remove("active"));
+        const targetContent = document.getElementById(sectionId);
+        if (targetContent) {
+            targetContent.classList.add("active");
+        }
     }
 
-    // Sort leaves and apply styles
+    document.querySelectorAll(".leaf").forEach(leaf => {
+        leaf.addEventListener("click", function () {
+            showExperience(this.getAttribute("data-section"));
+        });
+    });
+
     sortAndArrangeLeaves();
 });
+
