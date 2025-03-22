@@ -126,25 +126,37 @@ document.addEventListener("DOMContentLoaded", function () {
         const start = leaf.getAttribute("data-start");
         const end = leaf.getAttribute("data-end");
         const duration = getDurationInMonths(start, end);
-        leaf.style.height = `${duration * 20}px`; // 30px per month for example
+        leaf.style.height = `${duration * 30}px`; // 30px per month for example
     }
 
-    // Function to sort and position leaves based on start date (most recent first)
+    // Function to sort and update leaves based on start date
     function sortLeaves() {
-        const branches = document.querySelectorAll(".branch");
-        branches.forEach(branch => {
-            const leaves = Array.from(branch.querySelectorAll(".leaf"));
-            leaves.sort((a, b) => {
-                const startA = new Date(a.getAttribute("data-start"));
-                const startB = new Date(b.getAttribute("data-start"));
-                return startB - startA; // Sort leaves by start date (most recent first)
-            });
+        const leaves = Array.from(document.querySelectorAll(".leaf"));
+        
+        // Sort all leaves by start date (most recent first)
+        leaves.sort((a, b) => {
+            const startA = new Date(a.getAttribute("data-start"));
+            const startB = new Date(b.getAttribute("data-start"));
+            return startB - startA; // Sort leaves by start date (most recent first)
+        });
 
-            // Append sorted leaves back to the branch
-            leaves.forEach(leaf => {
-                branch.appendChild(leaf);
-                updateLeafHeight(leaf); // Update height based on the duration
-            });
+        // Now, append them back to their respective branches
+        const leftBranch = document.querySelector(".branch.left");
+        const rightBranch = document.querySelector(".branch.right");
+
+        // Clear existing leaves from branches
+        leftBranch.innerHTML = "";
+        rightBranch.innerHTML = "";
+
+        // Distribute leaves back into left and right branches based on their position
+        leaves.forEach(leaf => {
+            const isLeft = leaf.classList.contains("left");
+            if (isLeft) {
+                leftBranch.appendChild(leaf);
+            } else {
+                rightBranch.appendChild(leaf);
+            }
+            updateLeafHeight(leaf); // Update height based on the duration
         });
     }
 
