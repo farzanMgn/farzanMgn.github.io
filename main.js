@@ -46,15 +46,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const leaves = document.querySelectorAll(".leaf");
 
-    // Function to sort the leaves based on the year in the '.year' span
+    // Function to sort all leaves based on the year in the '.year' span
     function sortLeaves() {
-        const sortedLeaves = Array.from(leaves).sort((a, b) => {
+        const leavesArray = Array.from(leaves);
+
+        // Sort all leaves based on the year (using the .year span)
+        const sortedLeaves = leavesArray.sort((a, b) => {
             const dateA = parseInt(a.querySelector(".year").textContent, 10); // Extract year from the .year span
             const dateB = parseInt(b.querySelector(".year").textContent, 10);
             return dateA - dateB; // Sort in ascending order
         });
 
-        // Reattach the sorted leaves back to their parent containers
+        // Log the sorted leaves for debugging
+        console.log("Sorted Leaves:", sortedLeaves);
+
+        // Now separate the leaves based on the left and right side and append them to their respective branches
         const leftBranch = document.querySelector(".branch.left");
         const rightBranch = document.querySelector(".branch.right");
 
@@ -72,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Call the sorting function to order the leaves after DOM content is loaded
+    // Call the sorting function to order the leaves
     sortLeaves();
 
     const expContents = document.querySelectorAll(".exp-content");
