@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const start = leaf.getAttribute("data-start");
         const end = leaf.getAttribute("data-end");
         const duration = getDurationInMonths(start, end);
-        leaf.style.width = `${duration * 30}px`; // 30px per month for example
+        leaf.style.height = `${duration * 30}px`; // 30px per month for example
     }
 
     // Function to sort and update leaves based on start date
@@ -172,7 +172,6 @@ document.addEventListener("DOMContentLoaded", function () {
             targetContent.classList.add("active");
         }
     }
-
     // Event listener for leaves click
     const leaves = document.querySelectorAll(".leaf");
     leaves.forEach(leaf => {
