@@ -45,6 +45,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const leaves = document.querySelectorAll(".leaf");
+
+    // Function to sort the leaves based on the year in the '.year' span
+    function sortLeaves() {
+        const sortedLeaves = Array.from(leaves).sort((a, b) => {
+            const dateA = parseInt(a.querySelector(".year").textContent, 10); // Extract year from the .year span
+            const dateB = parseInt(b.querySelector(".year").textContent, 10);
+            return dateA - dateB; // Sort in ascending order
+        });
+
+        // Reattach the sorted leaves back to their parent containers
+        const leftBranch = document.querySelector(".branch.left");
+        const rightBranch = document.querySelector(".branch.right");
+
+        // Clear the existing leaves in both branches
+        leftBranch.innerHTML = '';
+        rightBranch.innerHTML = '';
+
+        // Append sorted leaves back to their respective branches
+        sortedLeaves.forEach(leaf => {
+            if (leaf.classList.contains("left")) {
+                leftBranch.appendChild(leaf);
+            } else if (leaf.classList.contains("right")) {
+                rightBranch.appendChild(leaf);
+            }
+        });
+    }
+
+    // Call the sorting function to order the leaves after DOM content is loaded
+    sortLeaves();
+
     const expContents = document.querySelectorAll(".exp-content");
 
     function showExperience(sectionId) {
