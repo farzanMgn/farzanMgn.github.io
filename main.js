@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let start = parseDate(leaf.getAttribute("data-start"));
             let end = parseDate(leaf.getAttribute("data-end")) || new Date(); // Default to today if no end date
             let durationYears = (end - start) / (1000 * 60 * 60 * 24 * 365); // Convert ms to years
-            let minHeight = 40; // Minimum height for short events
+            let minHeight = 60; // Minimum height for short events
             let scaleFactor = 30; // Pixels per year
 
             leaf.style.height = `${Math.max(minHeight, durationYears * scaleFactor)}px`;
