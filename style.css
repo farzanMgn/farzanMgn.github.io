@@ -109,7 +109,7 @@ header {
 .my-social:hover {
     color: #0d6efd;
 }
-
+/*
 .tree-container {
     display: flex;
     justify-content: center;
@@ -131,7 +131,7 @@ header {
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.3s ease;
-    display: block; /* Ensure the leaf is block level for dynamic sizing */
+    display: block; 
     margin-top: 20px;
 }
 
@@ -150,9 +150,80 @@ header {
 .year {
     font-weight: bold;
 }
+*/
+.tree-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.branch {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.leaf {
+    background-color: #4dd0e1;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 45%;
+    text-align: center;
+    position: relative;
+}
+
+.leaf:hover {
+    transform: scale(1.1);
+}
+
+/* Left leaves (Academic Events) */
+.left {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+/* Right leaves (Work Events) */
+.right {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* Connecting line */
+.tree-container::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.year {
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
 
 .exp-content {
-    display: none;  /* Hide all by default */
+    display: none;  
     margin-top: 10px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -163,7 +234,7 @@ header {
 .exp-content.active {
     display: block;
 }
-
+/*
 .branch::after {
     content: "";
     position: absolute;
@@ -173,7 +244,8 @@ header {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-}
+}*/
+
 
 
 /* Main Content */
