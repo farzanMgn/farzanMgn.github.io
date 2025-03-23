@@ -112,15 +112,17 @@ header {
 
 .tree-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     position: relative;
+    gap: 15px;
 }
 
 .branch {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .leaf {
@@ -130,9 +132,9 @@ header {
     margin: 10px 0;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s ease;
-    display: block; /* Ensure the leaf is block level for dynamic sizing */
-    margin-top: 20px;
+    display: block;
+    transition: transform 0.3s ease, height 0.3s ease;
+    min-height: 40px; /* Ensures visibility for short events */
 }
 
 .leaf:hover {
@@ -152,7 +154,7 @@ header {
 }
 
 .exp-content {
-    display: none;  /* Hide all by default */
+    display: none;
     margin-top: 10px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -174,7 +176,6 @@ header {
     left: 50%;
     transform: translateX(-50%);
 }
-
 
 /* Main Content */
 main {
