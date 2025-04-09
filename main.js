@@ -44,23 +44,43 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    const leaves = document.querySelectorAll(".leaf");
-    const expContents = document.querySelectorAll(".exp-content");
+    // const leaves = document.querySelectorAll(".leaf");
+    // const expContents = document.querySelectorAll(".exp-content");
 
-    function showExperience(sectionId) {
-        expContents.forEach(content => content.classList.remove("active"));
-        const targetContent = document.getElementById(sectionId);
-        if (targetContent) {
-            targetContent.classList.add("active");
-        }
-    }
+     // Scroll to corresponding detail section on event click
+    const timelineEvents = document.querySelectorAll(".timeline-event");
+    timelineEvents.forEach(event => {
+        event.addEventListener("click", function () {
+            const heading = this.querySelector("h3").textContent;
 
-    leaves.forEach(leaf => {
-        leaf.addEventListener("click", function () {
-            const targetSection = this.getAttribute("data-section");
-            showExperience(targetSection);
+            let targetId = "";
+            if (heading.includes("Pisa")) targetId = "details-ms";
+            else if (heading.includes("Zerynth")) targetId = "details-zerynth";
+            else if (heading.includes("Mashhad")) targetId = "details-bc";
+
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+                targetElement.classList.add("highlighted");
+                setTimeout(() => targetElement.classList.remove("highlighted"), 2000);
+            }
         });
     });
+
+    // function showExperience(sectionId) {
+    //     expContents.forEach(content => content.classList.remove("active"));
+    //     const targetContent = document.getElementById(sectionId);
+    //     if (targetContent) {
+    //         targetContent.classList.add("active");
+    //     }
+    // }
+
+    // leaves.forEach(leaf => {
+    //     leaf.addEventListener("click", function () {
+    //         const targetSection = this.getAttribute("data-section");
+    //         showExperience(targetSection);
+    //     });
+    // });
 });
 // ///////////////////////////////////////////////////////////////////////////////////////////////////second try
 // // document.addEventListener("DOMContentLoaded", function () {
