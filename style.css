@@ -110,7 +110,7 @@ header {
     color: #0d6efd;
 }
 
-.tree-container {
+/* .tree-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,7 +132,7 @@ header {
     cursor: pointer;
     transition: transform 0.3s ease;
     display: block; /* Ensure the leaf is block level for dynamic sizing */
-    margin-top: 20px;
+/*     margin-top: 20px;
 }
 
 .leaf:hover {
@@ -152,7 +152,7 @@ header {
 }
 
 .exp-content {
-    display: none;  /* Hide all by default */
+    display: none;  /* Hide all by default 
     margin-top: 10px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -173,7 +173,81 @@ header {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+} */
+.timeline-section {
+    position: relative;
+    padding: 50px 0;
 }
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #d4d4d4;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.timeline-event {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+}
+
+.timeline-event .content {
+    background-color: #f0f0f0;
+    padding: 15px 20px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.timeline-event .date {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.timeline-event.left {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-event.right {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    width: 20px;
+    height: 20px;
+    background-color: #4dd0e1;
+    border: 3px solid white;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-event.left::before {
+    right: -10px;
+}
+
+.timeline-event.right::before {
+    left: -10px;
+}
+
 
 
 /* Main Content */
