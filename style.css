@@ -201,6 +201,7 @@ header {
     padding: 20px 40px;
     position: relative;
     width: 50%;
+    cursor: pointer;
 }
 
 .timeline-event .content {
