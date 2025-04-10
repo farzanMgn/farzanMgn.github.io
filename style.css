@@ -264,6 +264,16 @@ header {
     }
 }
 
+.highlighted {
+    animation: flash-highlight 1s ease-in-out;
+}
+
+@keyframes flash-highlight {
+    0%   { background-color: #e0f7fa; }
+    100% { background-color: white; }
+}
+
+
 
 #event-details {
     margin-top: 60px;
