@@ -49,21 +49,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
      // Scroll to corresponding detail section on event click
     const timelineEvents = document.querySelectorAll(".timeline-event");
+
     timelineEvents.forEach(event => {
         event.addEventListener("click", function () {
-        const targetId = this.getAttribute("data-target");
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: "smooth" });
-            targetElement.classList.add("highlighted");
-
-            setTimeout(() => {
-                targetElement.classList.remove("highlighted");
-            }, 1500);
-        }
+            const targetId = this.getAttribute("data-target");
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: "smooth" });
+                targetElement.classList.add("highlighted");
+                setTimeout(() => {
+                    targetElement.classList.remove("highlighted");
+                }, 1500);
+            }
         });
     });
+
 
     // function showExperience(sectionId) {
     //     expContents.forEach(content => content.classList.remove("active"));
