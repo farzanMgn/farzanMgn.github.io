@@ -266,22 +266,30 @@ header {
 
 
 #event-details {
-    margin-top: 40px;
-    padding-top: 20px;
+    margin-top: 60px;
+    padding: 40px;
+    background-color: #fdfdfd;
+    border-top: 2px solid #eee;
 }
 
 .event-detail {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     padding: 20px;
-    background-color: #fafafa;
     border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.detail-img {
-    max-width: 100%;
-    margin-top: 10px;
+.event-detail img {
+    width: 100%;
+    max-width: 600px;
     border-radius: 8px;
+    margin-top: 10px;
+}
+
+.event-detail h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
 
