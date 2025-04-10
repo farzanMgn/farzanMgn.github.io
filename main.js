@@ -51,19 +51,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const timelineEvents = document.querySelectorAll(".timeline-event");
     timelineEvents.forEach(event => {
         event.addEventListener("click", function () {
-            const heading = this.querySelector("h3").textContent;
+        const targetId = this.getAttribute("data-target");
+        const targetElement = document.getElementById(targetId);
 
-            let targetId = "";
-            if (heading.includes("Pisa")) targetId = "details-ms";
-            else if (heading.includes("Zerynth")) targetId = "details-zerynth";
-            else if (heading.includes("Mashhad")) targetId = "details-bc";
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+            targetElement.classList.add("highlighted");
 
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: "smooth" });
-                targetElement.classList.add("highlighted");
-                setTimeout(() => targetElement.classList.remove("highlighted"), 2000);
-            }
+            setTimeout(() => {
+                targetElement.classList.remove("highlighted");
+            }, 1500);
+        }
         });
     });
 
