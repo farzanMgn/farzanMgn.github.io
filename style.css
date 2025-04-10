@@ -194,8 +194,8 @@ header {
     top: 0;
     bottom: 0;
     left: 50%;
-    margin-left: -2px;
-    z-index: 0; /* Ensure the line is behind events */
+    transform: translateX(-50%); /* Center the line */
+    z-index: 0; /* Ensure the line stays behind the events */
 }
 
 .timeline-event {
