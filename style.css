@@ -217,6 +217,9 @@ header {
     margin-bottom: 10px;
     color: #555;
 }
+.timeline-event {
+    cursor: pointer;
+}
 
 .timeline-event.left {
     left: 0;
