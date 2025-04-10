@@ -195,12 +195,14 @@ header {
     bottom: 0;
     left: 50%;
     margin-left: -2px;
+    z-index: 0; /* Ensure the line is behind events */
 }
 
 .timeline-event {
     padding: 20px 40px;
     position: relative;
     width: 50%;
+    z-index: 1; /* Ensure events are above the timeline line */
 }
 
 .timeline-event .content {
@@ -217,6 +219,7 @@ header {
     margin-bottom: 10px;
     color: #555;
 }
+
 .timeline-event {
     cursor: pointer;
 }
@@ -250,6 +253,7 @@ header {
 .timeline-event.right::before {
     left: -10px;
 }
+
 @media screen and (max-width: 768px) {
     .timeline-event {
         width: 100%;
@@ -266,9 +270,6 @@ header {
         left: 30px;
     }
 }
-
-
-
 
 #event-details {
     margin-top: 60px;
@@ -296,6 +297,7 @@ header {
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
+
 .highlighted {
     animation: flash-highlight 1s ease-in-out;
 }
@@ -304,7 +306,6 @@ header {
     0%   { background-color: #e0f7fa; }
     100% { background-color: white; }
 }
-
 
 /* Main Content */
 main {
