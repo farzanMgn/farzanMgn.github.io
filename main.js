@@ -1,77 +1,100 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll(".my-navlink");
-    const sections = document.querySelectorAll("main section");
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll(".nav-link");
+  const sections = document.querySelectorAll(".content-section");
 
-    async function loadMarkdown(sectionId) {
-        try {
-            const response = await fetch(`./assets/${sectionId}.md`);
-            if (!response.ok) throw new Error("Failed to load markdown");
-            const text = await response.text();
-            document.getElementById(sectionId).innerHTML = marked.parse(text);
-        } catch (error) {
-            console.error("Error loading markdown:", error);
-        }
+  function loadMarkdown(sectionId) {
+    fetch(`./assets/${sectionId}.md`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Markdown load failed");
+        return res.text();
+      })
+      .then((text) => {
+        document.getElementById(sectionId).innerHTML = marked.parse(text);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  function showSection(sectionId) {
+    sections.forEach((s) => s.classList.remove("active"));
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.classList.add("active");
+      if (sectionId !== "experience") {
+        loadMarkdown(sectionId);
+      }
     }
+  }
 
-    function showSection(sectionId) {
-        sections.forEach(section => section.classList.remove("active"));
-        const targetSection = document.getElementById(sectionId);
-        if (targetSection) {
-            targetSection.classList.add("active");
-            if (sectionId !== "experience") { 
-                loadMarkdown(sectionId);
-            }
-        } 
-    }
+  function highlightNavLink(sectionId) {
+    navLinks.forEach((l) => l.classList.remove("active"));
+    const active = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
+    if (active) active.classList.add("active");
+  }
 
-    function highlightActiveLink(targetSection) {
-        navLinks.forEach(link => link.classList.remove("active"));
-        const activeLink = document.querySelector(`a[data-section="${targetSection}"]`);
-        if (activeLink) {
-            activeLink.classList.add("active");
-        }
-    }
+  // Initial load
+  showSection("about");
+  highlightNavLink("about");
 
-    showSection("about");
-    highlightActiveLink("about");
-
-    navLinks.forEach(link => {
-        link.addEventListener("click", function (e) {
-            e.preventDefault();
-            const targetSection = this.getAttribute("data-section");
-            showSection(targetSection);
-            highlightActiveLink(targetSection);
-        });
+  // Navigation
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const sectionId = link.getAttribute("data-section");
+      showSection(sectionId);
+      highlightNavLink(sectionId);
     });
+  });
 
-  
+  // Modal functionality
+  const modal = document.getElementById("modal");
+  const modalContent = document.getElementById("modal-body");
+  const closeBtn = document.querySelector(".close-button");
 
-     // Scroll to corresponding detail section on event click
-    const timelineEvents = document.querySelectorAll(".timeline-event");
+  const experienceDetails = {
+    "details-ms": {
+      title: "M.Sc. in Computer Engineering",
+      content: `
+        <p>I pursued my Master’s at the University of Pisa, focusing on Cyber-Physical Systems and Data Mining.</p>
+        <img src="./assets/ms_photo.jpg" alt="MS photo" style="width:100%; margin-top:10px; border-radius:8px;" />
+        <p>My thesis developed an LSTM-powered industrial optimization system.</p>
+      `
+    },
+    "details-zerynth": {
+      title: "Data Scientist - Zerynth",
+      content: `
+        <p>Worked on predictive maintenance and real-time dashboards for industrial IoT.</p>
+        <img src="./assets/zerynth_photo.jpg" alt="Zerynth photo" style="width:100%; margin-top:10px; border-radius:8px;" />
+      `
+    },
+    "details-bc": {
+      title: "B.Sc. in Computer Engineering",
+      content: `
+        <p>Explored machine learning and Android-based robotics for physical therapy systems.</p>
+        <img src="./assets/bc_photo.jpg" alt="BC photo" style="width:100%; margin-top:10px; border-radius:8px;" />
+      `
+    }
+  };
 
-    timelineEvents.forEach(event => {
-        event.addEventListener("click", function () {
-            const targetId = this.getAttribute("data-target");
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: "smooth" });
-                targetElement.classList.add("highlighted");
-                setTimeout(() => {
-                    targetElement.classList.remove("highlighted");
-                }, 1500);
-            }
-        });
+  document.querySelectorAll(".card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const key = card.getAttribute("data-target");
+      const data = experienceDetails[key];
+      if (data) {
+        modalContent.innerHTML = `<h3>${data.title}</h3>${data.content}`;
+        modal.style.display = "block";
+      }
     });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 });
-
-
-
-
-
-
-
-
-
-
-
-
