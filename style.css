@@ -13,12 +13,12 @@ body {
 }
 
 /* Hero section */
-.hero {
+/* .hero {
   text-align: center;
   padding: 60px 20px 40px;
   background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
+} */
 
 /* .hero-img {
   width: 150px;
@@ -29,19 +29,50 @@ body {
   border: 4px solid #eee;
 }
  */
-.hero-img {
-  width: 250px; /* increased width */
-  height: auto; /* keep original photo ratio */
-  border-radius: 12px; /* less formal look */
+/* .hero-img {
+  width: 250px; /* increased width 
+  height: auto; /* keep original photo ratio 
+  border-radius: 12px; /* less formal look 
   object-fit: cover;
   margin-bottom: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* soft shadow for depth */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* soft shadow for depth 
+  transition: transform 0.3s ease;
+} */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 60px 40px;
+  background-color: #ffffff;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+  box-shadow: none; /* remove boxy look */
+  text-align: left;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.hero-img {
+  flex: 1;
+  max-width: 300px;
+  height: auto;
+  border-radius: 0; /* remove round or boxy edges */
+  object-fit: cover;
+  margin: 0;
+  box-shadow: none; /* remove all shadows */
   transition: transform 0.3s ease;
 }
 
 .hero-img:hover {
-  transform: scale(1.03); /* a slight zoom on hover for interactivity */
+  transform: scale(1.02);
 }
+
 
 .hero-name {
   font-size: 2rem;
