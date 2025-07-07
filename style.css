@@ -14,36 +14,43 @@ body {
 
 /* Hero section */
 .hero {
-  text-align: center;
-  padding: 80px 20px 60px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 80px 60px 20px;
   background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid #e0e0e0;
+  position: relative;
+  min-height: 500px;
 }
 
-.hero-img {
-  width: 300px;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.hero-img:hover {
-  transform: scale(1.03);
+.hero-text {
+  flex: 1;
+  padding-right: 40px;
 }
 
 .hero-name {
-  font-size: 2.2rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 .hero-role {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 20px;
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.hero-img-container {
+  position: relative;
+  bottom: -18px; /* adjust so it appears seated on the border line */
+}
+
+.hero-img {
+  height: 480px;
+  width: auto;
+  object-fit: contain;
+  border: none;
+  display: block;
 }
 
 .top-nav {
@@ -51,6 +58,9 @@ body {
   justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
+  padding: 20px 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .nav-link {
