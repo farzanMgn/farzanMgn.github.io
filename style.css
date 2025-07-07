@@ -16,9 +16,9 @@ body {
 .hero {
   display: flex;
   flex-direction: row-reverse;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  padding: 80px 60px 20px;
+  padding: 60px 60px 20px;
   background-color: #ffffff;
   border-bottom: 2px solid #e0e0e0;
   position: relative;
@@ -31,20 +31,46 @@ body {
   padding-left: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   text-align: left;
+  margin-top: -40px;
 }
 
 .hero-name {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 10px;
+  text-align: left;
 }
 
 .hero-role {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #555;
+  margin-bottom: 20px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.hero-buttons .nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid #ccc;
+}
+
+.hero-buttons .nav-link:hover,
+.hero-buttons .nav-link.active {
+  background-color: #e6f0ff;
+  color: #0056b3;
 }
 
 .hero-img-container {
@@ -59,31 +85,6 @@ body {
   object-fit: contain;
   border: none;
   display: block;
-}
-
-.top-nav {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  padding: 20px 0;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  padding: 8px 12px;
-  transition: all 0.3s ease;
-  border-radius: 6px;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  background-color: #e6f0ff;
-  color: #0056b3;
 }
 
 /* Main content */
