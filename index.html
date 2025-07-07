@@ -1,98 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farzaneh Moghani</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Add Font Awesome -->
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farzaneh Moghani</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <header id="sidebar">
-        <div id="profile_picture">
-            <img src="./assets/profile.jpg" alt="Your Profile Picture" class="profile-pic">
+  <header class="hero">
+    <img src="./assets/profile.jpg" alt="Farzaneh photo" class="hero-img" />
+    <h1 class="hero-name">Farzaneh Moghani</h1>
+    <p class="hero-role">Data Scientist • Analyst • Explorer</p>
+    <nav class="top-nav">
+      <a href="#about" class="nav-link" data-section="about">About</a>
+      <a href="#experience" class="nav-link" data-section="experience">Explorations</a>
+      <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="content-section active"></section>
+
+    <section id="experience" class="content-section">
+      <h2>Explorations</h2>
+      <div class="card-grid">
+        <div class="card" data-target="details-ms">
+          <h3>M.Sc. in Computer Engineering</h3>
+          <p>University of Pisa</p>
         </div>
-        <h1 class="profile_name">Farzaneh Moghani</h1>
-        <p> Data Scientist | Data Analysis</p>
-        
-        <nav>
-            <ul class="no-bullets">
-                <li><a class="my-navlink" href="#about" data-section="about">About Me</a></li>
-                <li><a class="my-navlink" href="#experience" data-section="experience">Explorations</a></li>
-                <li><a class="my-navlink" href="#projects" data-section="projects">Project Highlights</a></li>
-            </ul>
-        </nav>
-
-        <!-- Contact Information and Icons -->
-        <div class="contact-section">
-            <!-- Download Resume Button -->
-            <a class="download-resume" href="https://drive.google.com/file/d/1jfSleJ_JhGMo3M-nOPPaRSHntIBoDLRg/view?usp=share_link" target="_blank">
-                <i class="fas fa-download"></i> Download Resume
-            </a>
-
-            <!-- Social Icons -->
-            <div class="social_links">
-                <a class="my-social" href="https://www.linkedin.com/in/fazanmgn" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a class="my-social" href="https://www.github.com/farzanMgn" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a class="my-social" href="mailto:farzanemoghani72@gmail.com">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
+        <div class="card" data-target="details-zerynth">
+          <h3>Data Scientist - Zerynth</h3>
+          <p>6-month internship</p>
         </div>
-    </header>
+        <div class="card" data-target="details-bc">
+          <h3>B.Sc. in Computer Engineering</h3>
+          <p>University of Mashhad</p>
+        </div>
+      </div>
+      <!-- Hidden Detail Modals -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <div id="modal-body"></div>
+        </div>
+      </div>
+    </section>
 
-    <main class="content">
-        <!-- Content will be dynamically loaded here -->
-        <section id="about" class="active"></section>
-        <section id="experience"> 
-            <h2>Explorations</h2>
-            <div class="timeline">
-                <div class="leaf left timeline-event" data-target="details-ms">
-                    <span class="year">Jul 2024</span>
-                    <h3>M.Sc. in Computer Engineering</h3>
-                    <p>University of Pisa, Department of Information Engineering</p>
-                </div>
-                <div class="leaf right timeline-event" data-target="details-zerynth">
-                    <span class="year">6-month internship</span>
-                    <h3>Data Scientist - Zerynth</h3>
-                </div>
-                <div class="leaf left timeline-event" data-target="details-bc">
-                    <span class="year">Sep 2017</span>
-                    <h3>B.Sc. in Computer Engineering</h3>
-                </div>
-            </div>
-            <!-- Extra details - correctly placed within #experience -->
-            <div id="details-ms" class="event-detail">
-                <h3>MS - University of Pisa</h3>
-                <img src="./assets/ms_photo.jpg" alt="MS Experience">
-                <p>I pursued my Master’s at the University of Pisa, focusing on Cyber-Physical Systems and Data Mining. My thesis developed an LSTM-powered industrial optimization system.</p>
-            </div>
-            <div id="details-zerynth" class="event-detail">
-                <h3>Data Scientist - Zerynth</h3>
-                <img src="./assets/zerynth_photo.jpg" alt="Zerynth Work">
-                <p>I worked on predictive maintenance and real-time dashboards for industrial IoT at Zerynth, combining user-friendly UX with deep analytics.</p>
-            </div>
-            <div id="details-bc" class="event-detail">
-                <h3>BC - University of Mashhad</h3>
-                <img src="./assets/bc_photo.jpg" alt="BC Experience">
-                <p>My Bachelor thesis explored machine learning and Android-based robotics for physical therapy systems in clinical settings.</p>
-            </div>
-        </section>
-        <section id="projects"></section>
-    </main>
+    <section id="projects" class="content-section"></section>
+  </main>
 
-    
-    <script src="main.js"></script>
+  <footer>
+    <div class="footer-links">
+      <a href="mailto:farzanemoghani72@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/fazanmgn" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/farzanMgn" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
 
-    <!-- Marked.js for parsing markdown -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="main.js"></script>
 </body>
+
 </html>
