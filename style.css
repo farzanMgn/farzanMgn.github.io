@@ -11,20 +11,23 @@ body {
   color: #333;
   line-height: 1.6;
 }
-
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 60px 40px;
-  background-color: #ffffff;
   width: 100%;
-  margin: auto;
-  text-align: left;
-  gap:10px;
+  padding: 60px 20px;
+  background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
+.hero-content {
+  display: flex;
+  justify-content: center; /* center the whole block */
+  align-items: center;
+  gap: 40px;
+  max-width: 960px;  /* keep things compact in the center */
+  margin: 0 auto;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
 
 .hero-text {
   flex: 1;
@@ -68,12 +71,13 @@ body {
 
 .hero-img {
   flex: 1;
-  max-width: 320px;
+  max-width: 280px;
+  width: 100%;
   height: auto;
-  border-radius: 0; /* No rounded corners */
+  border-radius: 0;
   object-fit: cover;
   margin: 0;
-  box-shadow: none; /* No shadow or border */
+  box-shadow: none;
   transition: transform 0.3s ease;
 }
 
