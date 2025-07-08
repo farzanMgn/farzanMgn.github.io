@@ -32,7 +32,7 @@ body {
 .hero-img {
   width: 250px; /* increased width */
   height: auto; /* keep original photo ratio */
-  border-radius: 12px; /* less formal look */
+  border-radius: 50%; 
   object-fit: cover;
   margin-bottom: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* soft shadow for depth */
