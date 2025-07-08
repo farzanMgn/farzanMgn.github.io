@@ -30,8 +30,8 @@ body {
 
 
 .hero-text {
-  flex: 1;
-  min-width: 300px;
+  flex: 0 1 400px; /* don't grow too much, allow natural width */
+  max-width: 400px;
 }
 
 .hero-name {
@@ -70,7 +70,7 @@ body {
 }
 
 .hero-img {
-  flex: 1;
+  flex: 0 1 280px; /* keep it tight */
   max-width: 280px;
   width: 100%;
   height: auto;
