@@ -19,34 +19,34 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #111;   /* black */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  background-color: #1e1e1e; /* dark gray, not pitch black */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 40px;
   padding: 14px 40px;
   z-index: 10000;
-  font-weight: 600;
-  font-size: 1rem;
-  user-select: none;
-  font-family: 'Inter', sans-serif;
 }
 
 .nav-link {
   text-decoration: none;
-  color: #eee;
-  font-weight: 600;
-  padding: 8px 14px;
+  color: #eaeaea;
+  font-weight: 500;
+  padding: 6px 12px;
   border-radius: 6px;
   transition: all 0.3s ease;
+  font-size: 0.95rem;
 }
 
-.nav-link:hover,
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
 .nav-link.active {
-  background-color: #0056b3;
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 86, 179, 0.6);
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
 }
 
 /* Hero section */
