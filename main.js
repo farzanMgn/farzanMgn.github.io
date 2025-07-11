@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Modal functionality
+  // Modal functionality for Experience section
   const modal = document.getElementById("modal");
   const modalContent = document.getElementById("modal-body");
   const closeBtn = document.querySelector(".close-button");
@@ -97,4 +97,27 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.style.display = "none";
     }
   });
+
+  // Fancy scroll zoom effect on project cards
+  const projectCards = document.querySelectorAll('#projects .card-grid .card');
+
+  if (projectCards.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5, // 50% visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    }, observerOptions);
+
+    projectCards.forEach(card => observer.observe(card));
+  }
 });
