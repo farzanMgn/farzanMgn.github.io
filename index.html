@@ -53,8 +53,19 @@
     </section>
 
     <section id="projects" class="content-section">
-     
+      <h2>Contact Me</h2>
+      <p style="margin-bottom: 20px;">Feel free to send me a message — I’ll get back to you as soon as I can.</p>
+      <form id="contact-form" action="https://formspree.io/f/xwpbgydd" method="POST">
+        <label for="email">Your Email<span style="color:red">*</span></label>
+        <input type="email" name="email" id="email" required placeholder="you@example.com" />
+        <label for="message">Message<span style="color:red">*</span></label>
+        <textarea name="message" id="message" rows="6" required placeholder="Your message..."></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="form-message" class="form-message"></div>
     </section>
+
+    
   </main>
 
   <footer>
