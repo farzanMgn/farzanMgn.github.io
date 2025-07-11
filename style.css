@@ -216,3 +216,57 @@ footer {
 .footer-links a:hover {
   color: #0d6efd;
 }
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.project-block {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform, opacity;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.project-block.from-left {
+  justify-content: flex-start;
+}
+
+.project-block.from-right {
+  justify-content: flex-end;
+}
+
+.project-text {
+  max-width: 48%;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease;
+}
+
+.project-block.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.project-block.from-left.visible {
+  transform: translateX(0) scale(1);
+}
+
+.project-block.from-right.visible {
+  transform: translateX(0) scale(1);
+}
+
+.project-block.from-left {
+  transform: translateX(-50px) scale(0.95);
+}
+
+.project-block.from-right {
+  transform: translateX(50px) scale(0.95);
+}
