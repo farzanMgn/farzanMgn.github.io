@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll(".content-section");
 
-  // Load markdown for about & projects
+  // Load markdown for About and Contact sections
   function loadMarkdown(sectionId) {
     fetch(`./assets/${sectionId}.md`)
       .then((res) => {
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // Show selected section
+  // Show one section and hide others
   function showSection(sectionId) {
     sections.forEach((s) => s.classList.remove("active"));
     const target = document.getElementById(sectionId);
@@ -29,18 +29,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Highlight active nav item
+  // Highlight the active nav link
   function highlightNavLink(sectionId) {
     navLinks.forEach((l) => l.classList.remove("active"));
     const active = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
     if (active) active.classList.add("active");
   }
 
-  // Initial load
+  // Initialize on first load
   showSection("about");
   highlightNavLink("about");
 
-  // Handle navigation clicks
+  // Navigation click behavior
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -50,10 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Animate experience/project blocks on scroll
-  const experienceBlocks = document.querySelectorAll('#experience .project-block');
+  // Animate project blocks in the experience section
+  const projectBlocks = document.querySelectorAll('#experience .project-block');
 
-  if (experienceBlocks.length > 0) {
+  if (projectBlocks.length > 0) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -66,10 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
       threshold: 0.4,
     });
 
-    experienceBlocks.forEach(block => observer.observe(block));
+    projectBlocks.forEach(block => observer.observe(block));
   }
 
-  // Contact form submission
+  // Contact form handler (via Formspree or similar)
   const contactForm = document.getElementById("contact-form");
   const formMessage = document.getElementById("form-message");
 
@@ -89,10 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
           if (response.ok) {
             formMessage.textContent = "Thanks for your message! I'll be in touch.";
             contactForm.reset();
-            formMessage.style.color = "#28a745"; // success green
+            formMessage.style.color = "#28a745"; // green
           } else {
             formMessage.textContent = "Oops! Something went wrong. Please try again.";
-            formMessage.style.color = "#dc3545"; // error red
+            formMessage.style.color = "#dc3545"; // red
           }
         })
         .catch(() => {
