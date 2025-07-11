@@ -19,19 +19,20 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #111;   /* dark black */
+  background-color: #111;   /* black */
   box-shadow: 0 2px 8px rgba(0,0,0,0.6);
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* align items to right */
   align-items: center;
   gap: 40px;
-  padding: 14px 0;
+  padding: 14px 40px; /* add some right and left padding */
   z-index: 10000;
   font-weight: 600;
   font-size: 1rem;
   user-select: none;
   font-family: 'Inter', sans-serif;
 }
+
 
 /* Style links as buttons */
 .nav-link {
