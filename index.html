@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,63 +10,73 @@
 </head>
 
 <body>
-  <!-- Fixed top navigation bar -->
+  <!-- Top Navigation -->
   <nav class="top-nav">
     <a href="#about" class="nav-link" data-section="about">About</a>
     <a href="#experience" class="nav-link" data-section="experience">Projects</a>
     <a href="#projects" class="nav-link" data-section="projects">Contact</a>
   </nav>
 
+  <!-- Hero Section -->
   <header class="hero">
     <img src="./assets/profile.png" alt="Farzaneh" class="hero-img" />
     <div class="hero-text">
       <h1 class="hero-name">Farzaneh Moghani</h1>
-      <p class="hero-role">Product • Data • Design </p>
+      <p class="hero-role">Product • Data • Design</p>
     </div>
   </header>
 
+  <!-- Main Content -->
   <main>
+    <!-- About Section -->
     <section id="about" class="content-section active"></section>
+
+    <!-- Experience / Projects Section -->
     <section id="experience" class="content-section">
       <h2>Explorations</h2>
-      <div class="project-list">
-        <div class="project-block from-left">
-          <div class="project-text">
-            <h3>M.Sc. in Computer Engineering</h3>
-            <p>I pursued my Master’s at the University of Pisa, focusing on Cyber-Physical Systems and Data Mining. My thesis developed an LSTM-powered industrial optimization system.</p>
-          </div>
+
+      <div class="project-block left">
+        <div class="project-content">
+          <h3>M.Sc. in Computer Engineering</h3>
+          <p>University of Pisa — Cyber-Physical Systems & Data Mining</p>
         </div>
-        <div class="project-block from-right">
-          <div class="project-text">
-            <h3>Data Scientist - Zerynth</h3>
-            <p>Worked on predictive maintenance and real-time dashboards for industrial IoT applications. Built clustering models and monitored energy usage.</p>
-          </div>
+      </div>
+
+      <div class="project-block right">
+        <div class="project-content">
+          <h3>Data Scientist – Zerynth</h3>
+          <p>Industrial IoT, predictive maintenance, and real-time dashboards</p>
         </div>
-        <div class="project-block from-left">
-          <div class="project-text">
-            <h3>B.Sc. in Computer Engineering</h3>
-            <p>Explored machine learning and Android-based robotics for physical therapy systems at Ferdowsi University of Mashhad.</p>
-          </div>
+      </div>
+
+      <div class="project-block left">
+        <div class="project-content">
+          <h3>B.Sc. in Computer Engineering</h3>
+          <p>University of Mashhad — Robotics & Android app development</p>
         </div>
       </div>
     </section>
 
+    <!-- Contact / Message Form -->
     <section id="projects" class="content-section">
       <h2>Contact Me</h2>
       <p style="margin-bottom: 20px;">Feel free to send me a message — I’ll get back to you as soon as I can.</p>
-      <form id="contact-form" action="https://formspree.io/f/xwpbgydd" method="POST">
+
+      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <label for="email">Your Email<span style="color:red">*</span></label>
         <input type="email" name="email" id="email" required placeholder="you@example.com" />
+
         <label for="message">Message<span style="color:red">*</span></label>
         <textarea name="message" id="message" rows="6" required placeholder="Your message..."></textarea>
+
         <button type="submit">Send Message</button>
       </form>
+
       <div id="form-message" class="form-message"></div>
     </section>
-
-    
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-links">
       <a href="mailto:farzanemoghani72@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -76,8 +85,8 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="main.js"></script>
 </body>
-
 </html>
