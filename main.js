@@ -47,77 +47,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Modal functionality for Experience section
-  const modal = document.getElementById("modal");
-  const modalContent = document.getElementById("modal-body");
-  const closeBtn = document.querySelector(".close-button");
+  // Scroll-triggered animation for experience/project blocks
+  const experienceBlocks = document.querySelectorAll('#experience .project-block');
 
-  const experienceDetails = {
-    "details-ms": {
-      title: "M.Sc. in Computer Engineering",
-      content: `
-        <p>I pursued my Master’s at the University of Pisa, focusing on Cyber-Physical Systems and Data Mining.</p>
-        <img src="./assets/ms_photo.jpg" alt="MS photo" style="width:100%; margin-top:10px; border-radius:8px;" />
-        <p>My thesis developed an LSTM-powered industrial optimization system.</p>
-      `
-    },
-    "details-zerynth": {
-      title: "Data Scientist - Zerynth",
-      content: `
-        <p>Worked on predictive maintenance and real-time dashboards for industrial IoT.</p>
-        <img src="./assets/zerynth_photo.jpg" alt="Zerynth photo" style="width:100%; margin-top:10px; border-radius:8px;" />
-      `
-    },
-    "details-bc": {
-      title: "B.Sc. in Computer Engineering",
-      content: `
-        <p>Explored machine learning and Android-based robotics for physical therapy systems.</p>
-        <img src="./assets/bc_photo.jpg" alt="BC photo" style="width:100%; margin-top:10px; border-radius:8px;" />
-      `
-    }
-  };
-
-  document.querySelectorAll(".card").forEach((card) => {
-    card.addEventListener("click", () => {
-      const key = card.getAttribute("data-target");
-      const data = experienceDetails[key];
-      if (data) {
-        modalContent.innerHTML = `<h3>${data.title}</h3>${data.content}`;
-        modal.style.display = "block";
+  const experienceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
       }
     });
+  }, {
+    threshold: 0.4,
   });
 
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-
-  // Fancy scroll zoom effect on project cards
-  const projectCards = document.querySelectorAll('#projects .card-grid .card');
-
-  if (projectCards.length > 0) {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5, // 50% visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        } else {
-          entry.target.classList.remove('active');
-        }
-      });
-    }, observerOptions);
-
-    projectCards.forEach(card => observer.observe(card));
-  }
+  experienceBlocks.forEach(block => experienceObserver.observe(block));
 });
