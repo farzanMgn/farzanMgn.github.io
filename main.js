@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll(".content-section");
 
-  // Load markdown for About and Contact sections
+  // Load markdown only for Contact section
   function loadMarkdown(sectionId) {
     fetch(`./assets/${sectionId}.md`)
       .then((res) => {
@@ -119,24 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((text) => {
         const container = document.getElementById(sectionId);
         container.innerHTML = marked.parse(text);
-
-        // Animate graduation photo in About section
-        if (sectionId === "about") {
-          const aboutExtra = container.querySelector(".about-extra");
-          if (aboutExtra) {
-            const aboutObserver = new IntersectionObserver((entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("visible");
-                }
-              });
-            }, {
-              threshold: 0.3,
-            });
-
-            aboutObserver.observe(aboutExtra);
-          }
-        }
       })
       .catch((err) => {
         console.error(err);
@@ -149,8 +131,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const target = document.getElementById(sectionId);
     if (target) {
       target.classList.add("active");
-      if (sectionId !== "experience" && sectionId !== "about") {
+      if (sectionId === "contact") {
         loadMarkdown(sectionId);
+      }
+
+      // Animate .about-extra block if present
+      if (sectionId === "about") {
+        const aboutExtras = target.querySelectorAll(".about-extra");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+        aboutExtras.forEach((block) => observer.observe(block));
       }
     }
   }
@@ -178,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Animate project blocks in the experience section
   const projectBlocks = document.querySelectorAll('#experience .project-block');
-
   if (projectBlocks.length > 0) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -191,7 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, {
       threshold: 0.4,
     });
-
     projectBlocks.forEach(block => observer.observe(block));
   }
 
@@ -228,4 +224,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
