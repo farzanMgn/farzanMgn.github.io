@@ -81,6 +81,20 @@ body {
   color: #666;
   margin-bottom: 20px;
 }
+.hero-links {
+  margin-top: 14px;
+}
+
+.hero-links a {
+  color: #555;
+  margin: 0 10px;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+}
+
+.hero-links a:hover {
+  color: #0d6efd;
+}
 
 /* Main content */
 main {
