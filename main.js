@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const target = document.getElementById(sectionId);
     if (target) {
       target.classList.add("active");
-      if (sectionId !== "experience") {
+      if (sectionId !== "experience" && sectionId !== "about") {
         loadMarkdown(sectionId);
       }
     }
