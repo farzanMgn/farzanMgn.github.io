@@ -7,10 +7,4 @@ What gives me joy is diving into data and statistics to uncover meaningful insig
 I strive to play an impactful role in creating products that make life simpler.
 Curious to see what I’ve worked on? Head over to the **Experiences section**.
 And if you'd like to collaborate, have a good chat, feel free to reach out through the **Contact Me page**!
-<!-- Graduation block -->
-<div class="about-extra">
-  <img src="./assets/graduation.jpg" alt="Graduation Photo" class="about-photo" />
-  <p class="about-caption">
-    This is a photo of me shaking hands with the Head of Department after my recent graduation from UNIPI.
-  </p>
-</div>
+
