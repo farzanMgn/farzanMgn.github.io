@@ -113,8 +113,9 @@ main {
 
 .about-block {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 40px;
   margin-top: 60px;
   opacity: 0;
@@ -133,27 +134,46 @@ main {
 
 .about-img {
   width: 100%;
-  max-width: 300px;
+  max-width: 480px;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  flex: 1 1 50%;
 }
 
 .about-text {
-  flex: 1;
-  text-align: justify;
+  flex: 1 1 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  text-align: justify;
 }
 
 .about-text .caption {
   font-size: 1rem;
   line-height: 1.7;
+  padding: 10px;
   max-width: 90%;
 }
 
+/* Responsive stacking */
+@media (max-width: 768px) {
+  .about-block {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-img,
+  .about-text {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+}
 
 /* Experience / Project Blocks */
 .project-block {
