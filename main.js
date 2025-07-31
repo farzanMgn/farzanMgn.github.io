@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load markdown for About and Contact sections
   function loadMarkdown(sectionId) {
-    fetch(./assets/${sectionId}.md)
+    fetch(`./assets/${sectionId}.md`)
       .then((res) => {
         if (!res.ok) throw new Error("Markdown load failed");
         return res.text();
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Highlight the active nav link
   function highlightNavLink(sectionId) {
     navLinks.forEach((l) => l.classList.remove("active"));
-    const active = document.querySelector(.nav-link[data-section="${sectionId}"]);
+    const active = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
     if (active) active.classList.add("active");
   }
 
