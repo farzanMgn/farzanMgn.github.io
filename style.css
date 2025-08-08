@@ -129,7 +129,14 @@ main {
   transform: translateX(100px);
   justify-content: flex-end;
 }
+.project-block.center {
+  justify-content: center;
+  transform: translateY(100px);
+}
 
+.project-block.center.visible {
+  transform: translateY(0);
+}
 .project-block.visible {
   opacity: 1;
   transform: translateX(0);
