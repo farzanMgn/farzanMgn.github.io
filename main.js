@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Animate project blocks in the experience section
-  const projectBlocks = document.querySelectorAll('#experience .project-block');
+  const projectBlocks = document.querySelectorAll('.project-block');
 
   if (projectBlocks.length > 0) {
     const observer = new IntersectionObserver((entries) => {
