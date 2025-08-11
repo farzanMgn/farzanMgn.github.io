@@ -109,6 +109,7 @@ main {
   }
 }
 
+
 /* Experience / Project Blocks */
 .project-block {
   opacity: 0;
@@ -119,7 +120,13 @@ main {
   justify-content: flex-start;
   align-items: center;
 }
-
+.about-photo {
+  display: block;
+  margin: 15px auto 0; /* centers the image */
+  max-width: 100%; /* scales for smaller screens */
+  border-radius: 10px; /* optional: rounded corners */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* optional: soft shadow */
+}
 .project-block.left {
   transform: translateX(-100px);
   justify-content: flex-start;
