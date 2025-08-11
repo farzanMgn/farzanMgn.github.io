@@ -129,6 +129,7 @@ main {
   transform: translateX(100px);
   justify-content: flex-end;
 }
+
 .project-block.center {
   justify-content: center;
   transform: translateY(100px);
@@ -137,6 +138,11 @@ main {
 .project-block.center.visible {
   transform: translateY(0);
 }
+
+.project-content.wide {
+  max-width: 960px; /* wider than the normal 480px */
+}
+
 .project-block.visible {
   opacity: 1;
   transform: translateX(0);
