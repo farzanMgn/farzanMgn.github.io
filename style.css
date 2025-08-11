@@ -140,7 +140,9 @@ main {
 }
 
 .project-content.wide {
-  max-width: 960px; /* wider than the normal 480px */
+  max-width: 960px;
+  background-color: #fefefe;
+  border: 1px solid #eee;
 }
 
 .project-block.visible {
