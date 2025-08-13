@@ -260,3 +260,22 @@ footer {
     padding: 12px 20px;
   }
 }
+/* Style for name */
+.about-name {
+  font-weight: bold;
+  font-family: 'Playfair Display', serif; /* Elegant serif font */
+  font-size: 1.1em;
+}
+
+/* Style for About Me links */
+.about-link {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.about-link:hover {
+  color: #444; /* Slightly lighter black on hover */
+}
