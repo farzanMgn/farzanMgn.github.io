@@ -49,6 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
       highlightNavLink(sectionId);
     });
   });
+  const aboutLinks = document.querySelectorAll(".about-link");
+  aboutLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const sectionId = link.getAttribute("data-section");
+      showSection(sectionId);
+      highlightNavLink(sectionId);
+    });
+  });
 
   // Animate project blocks in the experience section
   const projectBlocks = document.querySelectorAll('.project-block');
