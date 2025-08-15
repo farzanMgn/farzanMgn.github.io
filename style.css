@@ -198,22 +198,50 @@ main {
   color: #555;
 }
 /* Experience grid  */
+/* Grid layout for experiences */
 .experience-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px; /* space between projects */
+  gap: 30px;
 }
 
+/* Default hidden state for animation */
 .experience-grid .project-block {
-  transform: none; /* remove left/right slide so layout is clean */
-  opacity: 1; /* make them visible by default */
+  opacity: 0;
+  transition: all 0.8s ease;
 }
 
+/* Left column slides in from left */
+.experience-grid .project-block:nth-child(2n+1) {
+  transform: translateX(-100px);
+}
+
+/* Right column slides in from right */
+.experience-grid .project-block:nth-child(2n) {
+  transform: translateX(100px);
+}
+
+/* When visible (via JS observer) */
+.experience-grid .project-block.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Mobile: one column, all slide in from bottom */
 @media (max-width: 768px) {
   .experience-grid {
-    grid-template-columns: 1fr; /* stack on smaller screens */
+    grid-template-columns: 1fr;
+  }
+
+  .experience-grid .project-block {
+    transform: translateY(60px);
+  }
+
+  .experience-grid .project-block.visible {
+    transform: translateY(0);
   }
 }
+
 
 /* Contact Form */
 #contact-form {
