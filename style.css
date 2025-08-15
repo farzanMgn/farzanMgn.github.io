@@ -197,6 +197,23 @@ main {
   font-size: 0.95rem;
   color: #555;
 }
+/* Experience grid  */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px; /* space between projects */
+}
+
+.experience-grid .project-block {
+  transform: none; /* remove left/right slide so layout is clean */
+  opacity: 1; /* make them visible by default */
+}
+
+@media (max-width: 768px) {
+  .experience-grid {
+    grid-template-columns: 1fr; /* stack on smaller screens */
+  }
+}
 
 /* Contact Form */
 #contact-form {
