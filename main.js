@@ -110,4 +110,41 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
   }
+  
+    // Modal logic for experience projects
+  const modal = document.getElementById("modal");
+  const modalContent = document.querySelector("#modal .modal-content");
+  const closeBtn = document.querySelector("#modal .close-btn");
+
+  // Add click listeners to project blocks
+  projectBlocks.forEach((block) => {
+    block.addEventListener("click", () => {
+      const title = block.querySelector("h3")?.textContent || "Project";
+      const description = block.querySelector("p")?.textContent || "";
+      
+      // You can customize content dynamically, e.g. add images or extra text
+      modalContent.innerHTML = `
+        <span class="close-btn">&times;</span>
+        <h2>${title}</h2>
+        <p>${description}</p>
+        <img src="./assets/sample.jpg" alt="${title}">
+        <p>More details about ${title} go here...</p>
+      `;
+
+      modal.style.display = "block";
+
+      // Rebind close button inside modal
+      modal.querySelector(".close-btn").addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+    });
+  });
+
+  // Close modal when clicking outside
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
 });
