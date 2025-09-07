@@ -82,27 +82,6 @@ body {
   margin-bottom: 20px;
 }
 
-
-/* Style for name */
-.about-name {
-  font-weight: bold;
-  font-family: 'Playfair Display', serif; /* Elegant serif font */
-  font-size: 1.1em;
-}
-
-/* Style for About Me links */
-.about-link {
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.about-link:hover {
-  color: #444; /* Slightly lighter black on hover */
-}
-
 /* Main content */
 main {
   padding: 40px 20px;
@@ -130,7 +109,6 @@ main {
   }
 }
 
-
 /* Experience / Project Blocks */
 .project-block {
   opacity: 0;
@@ -141,13 +119,7 @@ main {
   justify-content: flex-start;
   align-items: center;
 }
-.about-photo {
-  display: block;
-  margin: 15px auto 0; /* centers the image */
-  max-width: 100%; /* scales for smaller screens */
-  border-radius: 10px; /* optional: rounded corners */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* optional: soft shadow */
-}
+
 .project-block.left {
   transform: translateX(-100px);
   justify-content: flex-start;
@@ -156,21 +128,6 @@ main {
 .project-block.right {
   transform: translateX(100px);
   justify-content: flex-end;
-}
-
-.project-block.center {
-  justify-content: center;
-  transform: translateY(100px);
-}
-
-.project-block.center.visible {
-  transform: translateY(0);
-}
-
-.project-content.wide {
-  max-width: 960px;
-  background-color: #fefefe;
-  border: 1px solid #eee;
 }
 
 .project-block.visible {
