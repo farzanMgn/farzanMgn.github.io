@@ -81,6 +81,24 @@ body {
   color: #666;
   margin-bottom: 20px;
 }
+/* Style for name */ 
+.about-name { 
+  font-weight: bold; 
+  font-family: 'Playfair Display', serif; 
+  /* Elegant serif font */ 
+  font-size: 1.1em; 
+}
+/* Style for About Me links */ 
+.about-link { 
+  color: black; 
+  font-weight: bold; 
+  text-decoration: none; 
+  cursor: pointer; 
+  transition: color 0.3s ease; 
+}
+.about-link:hover { 
+  color: #444; /* Slightly lighter black on hover */
+}
 
 /* Main content */
 main {
@@ -130,17 +148,28 @@ main {
   justify-content: flex-end;
 }
 
-.project-block.visible {
-  opacity: 1;
-  transform: translateX(0);
+.project-block.center { 
+  justify-content: center;
+  transform: translateY(100px); 
+} 
+.project-block.center.visible {
+  transform: translateY(0); 
+} 
+.project-content.wide {
+  max-width: 960px; 
+  background-color: #fefefe; 
+  border: 1px solid #eee; 
 }
-
-.project-content {
-  background-color: #fff;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-  max-width: 480px;
+.project-block.visible {
+  opacity: 1; 
+  transform: translateX(0); 
+}
+.project-content { 
+  background-color: #fff; 
+  padding: 24px; 
+  border-radius: 12px; 
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05); 
+  max-width: 480px; 
   width: 100%;
 }
 
