@@ -1,6 +1,4 @@
-/* ==============================
-   Reset and Global Styles
-   ============================== */
+/* Reset and global styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,9 +13,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* ==============================
-   Top Navigation
-   ============================== */
+/* Top Navigation */
 .top-nav {
   position: fixed;
   top: 0;
@@ -53,9 +49,7 @@ body {
   color: #000;
 }
 
-/* ==============================
-   Hero Section
-   ============================== */
+/* Hero section */
 .hero {
   text-align: center;
   padding: 120px 20px 60px;
@@ -88,15 +82,15 @@ body {
   margin-bottom: 20px;
 }
 
-/* ==============================
-   About Section
-   ============================== */
+
+/* Style for name */
 .about-name {
   font-weight: bold;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif; /* Elegant serif font */
   font-size: 1.1em;
 }
 
+/* Style for About Me links */
 .about-link {
   color: black;
   font-weight: bold;
@@ -106,12 +100,10 @@ body {
 }
 
 .about-link:hover {
-  color: #444;
+  color: #444; /* Slightly lighter black on hover */
 }
 
-/* ==============================
-   Main Content
-   ============================== */
+/* Main content */
 main {
   padding: 40px 20px;
   max-width: 1000px;
@@ -138,28 +130,36 @@ main {
   }
 }
 
-/* ==============================
-   Experience / Project Blocks
-   ============================== */
+
+/* Experience / Project Blocks */
 .project-block {
   opacity: 0;
   transform: translateX(100px);
   transition: all 0.8s ease;
   margin: 40px 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
-
+.about-photo {
+  display: block;
+  margin: 15px auto 0; /* centers the image */
+  max-width: 100%; /* scales for smaller screens */
+  border-radius: 10px; /* optional: rounded corners */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* optional: soft shadow */
+}
 .project-block.left {
   transform: translateX(-100px);
+  justify-content: flex-start;
 }
 
 .project-block.right {
   transform: translateX(100px);
+  justify-content: flex-end;
 }
 
 .project-block.center {
+  justify-content: center;
   transform: translateY(100px);
 }
 
@@ -167,20 +167,24 @@ main {
   transform: translateY(0);
 }
 
+.project-content.wide {
+  max-width: 960px;
+  background-color: #fefefe;
+  border: 1px solid #eee;
+}
+
 .project-block.visible {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Card Content */
 .project-content {
   background-color: #fff;
   padding: 24px;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-
-  width: 70%;        /* <-- makes card 80% of page width */
-  max-width: 900px;  /* prevents oversized cards on big screens */
+  max-width: 480px;
+  width: 100%;
 }
 
 .project-content h3 {
@@ -193,117 +197,54 @@ main {
   font-size: 0.95rem;
   color: #555;
 }
-
-/* Images inside cards */
-.about-photo {
-  display: block;
-  margin: 15px auto 0;
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* ==============================
-   Experience Grid
-   ============================== */
+/* Experience grid  */
+/* Grid layout for experiences */
 .experience-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 2 per row on desktop, 1 on mobile */
-  gap: 40px; /* space between cards */
-  width: 90%; /* keep some margin on left/right */
-  max-width: 1200px;
-  margin: 0 auto; /* center the grid */
-}
-
-/* Each block wrapper */
-.project-block {
-  opacity: 0;
-  transition: all 0.8s ease;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
 }
 
-/* Card content */
-.project-content {
-  background-color: #fff;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-
-  width: 100%;       /* fill the grid column */
-  max-width: 550px;  /* optional: prevents huge cards */
+.experience-grid .project-block {
+  width: 80%;       /* makes each card take 75% of page width */
+  max-width: 900px; /* optional: keeps them from getting too huge on big screens */
 }
 
-/* Images inside cards */
-.about-photo {
-  display: block;
-  margin: 15px auto 20px;
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+/* Left column slides in from left */
+.experience-grid .project-block:nth-child(2n+1) {
+  transform: translateX(-100px);
 }
 
-/* Card headings and text */
-.project-content h3 {
-  margin-bottom: 10px;
-  font-size: 1.25rem;
-  font-weight: 600;
-  text-align: center;
+/* Right column slides in from right */
+.experience-grid .project-block:nth-child(2n) {
+  transform: translateX(100px);
 }
 
-.project-content p {
-  font-size: 0.95rem;
-  color: #555;
-  text-align: center;
-  line-height: 1.5;
-}
-
-/* “Read more” link */
-.read-more {
-  display: inline-block;
-  font-weight: bold;
-  color: #1e90ff;
-  cursor: pointer;
-  margin-top: 12px;
-  transition: color 0.3s ease;
-}
-
-.read-more:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
-
-/* Animation for cards */
-.project-block:nth-child(2n+1) {
-  transform: translateX(-50px);
-}
-.project-block:nth-child(2n) {
-  transform: translateX(50px);
-}
-.project-block.visible {
+/* When visible (via JS observer) */
+.experience-grid .project-block.visible {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Mobile responsive */
+/* Mobile: one column, all slide in from bottom */
 @media (max-width: 768px) {
   .experience-grid {
     grid-template-columns: 1fr;
   }
 
-  .project-block {
-    transform: translateY(50px);
+  .experience-grid .project-block {
+    transform: translateY(60px);
   }
 
-  .project-block.visible {
+  .experience-grid .project-block.visible {
     transform: translateY(0);
   }
 }
 
 
-/* ==============================
-   Contact Form
-   ============================== */
+/* Contact Form */
 #contact-form {
   display: flex;
   flex-direction: column;
@@ -347,12 +288,10 @@ main {
 .form-message {
   margin-top: 20px;
   font-size: 0.95rem;
-  color: #28a745;
+  color: #28a745; /* success */
 }
 
-/* ==============================
-   Footer
-   ============================== */
+/* Footer */
 footer {
   text-align: center;
   padding: 30px 20px;
@@ -370,6 +309,26 @@ footer {
 
 .footer-links a:hover {
   color: #0d6efd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-block {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .project-content {
+    width: 100%;
+  }
+
+  .top-nav {
+    justify-content: center;
+    padding: 12px 20px;
+  }
+  .experience-grid .project-block {
+    width: 100%;
+  }
 }
 
 /* ==============================
@@ -436,7 +395,7 @@ footer {
   color: #000;
 }
 
-/* Modal scroll */
+/* Modal scroll for long content */
 #modal-body {
   max-height: 70vh;
   overflow-y: auto;
