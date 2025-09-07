@@ -137,6 +137,13 @@ main {
   justify-content: flex-start;
   align-items: center;
 }
+.about-photo {
+  display: block; 
+  margin: 15px auto 0; /* centers the image */ 
+  max-width: 100%; /* scales for smaller screens */ 
+  border-radius: 10px; /* optional: rounded corners */ 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* optional: soft shadow */ 
+}
 
 .project-block.left {
   transform: translateX(-100px);
@@ -193,38 +200,32 @@ main {
   gap: 30px; 
 } 
 /* Default hidden state for animation */ 
-.experience-grid .project-block 
-{ opacity: 0; 
+.experience-grid .project-block { 
+  opacity: 0; 
  transition: all 0.8s ease; 
 } 
 /* Left column slides in from left */ 
-.experience-grid .project-block:nth-child(2n+1) 
-{
+.experience-grid .project-block:nth-child(2n+1) {
   transform: translateX(-100px); 
 } 
 /* Right column slides in from right */ 
-.experience-grid .project-block:nth-child(2n) 
-{ 
+.experience-grid .project-block:nth-child(2n) { 
   transform: translateX(100px); 
 } 
 /* When visible (via JS observer) */ 
-.experience-grid .project-block.visible
-{
+.experience-grid .project-block.visible{
   opacity: 1; transform: translateX(0); 
 } 
 /* Mobile: one column, all slide in from bottom */ 
-@media (max-width: 768px) 
-{ 
+@media (max-width: 768px) { 
   .experience-grid 
   { 
     grid-template-columns: 1fr; 
   } 
-  .experience-grid .project-block 
-  { 
+  .experience-grid .project-block { 
     transform: translateY(60px); 
   } 
-  .experience-grid .project-block.visible 
-  { 
+  .experience-grid .project-block.visible { 
     transform: translateY(0); 
   }
 }
