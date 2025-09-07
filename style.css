@@ -200,16 +200,17 @@ main {
 /* Experience grid  */
 /* Grid layout for experiences */
 .experience-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
 }
 
-/* Default hidden state for animation */
 .experience-grid .project-block {
-  opacity: 0;
-  transition: all 0.8s ease;
+  width: 75%;       /* makes each card take 75% of page width */
+  max-width: 900px; /* optional: keeps them from getting too huge on big screens */
 }
+
 
 /* Left column slides in from left */
 .experience-grid .project-block:nth-child(2n+1) {
@@ -324,6 +325,9 @@ footer {
   .top-nav {
     justify-content: center;
     padding: 12px 20px;
+  }
+  .experience-grid .project-block {
+    width: 100%;
   }
 }
 
