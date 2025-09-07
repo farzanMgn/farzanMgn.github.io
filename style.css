@@ -322,5 +322,28 @@ footer {
   border-radius: 10px; 
   margin-bottom: 20px; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-} /* Modal close button */ 
-.close-btn { position: absolute; top: 20px; right: 30px; font-size: 1.8rem; font-weight: bold; color: #666; cursor: pointer; transition: color 0.3s ease; } .close-btn:hover { color: #000; } /* Modal scroll for long content */ #modal-body { max-height: 70vh; overflow-y: auto; padding-right: 10px; } /* Animations */ @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+} 
+/* Modal close button */ 
+.close-btn { 
+  position: absolute; 
+  top: 20px; right: 30px; 
+  font-size: 1.8rem; 
+  font-weight: bold; 
+  color: #666; 
+  cursor: pointer; 
+  transition: color 0.3s ease; 
+}
+.close-btn:hover { 
+  color: #000; 
+}
+/* Modal scroll for long content */ 
+#modal-body {
+  max-height: 70vh; 
+  overflow-y: auto;
+  padding-right: 10px; 
+}
+/* Animations */ 
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; } 
+  to { transform: translateY(0); opacity: 1; } 
+}
