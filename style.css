@@ -179,7 +179,7 @@ main {
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
 
-  width: 80%;        /* <-- makes card 80% of page width */
+  width: 70%;        /* <-- makes card 80% of page width */
   max-width: 900px;  /* prevents oversized cards on big screens */
 }
 
