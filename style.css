@@ -207,7 +207,7 @@ main {
 }
 
 .experience-grid .project-block {
-  width: 75%;       /* makes each card take 75% of page width */
+  width: 80%;       /* makes each card take 75% of page width */
   max-width: 900px; /* optional: keeps them from getting too huge on big screens */
 }
 
