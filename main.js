@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Initialize on first load
-  showSection("about");
-  highlightNavLink("about");
+  showSection("experience");
+  highlightNavLink("experience");
 
   // Navigation click behavior
   navLinks.forEach((link) => {
