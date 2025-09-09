@@ -78,6 +78,29 @@ document.addEventListener("DOMContentLoaded", () => {
     projectBlocks.forEach(block => observer.observe(block));
   }
 
+
+ 
+
+  // ✅ NEW: Animate About section (newspaper style)
+  const articles = document.querySelectorAll('.news-article');
+  const mediaCards = document.querySelectorAll('.media-card');
+  
+  if (articles.length > 0 || mediaCards.length > 0) {
+    const observer2 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+  
+    articles.forEach(article => observer2.observe(article));
+    mediaCards.forEach(card => observer2.observe(card));
+  }
+
+
   // Contact form handler (via Formspree or similar)
   const contactForm = document.getElementById("contact-form");
   const formMessage = document.getElementById("form-message");
