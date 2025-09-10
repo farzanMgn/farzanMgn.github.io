@@ -219,23 +219,26 @@ main {
 /* Arrow icon overlay */
 .case-arrow {
   position: absolute;
-  top: 12px;
+  bottom: 12px;
   right: 12px;
-  background: rgba(255,255,255,0.9);
-  border-radius: 50%;
-  padding: 6px;
-  font-size: 0.9rem;
-  color: #333;
+  font-size: 1.4rem;
+  color: white;
   opacity: 0;
-  transform: scale(0.8);
+  transform: translateY(8px);
   transition: opacity 0.3s ease, transform 0.3s ease;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4); /* makes it stand out on images */
 }
 
+/* Show arrow when card hovered */
 .case-card:hover .case-arrow {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0);
 }
 
+/* Optional: stronger hover shadow effect for the card */
+.case-card:hover {
+  box-shadow: 0 16px 36px rgba(0,0,0,0.15);
+}
 
 
 .case-media {
@@ -245,6 +248,7 @@ main {
   overflow: hidden;
   border-bottom: 4px solid #eee;  /* gives framed separator */
   position: relative;
+  overflow: hidden;
 }
 
 .case-media img,
