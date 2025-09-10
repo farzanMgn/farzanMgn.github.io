@@ -145,7 +145,7 @@ main {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* optional: soft shadow */ 
 }
 
-.project-block.left {
+/* .project-block.left {
   transform: translateX(-100px);
   justify-content: flex-start;
 }
@@ -166,7 +166,7 @@ main {
   max-width: 960px; 
   background-color: #fefefe; 
   border: 1px solid #eee; 
-}
+} */
 .project-block.visible {
   opacity: 1; 
   transform: translateX(0); 
@@ -377,9 +377,9 @@ footer {
   from { transform: translateY(50px); opacity: 0; } 
   to { transform: translateY(0); opacity: 1; } 
 }
-.newspaper-grid {
+/* .newspaper-grid {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 1fr; /* main text, media, sidebar */
+  grid-template-columns: 2fr 1.5fr 1fr; hn
   gap: 40px;
   margin-top: 40px;
 }
@@ -417,7 +417,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Animations */
+
 .news-article {
   opacity: 0;
   transform: translateY(50px);
@@ -436,5 +436,88 @@ footer {
 .media-card.visible {
   opacity: 1;
   transform: translateX(0);
+}
+ */
+/* ============================== About Section: Newspaper Layout ============================== */
+.newspaper-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr; /* main articles | media | sidebar */
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.news-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Articles (Left Column) */
+.news-article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.news-article p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+}
+.news-article {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+.news-article.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Media (Middle Column: images/videos) */
+.media-card img,
+.media-card video {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+.media-card {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.8s ease;
+}
+.media-card.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Sidebar (Right Column) */
+.sidebar-box {
+  background: #f8f8f8;
+  padding: 15px;
+  border-left: 3px solid #ccc;
+  font-size: 0.9rem;
+}
+.sidebar-box h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', serif;
+}
+.sidebar-box p, 
+.sidebar-box ul {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Responsive: collapse to 1 column */
+@media (max-width: 992px) {
+  .newspaper-grid {
+    grid-template-columns: 1fr;
+  }
+  .news-column {
+    gap: 20px;
+  }
 }
 
