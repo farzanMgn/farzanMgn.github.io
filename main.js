@@ -60,23 +60,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Animate project blocks in the experience section
-  const projectBlocks = document.querySelectorAll('.project-block');
+  // const projectBlocks = document.querySelectorAll('.project-block');
 
-  if (projectBlocks.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
-        }
-      });
-    }, {
-      threshold: 0.4,
-    });
+  // if (projectBlocks.length > 0) {
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting) {
+  //         entry.target.classList.add('visible');
+  //       } else {
+  //         entry.target.classList.remove('visible');
+  //       }
+  //     });
+  //   }, {
+  //     threshold: 0.4,
+  //   });
 
-    projectBlocks.forEach(block => observer.observe(block));
-  }
+  //   projectBlocks.forEach(block => observer.observe(block));
+  // }
 
 
  
@@ -99,6 +99,37 @@ document.addEventListener("DOMContentLoaded", () => {
     articles.forEach(article => observer2.observe(article));
     mediaCards.forEach(card => observer2.observe(card));
   }
+
+  
+  // ✅ NEW: Animate Experience case study cards
+  const caseCards = document.querySelectorAll('.case-card');
+  
+  if (caseCards.length > 0) {
+    const observer3 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.3 });
+  
+    caseCards.forEach(card => observer3.observe(card));
+  }
+  
+  // ✅ NEW: Clickable case study cards → open modal
+  caseCards.forEach(card => {
+    card.addEventListener("click", () => {
+      const modalId = card.getAttribute("data-modal");
+      const content = document.getElementById(modalId);
+      if (content) {
+        modalBody.innerHTML = content.innerHTML;
+        modal.style.display = "block";
+      }
+    });
+  });
+
 
 
   // Contact form handler (via Formspree or similar)
@@ -139,17 +170,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalBody = document.getElementById("modal-body");
   const closeBtn = modal.querySelector(".close-btn");
 
-  // Add click listeners to project blocks
-  projectBlocks.forEach(block => {
-    block.addEventListener("click", () => {
-      const modalId = block.getAttribute("data-modal");
-      const content = document.getElementById(modalId);
-      if (content) {
-        modalBody.innerHTML = content.innerHTML; // Pull HTML from hidden div
-        modal.style.display = "block";
-      }
-    });
-  });
+  // // Add click listeners to project blocks
+  // projectBlocks.forEach(block => {
+  //   block.addEventListener("click", () => {
+  //     const modalId = block.getAttribute("data-modal");
+  //     const content = document.getElementById(modalId);
+  //     if (content) {
+  //       modalBody.innerHTML = content.innerHTML; // Pull HTML from hidden div
+  //       modal.style.display = "block";
+  //     }
+  //   });
+  // });
 
   // Close modal when clicking close button
   closeBtn.addEventListener("click", () => {
