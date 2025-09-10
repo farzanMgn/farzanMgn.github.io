@@ -198,7 +198,7 @@ main {
   cursor: pointer;
   opacity: 0;
   transform: translateY(50px);
-  transition: all 1.2s ease; /* smoother + slower */
+  transition: transform 1s ease, box-shadow 0.3s ease;
 }
 
 .case-card.visible {
