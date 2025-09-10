@@ -185,8 +185,8 @@ main {
 .case-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 60px;  /* wider spacing between 2 cards in a row */
-  row-gap: 60px;     /* keep vertical spacing moderate */
+  column-gap: 65px;  /* wider spacing between 2 cards in a row */
+  row-gap: 50px;     /* keep vertical spacing moderate */
   max-width: 1500px;
   margin: 50px auto 0; 
   width: 100%;
