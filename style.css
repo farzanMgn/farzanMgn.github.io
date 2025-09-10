@@ -185,10 +185,10 @@ main {
 .case-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 36px;                /* reduce spacing slightly */
-  max-width: 1200px;        /* more standard than 1400px */
+  column-gap: 60px;  /* wider spacing between 2 cards in a row */
+  row-gap: 40px;     /* keep vertical spacing moderate */
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 20px;            /* give breathing room near page edges */
   width: 100%;
 }
 
