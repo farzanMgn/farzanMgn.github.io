@@ -50,21 +50,12 @@ body {
 }
 
 /* Hero section */
-.hero {
-  text-align: center;
-  padding: 80px 20px 40px; /* was 120px top, 60px bottom */
-  background: linear-gradient(120deg, #fafafa, #f0f2f7); /* subtle background */
-  max-width: 900px;
-  margin: 0 auto;
-  border-radius: 16px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
-}
 
-/* .hero {
+.hero {
   text-align: center;
   padding: 120px 20px 60px;
   background-color: #ffffff;
-} */
+}
 
 /* .hero-img {
   width: 240px;
