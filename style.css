@@ -52,11 +52,21 @@ body {
 /* Hero section */
 .hero {
   text-align: center;
-  padding: 120px 20px 60px;
-  background-color: #ffffff;
+  padding: 80px 20px 40px; /* was 120px top, 60px bottom */
+  background: linear-gradient(120deg, #fafafa, #f0f2f7); /* subtle background */
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
 }
 
-.hero-img {
+/* .hero {
+  text-align: center;
+  padding: 120px 20px 60px;
+  background-color: #ffffff;
+} */
+
+/* .hero-img {
   width: 240px;
   height: auto;
   border-radius: 50%;
@@ -64,6 +74,18 @@ body {
   margin-bottom: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
+} */
+.hero-img {
+  width: 280px;
+  height: auto;
+  border-radius: 12px;   /* keep natural rectangle, slightly rounded corners */
+  object-fit: cover;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+  margin-bottom: 20px;
+}
+.hero-img {
+  border: 6px solid #fff;
+  outline: 2px solid #eee;
 }
 
 .hero-img:hover {
