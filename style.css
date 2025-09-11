@@ -52,7 +52,7 @@ body {
 /* Hero section */
 .hero {
   text-align: center;
-  padding: 70px 20px 40px; /* less vertical space */
+  padding: 70px 30px 40px; /* less vertical space */
   background-color: #ffffff;
   margin: 0 auto 40px;     /* centers and gives bottom spacing */
   border-radius: 12px;     /* optional: subtle rounded edges */
@@ -217,7 +217,7 @@ main {
   cursor: pointer;
   opacity: 0;
   transform: translateY(50px);
-  transition: transform 0.3s ease, box-shadow 0.4s ease;
+  transition: transform 0.6s ease, box-shadow 0.4s ease;
 }
 
 
