@@ -59,10 +59,15 @@ body {
 .hero {
   background-color: #ffffff;
   padding: 60px 40px;
-  margin: 0 auto 60px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  margin: 0;
+  display: flex;
+  align-items: stretch;
+  border-radius: 0;
+  box-shadow: none;
+  
 }
+
+
 
 .hero-container {
   display: flex;
@@ -75,20 +80,23 @@ body {
 
 /* Left: Photo */
 /* Left: Full-height Photo */
+
 .hero-photo {
   flex: 1;
   display: flex;
-  align-items: stretch;   /* makes image fill vertically */
+  align-items: stretch;
+  height: 100%;   /* ensure full section height */
 }
 
+
 .hero-img {
-  width: 100%;            /* take full width of left column */
-  height: 100%;           /* take full height */
-  object-fit: cover;      /* crop proportionally */
-  border-radius: 16px;    /* soft rectangle corners */
-  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
-  border: 6px solid #fff;
-  outline: 2px solid #eee;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* ensures it fills the area */
+  border-radius: 0;    /* no rounded corners */
+  border: none;        /* remove white border */
+  outline: none;       /* remove outline */
+  box-shadow: none;    /* remove shadow */
 }
 
 .hero-img:hover {
