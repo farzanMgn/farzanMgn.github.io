@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll(".nav-link");
+  const navLinks = document.querySelectorAll(".pill");
   const sections = document.querySelectorAll(".content-section");
 
   // Load markdown for About and Contact sections
