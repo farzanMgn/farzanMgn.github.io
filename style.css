@@ -55,17 +55,106 @@ body {
   color:#fff;
 }
 
+/* Hero Layout */
+.hero {
+  background-color: #ffffff;
+  padding: 60px 40px;
+  margin: 0 auto 60px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left: Photo */
+.hero-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-img {
+  width: 240px;
+  height: auto;
+  border-radius: 16px;         /* soft rectangle */
+  object-fit: cover;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+  border: 6px solid #fff;
+  outline: 2px solid #eee;
+  transition: transform 0.3s ease;
+}
+
+.hero-img:hover {
+  transform: scale(1.04);
+}
+
+/* Right: Text */
+.hero-text {
+  flex: 2;
+  text-align: left;
+}
+
+.hero-name {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-role {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.hero-tagline {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Social links */
+.hero-links a {
+  color: var(--accent);
+  font-size: 1.4rem;
+  margin-right: 16px;
+  transition: color 0.3s ease;
+}
+
+.hero-links a:hover {
+  color: var(--accent-dark);
+}
+
+/* Responsive: Stack on small screens */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+}
 
 
 /* Hero section */
-.hero {
+/* .hero {
   text-align: center;
-  padding: 70px 30px 40px; /* less vertical space */
+  padding: 70px 30px 40px; /* less vertical space 
   background-color: #ffffff;
-  margin: 0 auto 40px;     /* centers and gives bottom spacing */
-  border-radius: 12px;     /* optional: subtle rounded edges */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05); /* optional: subtle lift */
-}
+  margin: 0 auto 40px;     
+  border-radius: 12px;     
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05); 
+} */
 
 
 /* .hero-img {
@@ -77,7 +166,7 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
 } */
-.hero-img {
+/* .hero-img {
   width: 200px;
   height: auto;
   border-radius: 50%;
@@ -103,7 +192,7 @@ body {
   font-size: 1.1rem;
   color: #666;
   margin-bottom: 20px;
-}
+} */
 /* Style for name */ 
 .about-name { 
   font-weight: bold; 
