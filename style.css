@@ -130,13 +130,6 @@ main {
   margin: auto;
 }
 
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  text-align: center;
-  margin: 60px 0 50px;
-  color: var(--accent);
-}
 
 .content-section {
   display: none;
