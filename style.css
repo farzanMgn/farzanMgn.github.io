@@ -74,21 +74,21 @@ body {
 }
 
 /* Left: Photo */
+/* Left: Full-height Photo */
 .hero-photo {
   flex: 1;
   display: flex;
-  justify-content: center;
+  align-items: stretch;   /* makes image fill vertically */
 }
 
 .hero-img {
-  width: 240px;
-  height: auto;
-  border-radius: 16px;         /* soft rectangle */
-  object-fit: cover;
+  width: 100%;            /* take full width of left column */
+  height: 100%;           /* take full height */
+  object-fit: cover;      /* crop proportionally */
+  border-radius: 16px;    /* soft rectangle corners */
   box-shadow: 0 10px 28px rgba(0,0,0,0.15);
   border: 6px solid #fff;
   outline: 2px solid #eee;
-  transition: transform 0.3s ease;
 }
 
 .hero-img:hover {
