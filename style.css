@@ -56,89 +56,118 @@ body {
 }
 
 /* Hero Layout */
+
+
+
+
+/* Hero Section */
 .hero {
-  background-color: #ffffff;
-  padding: 60px 40px;
-  margin: 0;
+  position: relative;
+  background-color: #fff;
+  padding: 80px 40px;
   display: flex;
-  align-items: stretch;
-  border-radius: 0;
-  box-shadow: none;
-  
+  justify-content: center;
 }
-
-
 
 .hero-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Left: Photo */
-/* Left: Full-height Photo */
-
-.hero-photo {
-  flex: 1;
-  display: flex;
-  align-items: stretch;
-  height: 100%;   /* ensure full section height */
-}
-
-
-.hero-img {
+  justify-content: center;
+  gap: 40px;
+  max-width: 1400px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;   /* ensures it fills the area */
-  border-radius: 0;    /* no rounded corners */
-  border: none;        /* remove white border */
-  outline: none;       /* remove outline */
-  box-shadow: none;    /* remove shadow */
 }
 
-.hero-img:hover {
-  transform: scale(1.04);
+/* Left */
+.hero-left {
+  flex: 1;
+  text-align: right;
 }
-
-/* Right: Text */
-.hero-text {
-  flex: 2;
-  text-align: left;
-}
-
-.hero-name {
-  font-size: 2.8rem;
+.hero-greeting {
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
-
+.hero-greeting .accent {
+  color: var(--accent);
+}
 .hero-role {
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1.4rem;
   margin-bottom: 20px;
 }
-
-.hero-tagline {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 25px;
-  color: #333;
-}
-
-/* Social links */
 .hero-links a {
   color: var(--accent);
-  font-size: 1.4rem;
-  margin-right: 16px;
+  font-size: 1.5rem;
+  margin-left: 12px;
   transition: color 0.3s ease;
 }
-
 .hero-links a:hover {
   color: var(--accent-dark);
 }
+
+/* Middle: Seamless Large Photo */
+.hero-photo {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+}
+.hero-img {
+  width: 420px;   /* big photo */
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;   /* not circular */
+  box-shadow: none;   /* no box shadow */
+}
+
+/* Right */
+.hero-right {
+  flex: 1;
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}
+.hero-detail {
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.hero-detail.highlight {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* Pills top right */
+.hero-pills {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  display: flex;
+  gap: 10px;
+}
+.pill {
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--accent);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+.pill:hover {
+  background-color: var(--accent-dark);
+}
+
+/***********/
+
+
+
+
+
+
+
+
+
+
+
 
 /* Responsive: Stack on small screens */
 @media (max-width: 768px) {
@@ -148,10 +177,7 @@ body {
     gap: 30px;
   }
 
-  .hero-text {
-    text-align: center;
-  }
-}
+
 
 
 /* Hero section */
