@@ -31,7 +31,7 @@ body {
 .nav-link {
   text-decoration: none;
   color: #fff;
-  background-color: #c0777c;  /* your chosen color */
+  background-color:var(--accent);  /* your chosen color */
   font-weight: 500;
   padding: 8px 18px;
   border-radius: 999px;       /* makes it oval */
@@ -39,14 +39,14 @@ body {
   transition: all 0.3s ease;
 }
 
-.nav-link:hover {
-  background-color: #a85f64;  /* darker shade on hover */
-  color: #fff;
+.nav-link:hover{
+  background-color:var(--accent-dark);
+  color:#fff;
 }
 
-.nav-link.active {
-  background-color: #8f4c52;  /* even darker when active */
-  color: #fff;
+.nav-link.active{
+  background-color:var(--accent-darker);
+  color:#fff;
 }
 
 
