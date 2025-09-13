@@ -180,25 +180,183 @@
   </footer>
 
   <!-- Modals -->
-  <div id="modal-content-msc" class="modal-data" style="display:none;">
-    <h2>M.Sc. in Computer Engineering</h2>
-    <p>Here’s a long description for the M.Sc. experience…</p>
-  </div>
+  <!-- Hidden modal content for each experience -->
+    <div id="modal-content-msc" class="modal-data" style="display:none;">
+      <h2>M.Sc. in Computer Engineering</h2>
+      <p>Here’s a long description for the M.Sc. experience… you can add multiple paragraphs, images, or any formatting you like.</p>
+      <img src="./assets/msc-project.png" alt="M.Sc. Project" />
+      <!-- The Challenge -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+      The Challenge
+      </h2>
+       <!-- My approach -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+        My Approach
+      </h2>
+       <!-- the impact -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+        The Impact
+      </h2>
+    </div>
+   
+    <div id="modal-content-zerynth" class="modal-data" style="display:none;">
+    <!-- Title Section -->
+      <h2 style="font-size:1.8rem; font-weight:700; margin-bottom:0.5em;">
+      Zerynth – Optimizing IoT Kit Efficiency
+    </h2>
+      <h3 style="font-size:1.2rem; font-weight:500; color:#555; margin-bottom:1.5em;">
+      Making Everything Smarter Should Make Life Easier!
+      </h3>
+      <!-- Intro -->
+      <p style="font-size:1rem; line-height:1.6; margin-bottom:1.5em;">
+        At <strong>Zerynth</strong>, an IoT company empowering factories to connect their machines, 
+        I worked on a challenge that many customers faced: the <strong>limited battery life</strong> of our IoT kits.  
+        These kits, once installed on industrial machines, continuously sent data packets every minute — 
+        even when the machine was idle, warming up, or just producing noise.  
+        This frequent transmission <strong>drained the battery</strong>, making maintenance and replacement 
+        difficult and costly for clients.
+      </p>
+      <!-- The Challenge -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+      The Challenge
+      </h2>
+      <h3 style="font-size:1.1rem; font-weight:500; color:#333; margin-bottom:1em;">
+        How can we reduce unnecessary data transmissions without losing valuable insights?
+      </h3>
+  
+      <!-- Image -->
+      <div style="text-align:center; margin:2em 0;">
+        <img src="./assets/kit.png" alt="Zerynth IoT Kit" 
+             style="max-width:80%; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);" />
+      </div>
 
-  <div id="modal-content-zerynth" class="modal-data" style="display:none;">
-    <h2>Zerynth – Optimizing IoT Kit Efficiency</h2>
-    <p>Full project description goes here…</p>
-  </div>
+      <!-- My Approach -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+        My Approach
+      </h2>
+      <p style="font-size:1rem; line-height:1.6; margin-bottom:1.5em;">
+        I analyzed the <strong>power consumption patterns</strong> of 19 machines over long periods 
+        (130–364 days). By <strong>clustering consumption data</strong> into two states — 
+        <span style="color:#2ca02c; font-weight:600;">Active (1)</span> and 
+        <span style="color:#1f77b4; font-weight:600;">Idle/Noise (0)</span> — 
+        I identified when machines were truly producing useful data.  
+        During idle or noisy phases, transmissions could be safely skipped, 
+        significantly reducing unnecessary battery drain.
+      </p>
 
-  <div id="modal-content-bsc" class="modal-data" style="display:none;">
-    <h2>ORC - Android Application for Low-Cost CPM Robot</h2>
-    <p>Details of the project go here…</p>
-  </div>
+      <!-- Impact -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+        The Impact
+      </h2>
+      <ul style="font-size:1rem; line-height:1.6; margin-bottom:1.5em; padding-left:1.2em;">
+        <li>Reduced data transmission rates by up to <strong>35% weekly</strong> and 
+            as high as <strong>40% monthly</strong> for older machines.</li>
+        <li>Extended IoT kit battery life by approximately 
+            <strong>+333 days (≈66.7% longer lifetime)</strong>.</li>
+        <li>Lowered maintenance costs and improved customer experience for industrial clients.</li>
+      </ul>
 
-  <div id="modal-content-other" class="modal-data" style="display:none;">
-    <h2>Another Experience</h2>
-    <p>Optional extra project description.</p>
-  </div>
+      <!-- Charts -->
+      <div style="text-align:center; margin:2em 0;">
+        <img src="./assets/weekly_vs_monthly_reduction.png" alt="Weekly vs Monthly Reduction"
+             style="max-width:90%; margin-bottom:1.5em; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);" />
+        <img src="./assets/battery_life_projection.png" alt="Battery Life Projection"
+             style="max-width:90%; margin-bottom:1.5em; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);" />
+        <img src="./assets/power_consumption_timeline.png" alt="Power Consumption Timeline"
+             style="max-width:90%; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);" />
+      </div>
+
+      <!-- Closing -->
+      <p style="font-size:1rem; line-height:1.6; margin-top:2em; font-style:italic; color:#444;">
+        This project demonstrated the power of combining <strong>data-driven insights</strong> 
+        with <strong>customer-centric thinking</strong> to solve real product challenges 
+        and deliver measurable impact.
+      </p>
+    </div>
+
+    
+    <div id="modal-content-bsc" class="modal-data" style="display:none;">
+      <h2 style="font-size:1.8rem; font-weight:700; margin-bottom:0.5em;">
+        ORC - Android Application for Low-Cost CPM Robot
+      </h2>
+      <h3 style="font-size:1.2rem; font-weight:500; color:#555; margin-bottom:1.5em;">
+        Keep It Low-Cost and Scalable!
+      </h3>
+      <p style="font-size:1rem; line-height:1.6; margin-bottom:1.5em;">
+        At <strong>the Orthopedics Research Center</strong>,
+        I collaborated in a project named <strong>Orthopedic Biometrics</strong> to develop an Android application for 
+        a cost-effective Continuous Passive Motion (CPM) robot for elbow and wrist rehabilitation.
+        At the time, only one French-made CPM rehabilitation robot (Kinetec 6080™) was available in the city at a price of $8,000,
+        limiting accessibility for patients. This engineering team successfully designed a similar robotic device for only $600.
+        However, the initial Android application used to interface between medical input data and 
+        the robot’s microcontroller was extremely basic, lacking usability, scalability and critical features for medical professionals.
+      </p>
+      <!-- The Challenge -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+      The Challenge
+      </h2>
+      <p style="font-size:1rem; line-height:1.6; margin-bottom:1.5em;">
+        The prototype robot needed a usable app for data entry, patient management, and communication with the microcontroller. 
+        The initial app was a raw data transfer tool → no clinical workflow, no patient profiles, no usability.
+      </p>
+       <!-- Research and Discovery -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+        Research & Discovery
+      </h2>
+      <h3>Users Identified:</h3>
+      <ul style="font-size:1rem; line-height:1.6; margin-bottom:1.5em; padding-left:1.2em;">
+      <li>Clinics, hospitals, physiotherapy centers (B2B).</li>
+      <li>Patients for personal use at home (B2C).</li>
+      </ul>
+      <h3>Pain Points:</h3>
+      <ul style="font-size:1rem; line-height:1.6; margin-bottom:1.5em; padding-left:1.2em;">
+        <li>Doctors → needed multi-patient profiles, history tracking, and structured workflows.</li>
+        <li>Patients → needed simple setup, personal progress tracking, and reliable control.</li>
+      </ul>
+       <!-- My approach -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+        My Approach
+      </h2>
+      <h3>Defining the Product (MVP):</h3>
+       <p style="font-size:1rem; line-height:1.6; margin-bottom:1.5em;">
+         I defined the core product features to validate the robot and meet user needs:
+       </p>
+      <ul style="font-size:1rem; line-height:1.6; margin-bottom:1.5em; padding-left:1.2em;">
+        <li>Dual sign-up system: <strong>Clinic/Organization</strong>( manage multiple patients with file numbers )and 
+        <strong>Individual</strong>( single patient use).</li>
+        <li>Profile creation: patient name, ID, DOB, medical history, visit logs, and exercise records.</li>
+        <li>Secure login & data protection</li>
+        <li>Robot data integration: rehabilitation parameters sent directly to the microcontroller.</li>
+      </ul>
+      <h3>Pain Points:</h3>
+      <ul style="font-size:1rem; line-height:1.6; margin-bottom:1.5em; padding-left:1.2em;">
+      <li>Doctors → needed multi-patient profiles, history tracking, and structured workflows.</li>
+      <li>Patients → needed simple setup, personal progress tracking, and reliable control.</li>
+      </ul>
+       <!-- the impact -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+        The Impact
+      </h2>
+      
+      <img src="./assets/bsc-project.png" alt="B.Sc. Project" />
+    </div>
+    
+    <div id="modal-content-other" class="modal-data" style="display:none;">
+      <h2>Another Experience</h2>
+      <p>Optional extra project description.salam this is correct</p>
+      <!-- The Challenge -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+      The Challenge
+      </h2>
+       <!-- My approach -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+        My Approach
+      </h2>
+       <!-- the impact -->
+      <h2 style="font-size:1.4rem; font-weight:600; margin-top:2em; margin-bottom:0.5em;">
+        The Impact
+      </h2>
+    </div>
 
   <!-- Modal Wrapper -->
   <div id="modal" class="modal">
