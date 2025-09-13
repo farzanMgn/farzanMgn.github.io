@@ -76,16 +76,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: transparent;
 }
 
 
 .hero-img {
-  width: 420px;
-  height: auto;
-  object-fit: cover;
-/*   border-radius: 50%;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08); */
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* same as header */
+  border-radius: 50%;
 }
+
 
 
 /* Right */
