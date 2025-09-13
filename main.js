@@ -23,9 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const target = document.getElementById(sectionId);
     if (target) {
       target.classList.add("active");
-      if (!["experience", "about"].includes(sectionId)) {
-        loadMarkdown(sectionId);
-      }
     }
   }
 
