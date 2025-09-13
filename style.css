@@ -84,6 +84,7 @@ body {
   width: 420px;
   height: auto;
   object-fit: cover;
+  border-radius: 50%;
 
 }
 
