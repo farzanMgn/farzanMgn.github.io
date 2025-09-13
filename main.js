@@ -1,32 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".pill");
   const sections = document.querySelectorAll(".content-section");
+  const aboutLinks = document.querySelectorAll(".about-link");
+  const modal = document.getElementById("modal");
+  const modalBody = document.getElementById("modal-body");
+  const closeBtn = modal?.querySelector(".close-btn");
 
-  // Load markdown for About and Contact sections
-  // function loadMarkdown(sectionId) {
-  //   fetch(`./assets/${sectionId}.md`)
-  //     .then((res) => {
-  //       if (!res.ok) throw new Error("Markdown load failed");
-  //       return res.text();
-  //     })
-  //     .then((text) => {
-  //       document.getElementById(sectionId).innerHTML = marked.parse(text);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // }
-
-  // Show one section and hide others
+  // ----------------------------
+  // Utility: Show one section
+  // ----------------------------
   function showSection(sectionId) {
     sections.forEach((s) => s.classList.remove("active"));
     const target = document.getElementById(sectionId);
-    if (target) {
-      target.classList.add("active");
-    }
+    if (target) target.classList.add("active");
   }
 
-  //  look for .pill 
+  // ----------------------------
+  // Utility: Highlight nav pills
+  // ----------------------------
   function highlightNavLink(sectionId) {
     navLinks.forEach((l) => l.classList.remove("active"));
     const active = document.querySelector(`.pill[data-section="${sectionId}"]`);
@@ -34,109 +25,83 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // Initialize on first load
+
+
+  // ----------------------------
+  // Init: Default section
+  // ----------------------------
   showSection("experience");
   highlightNavLink("experience");
 
-  // Navigation click behavior
-  navLinks.forEach((link) => {
+  // ----------------------------
+  // Nav events (top + inline About links)
+  // ----------------------------
+  [...navLinks, ...aboutLinks].forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       const sectionId = link.getAttribute("data-section");
-      showSection(sectionId);
-      highlightNavLink(sectionId);
-    });
-  });
-  const aboutLinks = document.querySelectorAll(".about-link");
-  aboutLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const sectionId = link.getAttribute("data-section");
-      showSection(sectionId);
-      highlightNavLink(sectionId);
+      if (sectionId) {
+        showSection(sectionId);
+        highlightNavLink(sectionId);
+      }
     });
   });
 
-  // Animate project blocks in the experience section
-  // const projectBlocks = document.querySelectorAll('.project-block');
-
-  // if (projectBlocks.length > 0) {
-  //   const observer = new IntersectionObserver((entries) => {
-  //     entries.forEach(entry => {
-  //       if (entry.isIntersecting) {
-  //         entry.target.classList.add('visible');
-  //       } else {
-  //         entry.target.classList.remove('visible');
-  //       }
-  //     });
-  //   }, {
-  //     threshold: 0.4,
-  //   });
-
-  //   projectBlocks.forEach(block => observer.observe(block));
-  // }
-
-
- 
-
-  // ✅ NEW: Animate About section (newspaper style)
-  const articles = document.querySelectorAll('.news-article');
-  const mediaCards = document.querySelectorAll('.media-card');
-  
-  if (articles.length > 0 || mediaCards.length > 0) {
-    const observer2 = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+  // ----------------------------
+  // Intersection Observer (1 shared observer)
+  // ----------------------------
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-
-      });
-    }, { threshold: 0.3 });
-  
-    articles.forEach(article => observer2.observe(article));
-    mediaCards.forEach(card => observer2.observe(card));
-  }
-
-  
-  
-  const modal = document.getElementById("modal");
-  const modalBody = document.getElementById("modal-body");
-  const closeBtn = modal.querySelector(".close-btn");
- 
-  
-  // ✅ NEW: Animate Experience case study cards
-  const caseCards = document.querySelectorAll('.case-card');
-  
-  if (caseCards.length > 0) {
-    const observer3 = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
+          obs.unobserve(entry.target); // animate once
         }
       });
-    }, { threshold: 0.3 });
-  
-    caseCards.forEach(card => observer3.observe(card));
-  }
-  
-  // ✅ NEW: Clickable case study cards → open modal
-  caseCards.forEach(card => {
+    },
+    { threshold: 0.3 }
+  );
+
+  document.querySelectorAll(".news-article, .media-card, .case-card").forEach((el) => {
+    observer.observe(el);
+  });
+
+  // ----------------------------
+  // Case study modals
+  // ----------------------------
+  const caseCards = document.querySelectorAll(".case-card");
+  caseCards.forEach((card) => {
     card.addEventListener("click", () => {
       const modalId = card.getAttribute("data-modal");
       const content = document.getElementById(modalId);
-      if (content) {
+      if (content && modal && modalBody) {
         modalBody.innerHTML = content.innerHTML;
         modal.style.display = "block";
       }
     });
   });
 
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
 
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 
-  // Contact form handler (via Formspree or similar)
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.style.display === "block") {
+      modal.style.display = "none";
+    }
+  });
+
+  // ----------------------------
+  // Contact form handler
+  // ----------------------------
   const contactForm = document.getElementById("contact-form");
   const formMessage = document.getElementById("form-message");
 
@@ -148,18 +113,16 @@ document.addEventListener("DOMContentLoaded", () => {
       fetch(contactForm.action, {
         method: "POST",
         body: formData,
-        headers: {
-          Accept: "application/json"
-        }
+        headers: { Accept: "application/json" },
       })
-        .then(response => {
+        .then((response) => {
           if (response.ok) {
             formMessage.textContent = "Thanks for your message! I'll be in touch.";
+            formMessage.style.color = "#28a745";
             contactForm.reset();
-            formMessage.style.color = "#28a745"; // green
           } else {
             formMessage.textContent = "Oops! Something went wrong. Please try again.";
-            formMessage.style.color = "#dc3545"; // red
+            formMessage.style.color = "#dc3545";
           }
         })
         .catch(() => {
@@ -168,37 +131,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
   }
-  
-  // Modal logic for experience projects
-
-  // // Add click listeners to project blocks
-  // projectBlocks.forEach(block => {
-  //   block.addEventListener("click", () => {
-  //     const modalId = block.getAttribute("data-modal");
-  //     const content = document.getElementById(modalId);
-  //     if (content) {
-  //       modalBody.innerHTML = content.innerHTML; // Pull HTML from hidden div
-  //       modal.style.display = "block";
-  //     }
-  //   });
-  // });
-  
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      modal.style.display = "none";
-    }
-  });
-
-
-  // Close modal when clicking close button
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
-  // Close modal when clicking outside modal content
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
-  });
 });
