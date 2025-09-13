@@ -29,12 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Highlight the active nav link
+  //  look for .pill 
   function highlightNavLink(sectionId) {
     navLinks.forEach((l) => l.classList.remove("active"));
-    const active = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
+    const active = document.querySelector(`.pill[data-section="${sectionId}"]`);
     if (active) active.classList.add("active");
   }
+
 
   // Initialize on first load
   showSection("experience");
