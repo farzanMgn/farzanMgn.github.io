@@ -81,8 +81,10 @@ body {
 
 
 .hero-img {
-  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* same as header */
-  border-radius: 50%;
+  width: 420px;
+  height: auto;
+  object-fit: cover;
+
 }
 
 
