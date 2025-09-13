@@ -3,19 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".content-section");
 
   // Load markdown for About and Contact sections
-  function loadMarkdown(sectionId) {
-    fetch(`./assets/${sectionId}.md`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Markdown load failed");
-        return res.text();
-      })
-      .then((text) => {
-        document.getElementById(sectionId).innerHTML = marked.parse(text);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
+  // function loadMarkdown(sectionId) {
+  //   fetch(`./assets/${sectionId}.md`)
+  //     .then((res) => {
+  //       if (!res.ok) throw new Error("Markdown load failed");
+  //       return res.text();
+  //     })
+  //     .then((text) => {
+  //       document.getElementById(sectionId).innerHTML = marked.parse(text);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // }
 
   // Show one section and hide others
   function showSection(sectionId) {
@@ -87,10 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer2 = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
         }
+
       });
     }, { threshold: 0.3 });
   
@@ -98,6 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
     mediaCards.forEach(card => observer2.observe(card));
   }
 
+  
+  
+  const modal = document.getElementById("modal");
+  const modalBody = document.getElementById("modal-body");
+  const closeBtn = modal.querySelector(".close-btn");
+ 
   
   // ✅ NEW: Animate Experience case study cards
   const caseCards = document.querySelectorAll('.case-card');
@@ -164,9 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   // Modal logic for experience projects
-  const modal = document.getElementById("modal");
-  const modalBody = document.getElementById("modal-body");
-  const closeBtn = modal.querySelector(".close-btn");
 
   // // Add click listeners to project blocks
   // projectBlocks.forEach(block => {
@@ -179,6 +182,13 @@ document.addEventListener("DOMContentLoaded", () => {
   //     }
   //   });
   // });
+  
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      modal.style.display = "none";
+    }
+  });
+
 
   // Close modal when clicking close button
   closeBtn.addEventListener("click", () => {
