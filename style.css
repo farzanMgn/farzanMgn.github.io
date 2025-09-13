@@ -29,9 +29,10 @@ body {
 .hero {
   position: relative;
   background-color: #fff;
-  padding: 80px 40px;
+  padding: 100px 40px;
   display: flex;
   justify-content: center;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 .hero-container {
@@ -76,9 +77,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-  border-radius: 50%;
-  padding: 20px;
 }
 
 .hero-img {
