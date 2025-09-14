@@ -40,7 +40,7 @@ body {
 /* Left */
 .hero-left {
   flex: 1;
-  text-align: right;
+  text-align: center;
 }
 .hero-greeting {
   font-size: 3rem;
