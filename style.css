@@ -22,7 +22,7 @@ body {
 /* ============================== HERO SECTION ============================== */
 .hero {
   position: relative;
-  padding: 10px 40px;
+  padding: 0px 20px;
   display: flex;
   justify-content: center;
   background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
