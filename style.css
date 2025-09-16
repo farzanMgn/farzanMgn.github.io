@@ -25,7 +25,7 @@ body {
   padding: 0px 20px;
   display: flex;
   justify-content: center;
-  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  background: linear-gradient(135deg, #CACDD0 0%, #ebedee 100%);
 }
 
 .hero-container {
