@@ -20,7 +20,83 @@ body {
 }
 
 /* ============================== HERO SECTION ============================== */
+/* ===== HERO (Newspaper Cover Style) ===== */
 .hero {
+  position: relative;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  background: #fdfdfd; /* neutral, like paper */
+  border-bottom: 1px solid #ddd;
+}
+
+.hero-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Left = Byline style */
+.hero-left {
+  flex: 1;
+  text-align: left;
+}
+.hero-greeting {
+  font-size: 2rem;     /* smaller */
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-family: 'Inter', sans-serif;
+}
+.hero-role {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+/* Middle = Portrait photo */
+.hero-photo {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.hero-img {
+  width: 280px;         /* smaller than before */
+  height: auto;
+  border-radius: 6px;
+  filter: grayscale(100%);  /* black & white */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Right = Newspaper Headline */
+.hero-right {
+  flex: 1.2;
+  text-align: left;
+  font-family: 'Playfair Display', serif;
+}
+.hero-detail {
+  margin-bottom: 14px;
+  line-height: 1.4;
+  font-size: 1.1rem;
+  color: #111;
+}
+.hero-detail.highlight {
+  font-weight: 700;
+  font-size: 2rem;      /* big, cover headline */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: 2px solid #222;
+  border-bottom: 2px solid #222;
+  display: inline-block;
+  padding: 6px 0;
+}
+
+/************************************************************/
+/* .hero {
   position: relative;
   padding: 0px 20px;
   display: flex;
@@ -35,10 +111,10 @@ body {
   gap: 40px;
   max-width: 1400px;
   width: 100%;
-}
+} */
 
 /* Left */
-.hero-left {
+/* .hero-left {
   flex: 1;
   text-align: center;
 }
@@ -62,10 +138,10 @@ body {
 }
 .hero-links a:hover {
   color: var(--accent-dark);
-}
+} */
 
 /* Middle */
-.hero-photo {
+/* .hero-photo {
   flex: 1.5;
   display: flex;
   justify-content: center;
@@ -76,10 +152,10 @@ body {
   width: 420px;
   height: auto;
   object-fit: cover;
-}
+} */
 
 /* Right */
-.hero-right {
+/* .hero-right {
   flex: 1;
   font-size: 1rem;
   text-align: left;
@@ -92,6 +168,8 @@ body {
   font-weight: 600;
   font-size: 1.2rem;
 }
+ */
+
 
 /* Pills top right */
 .hero-pills {
