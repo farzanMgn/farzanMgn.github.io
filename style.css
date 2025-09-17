@@ -241,8 +241,10 @@ main {
   font-weight: 500;
 }
 
-.custom-link:hover {
-  opacity: 0.8; /* subtle hover effect */
+.custom-link::after {
+  content: "↗"; /* little arrow */
+  font-size: 0.8em;
+  margin-left: 4px;
 }
 
 .newspaper-grid {
