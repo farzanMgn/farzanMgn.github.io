@@ -289,7 +289,7 @@ main {
 }
 .media-card video {
   width: 100%;
-  height: 160px;     /* adjust to make it shorter */
+  height: 200px;     /* adjust to make it shorter */
   object-fit: cover; /* keeps it cropped nicely */
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
