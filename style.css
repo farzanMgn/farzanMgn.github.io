@@ -433,6 +433,15 @@ main {
   font-size: 0.9rem;
   color: #444;
 }
+/* Sidebar photo */
+.sidebar-photo {
+  width: 100%;          /* always matches sidebar width */
+  height: auto;         /* keeps proportions */
+  border-radius: 8px;   /* soft corners */
+  margin-bottom: 15px;  /* space below photo */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* subtle depth */
+}
+
 
 /* Responsive About */
 @media (max-width: 992px) {
