@@ -234,6 +234,17 @@ main {
 }
 
 /* ============================== ABOUT (Newspaper Layout) ============================== */
+.custom-link {
+  color: inherit; /* same color as surrounding text */
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor; /* dotted underline */
+  font-weight: 500;
+}
+
+.custom-link:hover {
+  opacity: 0.8; /* subtle hover effect */
+}
+
 .newspaper-grid {
   display: grid;
   grid-template-columns: 2fr 1.5fr 1fr; 
