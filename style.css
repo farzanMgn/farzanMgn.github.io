@@ -20,80 +20,103 @@ body {
 }
 
 /* ============================== HERO SECTION ============================== */
-/* ===== HERO (Newspaper Cover Style) ===== */
+/* ===== HERO (Magazine Cover Style) ===== */
 .hero {
   position: relative;
-  padding: 40px 20px;
+  padding: 60px 20px;
   display: flex;
   justify-content: center;
-  background: #fdfdfd; /* neutral, like paper */
-  border-bottom: 1px solid #ddd;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  overflow: hidden;
 }
 
 .hero-container {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
   max-width: 1200px;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
-/* Left = Byline style */
+/* Left = Magazine headline */
 .hero-left {
   flex: 1;
-  text-align: left;
+  position: relative;
+  z-index: 3; /* ensures text overlaps photo */
 }
 .hero-greeting {
-  font-size: 2rem;     /* smaller */
-  font-weight: 600;
-  margin-bottom: 10px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Playfair Display', serif; /* more “editorial” */
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  color: #111;
+}
+.hero-greeting .accent {
+  color: var(--accent);
 }
 .hero-role {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 25px;
   color: #444;
-  margin-bottom: 15px;
-  font-style: italic;
 }
 
-/* Middle = Portrait photo */
+/* Social Links (keep accent color) */
+.hero-links a {
+  color: var(--accent);
+  font-size: 1.5rem;
+  margin-right: 16px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.hero-links a:hover {
+  color: var(--accent-dark);
+  transform: scale(1.1);
+}
+
+/* Middle = Portrait photo, partly overlapped */
 .hero-photo {
-  flex: 0.8;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex: 1.2;
+  position: relative;
 }
 .hero-img {
-  width: 280px;         /* smaller than before */
+  width: 360px;
   height: auto;
-  border-radius: 6px;
-  filter: grayscale(100%);  /* black & white */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  object-fit: cover;
+  border-radius: 12px;
+  filter: grayscale(100%);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  margin-left: -40px; /* text overlap */
+  z-index: 1;
 }
 
-/* Right = Newspaper Headline */
+/* Right = Editorial tagline */
 .hero-right {
-  flex: 1.2;
-  text-align: left;
+  flex: 1;
   font-family: 'Playfair Display', serif;
+  text-align: left;
 }
 .hero-detail {
-  margin-bottom: 14px;
-  line-height: 1.4;
   font-size: 1.1rem;
-  color: #111;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  color: #333;
 }
 .hero-detail.highlight {
   font-weight: 700;
-  font-size: 2rem;      /* big, cover headline */
+  font-size: 1.6rem;
+  color: var(--accent-darker);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  border-top: 2px solid #222;
-  border-bottom: 2px solid #222;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid var(--accent);
   display: inline-block;
-  padding: 6px 0;
+  padding-bottom: 4px;
 }
+
 
 /************************************************************/
 /* .hero {
