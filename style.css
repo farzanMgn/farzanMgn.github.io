@@ -23,7 +23,7 @@ body {
 /* ===== HERO (Magazine Cover Style) ===== */
 .hero {
   position: relative;
-  padding: 0px 20px;
+  padding: 60px 20px 0;
   display: flex;
   justify-content: center;
   background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
@@ -83,6 +83,8 @@ body {
 /*   box-shadow: 0 8px 30px rgba(0,0,0,0.15); */
   margin-left: -40px; /* text overlap */
   z-index: 1;
+  margin-bottom: 0; /* ensure no space under */
+  display: block;   
 }
 
 /* Right = Editorial tagline */
