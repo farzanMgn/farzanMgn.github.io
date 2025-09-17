@@ -66,17 +66,7 @@ body {
   color: #444;
 }
 
-/* Social Links (keep accent color) */
-.hero-links a {
-  color: var(--accent);
-  font-size: 1.5rem;
-  margin-right: 16px;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-.hero-links a:hover {
-  color: var(--accent-dark);
-  transform: scale(1.1);
-}
+
 
 /* Middle = Portrait photo, partly overlapped */
 .hero-photo {
@@ -117,6 +107,22 @@ body {
   display: inline-block;
   padding-bottom: 4px;
 }
+/* Social Links (keep accent color) */
+.hero-links {
+  margin-top: 15px;    /* space under “Based in Alexandria” */
+  text-align: left;    /* align with the text on the right */
+}
+.hero-links a {
+  color: var(--accent);
+  font-size: 1.5rem;
+  margin-right: 16px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.hero-links a:hover {
+  color: var(--accent-dark);
+  transform: scale(1.1);
+}
+
 
 
 /************************************************************/
