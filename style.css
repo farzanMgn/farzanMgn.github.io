@@ -424,6 +424,7 @@ main {
   text-align: center;
 }
 .sidebar-box h3 {
+  color: var(--accent-dark);
   font-size: 1.1rem;
   margin-bottom: 8px;
   font-family: 'Playfair Display', serif;
