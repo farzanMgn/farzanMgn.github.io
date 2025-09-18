@@ -434,13 +434,17 @@ main {
   font-size: 0.9rem;
   color: #444;
 }
-/* Sidebar photo */
+
+/* Sidebar photos (uniform size) */
 .sidebar-photo {
-  width: 100%;          /* always matches sidebar width */
-  height: auto;         /* keeps proportions */
-  border-radius: 8px;   /* soft corners */
-  margin-bottom: 15px;  /* space below photo */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* subtle depth */
+  width: 100%;             /* scale with sidebar width */
+  max-width: 180px;        /* fixed maximum width */
+  height: 220px;           /* fixed height (adjust to match listening.jpg) */
+  object-fit: cover;       /* crop to fill without distortion */
+  border-radius: 8px;
+  margin: 0 auto 15px auto;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 
