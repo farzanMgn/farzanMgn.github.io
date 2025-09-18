@@ -421,6 +421,7 @@ main {
   padding: 15px;
   border-left: 3px solid #ccc;
   font-size: 0.9rem;
+  text-align: center;
 }
 .sidebar-box h3 {
   font-size: 1.1rem;
