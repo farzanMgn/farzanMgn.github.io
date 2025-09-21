@@ -79,7 +79,7 @@ body {
   height: auto;
   object-fit: cover;
 /*   border-radius: 12px; */
-  filter: grayscale(100%);
+/*   filter: grayscale(100%); */
 /*   box-shadow: 0 8px 30px rgba(0,0,0,0.15); */
   margin-left: -40px; /* text overlap */
   z-index: 1;
