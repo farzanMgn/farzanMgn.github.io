@@ -20,10 +20,9 @@ body {
 }
 
 /* ============================== HERO SECTION ============================== */
-/* ===== HERO (Magazine Cover Style) ===== */
 .hero {
   position: relative;
-  padding: 60px 20px 0;
+  padding: 60px 20px 0; 
   display: flex;
   justify-content: center;
   background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
@@ -41,14 +40,13 @@ body {
   z-index: 2;
 }
 
-/* Left = Magazine headline */
 .hero-left {
   flex: 1;
   position: relative;
-  z-index: 3; /* ensures text overlaps photo */
+  z-index: 3;
 }
 .hero-greeting {
-  font-family: 'Playfair Display', serif; /* more “editorial” */
+  font-family: 'Playfair Display', serif;
   font-size: 3.2rem;
   font-weight: 700;
   line-height: 1.1;
@@ -66,9 +64,6 @@ body {
   color: #444;
 }
 
-
-
-/* Middle = Portrait photo, partly overlapped */
 .hero-photo {
   flex: 1.2;
   position: relative;
@@ -78,16 +73,12 @@ body {
   width: 360px;
   height: auto;
   object-fit: cover;
-/*   border-radius: 12px; */
-/*   filter: grayscale(100%); */
-/*   box-shadow: 0 8px 30px rgba(0,0,0,0.15); */
-  margin-left: -40px; /* text overlap */
-  z-index: 1;
-  margin-bottom: 0; /* ensure no space under */
+  margin-left: -40px; /* CHANGED: overlap effect */
+  transform: translateX(-40px); /* NEW: better scaling */
+  margin-bottom: 0;
   display: block;   
 }
 
-/* Right = Editorial tagline */
 .hero-right {
   flex: 1;
   font-family: 'Playfair Display', serif;
@@ -109,10 +100,9 @@ body {
   display: inline-block;
   padding-bottom: 4px;
 }
-/* Social Links (keep accent color) */
 .hero-links {
-  margin-top: 15px;    /* space under “Based in Alexandria” */
-  text-align: left;    /* align with the text on the right */
+  margin-top: 15px;
+  text-align: left;
 }
 .hero-links a {
   color: var(--accent);
@@ -120,90 +110,13 @@ body {
   margin-right: 16px;
   transition: color 0.3s ease, transform 0.2s ease;
 }
-.hero-links a:hover {
+.hero-links a:hover,
+.hero-links a:focus { /* NEW: focus state */
   color: var(--accent-dark);
   transform: scale(1.1);
 }
 
-
-
-/************************************************************/
-/* .hero {
-  position: relative;
-  padding: 0px 20px;
-  display: flex;
-  justify-content: center;
-  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-}
-
-.hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  max-width: 1400px;
-  width: 100%;
-} */
-
-/* Left */
-/* .hero-left {
-  flex: 1;
-  text-align: center;
-}
-.hero-greeting {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-.hero-greeting .accent {
-  color: var(--accent);
-}
-.hero-role {
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-}
-.hero-links a {
-  color: var(--accent);
-  font-size: 1.5rem;
-  margin-left: 12px;
-  transition: color 0.3s ease;
-}
-.hero-links a:hover {
-  color: var(--accent-dark);
-} */
-
-/* Middle */
-/* .hero-photo {
-  flex: 1.5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-}
-.hero-img {
-  width: 420px;
-  height: auto;
-  object-fit: cover;
-} */
-
-/* Right */
-/* .hero-right {
-  flex: 1;
-  font-size: 1rem;
-  text-align: left;
-}
-.hero-detail {
-  margin-bottom: 14px;
-  line-height: 1.6;
-}
-.hero-detail.highlight {
-  font-weight: 600;
-  font-size: 1.2rem;
-}
- */
-
-
-/* Pills top right */
+/* ============================== NAV PILLS ============================== */
 .hero-pills {
   position: absolute;
   top: 25px;
@@ -223,14 +136,13 @@ body {
 .pill:hover {
   background-color: var(--accent-dark);
 }
-.pill.active {
-  background-color: var(--accent-darker);
-}
-.pill:focus {
+.pill:focus { /* NEW: accessibility */
   outline: 2px solid var(--accent-dark);
   outline-offset: 2px;
 }
-
+.pill.active {
+  background-color: var(--accent-darker);
+}
 
 /* Responsive Hero */
 @media (max-width: 768px) {
@@ -238,6 +150,10 @@ body {
     flex-direction: column;
     text-align: center;
     gap: 30px;
+  }
+  .hero-img {
+    transform: none; /* NEW: remove overlap on mobile */
+    margin-left: 0;
   }
 }
 
@@ -259,6 +175,15 @@ main {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section titles (Experiences, Contact) */ /* NEW */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--accent-darker);
 }
 
 /* ============================== EXPERIENCE (Case Studies) ============================== */
@@ -341,7 +266,6 @@ main {
   line-height: 1.6;
 }
 
-/* Responsive Experience */
 @media (max-width: 768px) {
   .case-grid {
     grid-template-columns: 1fr;
@@ -350,14 +274,13 @@ main {
 
 /* ============================== ABOUT (Newspaper Layout) ============================== */
 .custom-link {
-  color: inherit; /* same color as surrounding text */
+  color: inherit;
   text-decoration: none;
-  border-bottom: 1px dotted currentColor; /* dotted underline */
+  border-bottom: 1px dotted currentColor;
   font-weight: 500;
 }
-
 .custom-link::after {
-  content: "↗"; /* little arrow */
+  content: "↗";
   font-size: 0.8em;
   margin-left: 4px;
 }
@@ -396,21 +319,13 @@ main {
   transform: translateY(0);
 }
 
-.media-card img {
+.media-card img,
+.media-card video {
   width: 100%;
   border-radius: 8px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
   object-fit: cover;
 }
-
-.media-card video {
-  width: 100%;
-/*   height: 200px;      */
-  object-fit: cover; 
-  border-radius: 8px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-}
-
 .media-card {
   opacity: 0;
   transform: translateX(100px);
@@ -434,27 +349,27 @@ main {
   margin-bottom: 8px;
   font-family: 'Playfair Display', serif;
 }
-.sidebar-box p, 
-.sidebar-box ul {
+.sidebar-box p {
   margin: 0 0 10px 0;
   font-size: 0.9rem;
   color: #444;
 }
 
-/* Sidebar photos (uniform size) */
 .sidebar-photo {
-  width: 100%;             /* scale with sidebar width */
-  max-width: 180px;        /* fixed maximum width */
-  height: 220px;           /* fixed height (adjust to match listening.jpg) */
-  object-fit: cover;       /* crop to fill without distortion */
+  width: 100%;
+  max-width: 180px;
+  height: 220px;
+  object-fit: cover;
   border-radius: 8px;
   margin: 0 auto 15px auto;
   display: block;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+@media (max-width: 768px) {
+  .sidebar-photo { height: 160px; } /* NEW: smaller on mobile */
+}
 
-/* Responsive About */
 @media (max-width: 992px) {
   .newspaper-grid {
     grid-template-columns: 1fr;
@@ -483,7 +398,7 @@ main {
 }
 #contact-form input:focus,
 #contact-form textarea:focus {
-  border-color: #666;
+  border-color: var(--accent-dark); /* CHANGED: better focus color */
   outline: none;
 }
 #contact-form button {
@@ -497,13 +412,13 @@ main {
   transition: background 0.3s ease;
   width: fit-content;
 }
-#contact-form button:hover {
+#contact-form button:hover,
+#contact-form button:focus { /* NEW: focus */
   background-color: var(--accent-dark);
 }
 .form-message {
   margin-top: 20px;
   font-size: 0.95rem;
-  color: #28a745;
 }
 
 /* ============================== FOOTER ============================== */
@@ -520,7 +435,8 @@ footer {
   font-size: 1.2rem;
   transition: color 0.3s ease;
 }
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-links a:focus { /* NEW: accessibility */
   color: var(--accent);
 }
 
@@ -535,6 +451,10 @@ footer {
   background-color: rgba(0, 0, 0, 0.6); 
   animation: fadeIn 0.3s ease; 
 } 
+.modal.hide { /* NEW: fade-out animation */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 .modal-content { 
   background-color: #fff; 
   margin: 80px auto; 
@@ -556,13 +476,13 @@ footer {
   margin-bottom: 20px; 
   font-size: 1rem; 
   color: #444; 
-  line-height: 1.7; 
+  line-height: 1.8; /* CHANGED: better readability */
 } 
 .modal-content img { 
   max-width: 100%; 
   border-radius: 10px; 
   margin-bottom: 20px; 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
 } 
 .close-btn { 
   position: absolute; 
@@ -573,7 +493,8 @@ footer {
   cursor: pointer; 
   transition: color 0.3s ease; 
 }
-.close-btn:hover { 
+.close-btn:hover,
+.close-btn:focus { /* NEW */
   color: #000; 
 }
 #modal-body {
