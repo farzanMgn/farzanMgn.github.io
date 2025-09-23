@@ -91,7 +91,7 @@ body {
 /* Right = Editorial tagline */
 .hero-right {
   flex: 1;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', serif;
   text-align: left;
 }
 .hero-detail {
