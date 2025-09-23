@@ -582,11 +582,11 @@ footer {
 }
 
 .modal-card-image figcaption {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: #555;
   margin-top: 6px;
-  text-align: center;
-  font-style: italic;
+  text-align: left;
+  font-style: bold italic;
 }
 
 /* Right text */
