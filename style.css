@@ -31,27 +31,28 @@ body {
   overflow: hidden;
 }
 
-
 .hero-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 40px;
+  justify-content: space-between; /* CHANGED: better spacing */
+  gap: 20px; /* smaller gap */
   max-width: 1200px;
+  margin: 0 auto;
   width: 100%;
 }
+
 
 
 /* Middle = Portrait photo, partly overlapped */
 .hero-photo {
-  flex: 2;
+  flex: 3;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   background: transparent; 
 }
 .hero-img {
   width: 100%;
-  max-width: 500px; /* adjust based on how large you want it */
+  max-width: 650px;  /* adjust based on how large you want it */
   height: auto;
   object-fit: cover;
   display: block;
@@ -61,7 +62,7 @@ body {
 
 /* Right = Editorial tagline */
 .hero-right {
-  flex: 1;
+  flex: 2;
   font-family: 'Work Sans', serif;
   text-align: left;
 }
