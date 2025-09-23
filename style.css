@@ -42,10 +42,10 @@ body {
 }
 
 /* Left = Magazine headline */
-.hero-left {
+/* .hero-left {
   flex: 1;
   position: relative;
-  z-index: 3; /* ensures text overlaps photo */
+  z-index: 3; 
 }
 .hero-greeting {
  
@@ -65,7 +65,7 @@ body {
   font-family: 'Work Sans', sans-serif;
   margin-bottom: 25px;
   color: #444;
-}
+} */
 
 
 
