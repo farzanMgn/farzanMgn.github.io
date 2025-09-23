@@ -226,6 +226,11 @@ body {
 .pill.active {
   background-color: var(--accent-darker);
 }
+.pill:focus {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 2px;
+}
+
 
 /* Responsive Hero */
 @media (max-width: 768px) {
