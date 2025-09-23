@@ -21,6 +21,7 @@ body {
 
 /* ============================== HERO SECTION ============================== */
 /* ===== HERO (Magazine Cover Style) ===== */
+
 .hero {
   position: relative;
   padding: 60px 20px 0;
@@ -30,6 +31,7 @@ body {
   overflow: hidden;
 }
 
+
 .hero-container {
   display: flex;
   align-items: center;
@@ -37,56 +39,25 @@ body {
   gap: 40px;
   max-width: 1200px;
   width: 100%;
-  position: relative;
-  z-index: 2;
 }
-
-/* Left = Magazine headline */
-/* .hero-left {
-  flex: 1;
-  position: relative;
-  z-index: 3; 
-}
-.hero-greeting {
- 
-  font-family: 'Work Sans', serif;
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 15px;
-  color: #111;
-}
-.hero-greeting .accent {
-  color: var(--accent);
-}
-.hero-role {
-  font-size: 1.5rem;
-  font-weight: 400;
-  font-family: 'Work Sans', sans-serif;
-  margin-bottom: 25px;
-  color: #444;
-} */
-
 
 
 /* Middle = Portrait photo, partly overlapped */
 .hero-photo {
-  flex: 1.2;
-  position: relative;
+  flex: 2;
+  display: flex;
+  justify-content: center;
   background: transparent; 
 }
 .hero-img {
-  width: 360px;
+  width: 100%;
+  max-width: 500px; /* adjust based on how large you want it */
   height: auto;
   object-fit: cover;
-/*   border-radius: 12px; */
-/*   filter: grayscale(100%); */
-/*   box-shadow: 0 8px 30px rgba(0,0,0,0.15); */
-  margin-left: -40px; /* text overlap */
-  z-index: 1;
-  margin-bottom: 0; /* ensure no space under */
-  display: block;   
+  display: block;
+  margin-bottom: 0; 
 }
+
 
 /* Right = Editorial tagline */
 .hero-right {
@@ -94,6 +65,17 @@ body {
   font-family: 'Work Sans', serif;
   text-align: left;
 }
+.hero-greeting {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-role {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
 .hero-detail {
   font-size: 1.1rem;
   margin-bottom: 12px;
@@ -232,12 +214,20 @@ h1, h2, h3, .hero-greeting {
 }
 
 
+
 /* Responsive Hero */
 @media (max-width: 768px) {
   .hero-container {
     flex-direction: column;
     text-align: center;
     gap: 30px;
+  }
+   .hero-photo, .hero-right {
+    flex: 1;
+  }
+
+  .hero-img {
+    max-width: 100%;
   }
 }
 
