@@ -35,7 +35,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between; /* CHANGED: better spacing */
-  gap: 18px; /* smaller gap */
+  gap: 23px; /* smaller gap */
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
