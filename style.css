@@ -561,16 +561,17 @@ footer {
   gap: 20px;
   align-items: flex-start;
 }
-.modal-card-banner {
-  background-color: #000;     /* Black background */
+.modal-card-header {
+  background-color: #000;     /* Black header */
   color: #fff;                /* White text */
-  padding: 10px 15px;         /* Spacing inside */
-  text-align: center;         /* Center the text */
-  border-top-left-radius: 8px;  /* Match your card rounding if any */
-  border-top-right-radius: 8px;
-  font-size: 1.1rem;
+  padding: 15px;              /* Some breathing room */
+  font-size: 1.2rem;
   font-weight: 600;
+  text-align: center;         /* Center the title */
+  border-top-left-radius: 8px;  /* Match card corner radius */
+  border-top-right-radius: 8px;
 }
+
 
 /* Left image */
 .modal-card-image {
