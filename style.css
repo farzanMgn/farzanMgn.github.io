@@ -515,39 +515,32 @@ footer {
 }
 
 /* ============================== MODAL ============================== */
-
 .modal { 
   display: none; 
   position: fixed; 
   z-index: 2000; 
-  left: 0; top: 0; 
-  width: 100%; height: 100%; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
   overflow-y: auto; 
   background-color: rgba(0, 0, 0, 0.6); 
   animation: fadeIn 0.3s ease; 
 } 
+
 .modal-content { 
-  background-color: #fff; 
+  background-color: transparent;   /* no background so header can go edge-to-edge */
   margin: 80px auto; 
-  padding: 30px; 
+  padding: 0;                      /* remove default padding */
   border-radius: 12px; 
   max-width: 1200px; 
   width: 95%; 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+  box-shadow: none;                /* card itself will have shadow */
   animation: slideUp 0.3s ease; 
   position: relative; 
-} 
-.modal-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden; /* keeps header + body edges aligned */
-  background: #fff;
-  width: 100%;          /* ensures card spans its container */
-  max-width: 1200px;     /* optional: limit max size */
-  margin: 0 auto;
 }
 
-/* Black header */
+/* Full-width Black Header */
 .modal-card-header {
   background-color: #000;
   color: #fff;
@@ -555,6 +548,24 @@ footer {
   font-size: 1.4rem;
   font-weight: 600;
   text-align: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* White card body */
+.modal-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: none;                /* so header and body join seamlessly */
+  border-radius: 0 0 12px 12px;    /* rounded only at bottom */
+  overflow: hidden;
+  width: 100%;          
+  max-width: 1200px;     
+  margin: 0 auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Body split */
@@ -563,16 +574,13 @@ footer {
   align-items: flex-start;
   gap: 20px;
   padding: 20px;
-}
-.modal-card-header,
-.modal-card-body {
-  width: 100%;          /* both stretch same as card */
+  width: 100%;
   box-sizing: border-box;
 }
 
 /* Left side (image) */
 .modal-card-image {
-  flex: 0 0 40%; /* image column takes 40% */
+  flex: 0 0 40%; 
 }
 .modal-card-image img {
   width: 100%;
@@ -586,37 +594,6 @@ footer {
   color: #555;
 }
 
-/* Right side (text) */
-.modal-card-content {
-  flex: 1;
-}
-
-
-/* .modal-content h2 { 
-  margin-bottom: 15px; 
-  font-size: 1.5rem; 
-  font-weight: 700; 
-  color: var(--accent);
-} 
-.modal-content p { 
-  margin-bottom: 20px; 
-  font-size: 1rem; 
-  color: #444; 
-  line-height: 1.7; 
-} 
-.modal-content img { 
-  max-width: 100%; 
-  border-radius: 10px; 
-  margin-bottom: 20px; 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-}  */
-/* Split modal card layout */
-
-
-
-
-
-
 .modal-card-image figure {
   margin: 0;
   display: flex;
@@ -624,49 +601,53 @@ footer {
   align-items: center;
 }
 
-
-
+/* Right side (text) */
+.modal-card-content {
+  flex: 1;
+}
 .modal-card-content h3 {
   margin-top: 0;
   margin-bottom: 12px;
   font-size: 1.3rem;
   font-weight: 600;
 }
-
 .modal-card-content p {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: #333;
 }
 
 /* Responsive (stack vertically on small screens) */
 @media (max-width: 768px) {
-  .modal-card {
+  .modal-card-body {
     flex-direction: column;
   }
-
   .modal-card-image {
     max-width: 100%;
   }
 }
 
+/* Close button */
 .close-btn { 
   position: absolute; 
-  top: 20px; right: 30px; 
+  top: 20px; 
+  right: 30px; 
   font-size: 1.8rem; 
   font-weight: bold; 
-  color: #666; 
+  color: #fff;                  /* white so it’s visible on black header */
   cursor: pointer; 
   transition: color 0.3s ease; 
 }
 .close-btn:hover { 
-  color: #000; 
+  color: #ccc; 
 }
+
 #modal-body {
   max-height: 70vh; 
   overflow-y: auto;
   padding-right: 10px; 
 }
+
 @keyframes slideUp {
   from { transform: translateY(50px); opacity: 0; } 
   to { transform: translateY(0); opacity: 1; } 
