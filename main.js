@@ -70,40 +70,34 @@ document.addEventListener("DOMContentLoaded", () => {
   // Case study modals
   // ----------------------------
   const caseCards = document.querySelectorAll(".case-card");
-  const modals = document.querySelectorAll(".modal");
-  const closeButtons = document.querySelectorAll(".close-btn");
-  
-  // Open modal on card click
   caseCards.forEach((card) => {
     card.addEventListener("click", () => {
       const modalId = card.getAttribute("data-modal");
-      const modal = document.getElementById(modalId);
-      if (modal) {
+      const content = document.getElementById(modalId);
+      if (content && modal && modalBody) {
+        modalBody.innerHTML = content.innerHTML;
         modal.style.display = "block";
       }
     });
   });
-  
-  // Close when clicking "×"
-  closeButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const modal = btn.closest(".modal");
-      if (modal) {
-        modal.style.display = "none";
-      }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
     });
-  });
-  // Close on ESC key
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      modals.forEach((modal) => {
-        if (modal.style.display === "block") {
-          modal.style.display = "none";
-        }
-      });
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
     }
   });
 
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.style.display === "block") {
+      modal.style.display = "none";
+    }
+  });
 
   // ----------------------------
   // Contact form handler
