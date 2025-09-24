@@ -524,24 +524,22 @@ footer {
   width: 100%;
   height: 100%;
   background-color: #fff;   /* white full background */
-  overflow-y: auto;         /* scrolls like a page */
+  overflow-y: auto;
 }
 
 .modal.dark {
-  background-color: #000;   /* dark mode full background */
+  background-color: #000;
   color: #fff;
 }
 
 .modal-content {
   width: 100%;
-  min-height: 100vh;   /* fill the whole screen vertically */
+  min-height: 100vh; /* fills screen */
   margin: 0;
-  padding: 0;          /* remove padding so banner touches top */
+  padding: 40px;     /* breathing room */
   border-radius: 0;
   box-shadow: none;
-  background: inherit; /* same as modal background */
-  display: flex;
-  flex-direction: column;
+  background: inherit; /* inherit white/black from .modal */
 }
 
 .modal.dark .modal-card-content h3,
