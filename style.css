@@ -580,7 +580,7 @@ footer {
 
 /* Left side (image) */
 .modal-card-image {
-  flex: 0 0 40%; 
+  flex: 0 0 30%; 
 }
 .modal-card-image img {
   width: 100%;
