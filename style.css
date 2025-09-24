@@ -598,14 +598,14 @@ footer {
   display: flex;
   align-items: flex-start;
   gap: 60px;
-  padding: 40px,40px,40px,40px;
+  padding: 40px 40px 40px 40px;
   width: 100%;
   box-sizing: border-box;
 }
 
 /* Left side (image) */
 .modal-card-image {
-  flex: 0 0 20%; 
+  flex: 0 0 40%; 
   max-width: 200px;
 }
 .modal-card-image img {
@@ -630,7 +630,7 @@ footer {
 /* Right side (text) */
 .modal-card-content {
   flex: 1;
-  padding-right: 20px;   /* add breathing room on the right */
+  padding-right: 40px;   /* add breathing room on the right */
   text-align: justify; 
   flex: 1;
 }
