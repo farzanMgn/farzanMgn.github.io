@@ -563,8 +563,8 @@ footer {
 }
 
 .modal-card-header video {
-  max-width: 80%;    /* keep video inside header */
-  max-height: 150px; /* limit height */
+  max-height: 250px; /* bigger than before */
+  width: auto;
   border-radius: 8px; /* optional */
   margin-bottom: 12px; /* space between video and text */
 }
