@@ -591,7 +591,12 @@ footer {
   max-width: 1200px;     
   margin: 0 auto;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+  min-height: 85vh;                /* 👈 ensures modal card takes 70% of screen height */
+  display: flex;
+  flex-direction: column;
 }
+
 
 /* Body split */
 .modal-card-body {
