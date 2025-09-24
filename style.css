@@ -542,6 +542,9 @@ footer {
   border-radius: 8px;
   overflow: hidden; /* keeps header + body edges aligned */
   background: #fff;
+  width: 100%;          /* ensures card spans its container */
+  max-width: 1200px;     /* optional: limit max size */
+  margin: 0 auto;
 }
 
 /* Black header */
@@ -560,6 +563,11 @@ footer {
   align-items: flex-start;
   gap: 20px;
   padding: 20px;
+}
+.modal-card-header,
+.modal-card-body {
+  width: 100%;          /* both stretch same as card */
+  box-sizing: border-box;
 }
 
 /* Left side (image) */
