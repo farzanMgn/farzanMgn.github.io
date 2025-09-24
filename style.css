@@ -656,14 +656,14 @@ footer {
   display: flex;
   justify-content: center;    /* center the row */
   gap: 30px;                  /* space between notes */
-  margin: 40px auto;          /* spacing above/below */
+  margin: 10px auto;          /* spacing above/below */
   flex-wrap: wrap;            /* wrap to next row */
 }
 
 .modal-card-notes img {
   flex: 1 1 calc(50% - 30px); /* 👈 2 per row, minus the gap */
-  max-width: 400px;           /* allow them to be nice and big */
-  min-width: 300px;           /* don’t shrink too small */
+  max-width: 420px;           /* allow them to be nice and big */
+  min-width: 320px;           /* don’t shrink too small */
   height: auto;               /* keep proportions */
   display: block;
 }
