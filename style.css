@@ -515,6 +515,19 @@ footer {
 }
 
 /* ============================== MODAL ============================== */
+
+
+/* remove height restriction inside */
+#modal-body {
+  max-height: none;   /* let it grow with modal */
+  overflow-y: visible;
+  padding-right: 10px; 
+}
+
+
+
+
+/////
 .modal { 
   display: none; 
   position: fixed; 
@@ -529,18 +542,19 @@ footer {
 } 
 
 .modal-content { 
-  background-color: transparent;   /* no background so header can go edge-to-edge */
-  margin: 80px auto; 
-  padding: 0;                      /* remove default padding */
+  background-color: transparent;   
+  margin: 20px auto;              /* reduce margin so modal can fill height */
+  padding: 0;                      
   border-radius: 12px; 
   max-width: 1200px; 
-  min-height: 95vh;
+  min-height: 95vh;               /* almost full viewport height */
   width: 95%; 
-  box-shadow: none;                /* card itself will have shadow */
+  box-shadow: none;                
   animation: slideUp 0.3s ease; 
   position: relative; 
+  display: flex;
+  flex-direction: column;
 }
-
 
 
 
@@ -581,20 +595,20 @@ footer {
 
 
 /* White card body */
+
 .modal-card {
+  flex: 1;                        /* stretch to fill modal-content */
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border: 1px solid #ddd;
-  border-top: none;                /* so header and body join seamlessly */
-  border-radius: 0 0 12px 12px;    /* rounded only at bottom */
+  border-top: none;                
+  border-radius: 0 0 12px 12px;    
   overflow: hidden;
   width: 100%;          
   max-width: 1200px;     
   margin: 0 auto;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-
-  min-height: 85vh;                /* 👈 ensures modal card takes 70% of screen height */
-  display: flex;
-  flex-direction: column;
 }
 
 
