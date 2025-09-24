@@ -550,7 +550,7 @@ footer {
   color: #fff;
   padding: 20px;
   display: flex;
-  font-size: 1.4rem;
+  flex-direction: column;   /* stack video + text */
   justify-content: center;
   align-items: center;
   font-weight: 600;
@@ -561,11 +561,19 @@ footer {
   width: 100%;
   box-sizing: border-box;
 }
+
 .modal-card-header video {
-  max-width: 80%;   /* keep video inside header */
-  max-height: 150px; /* control header height */
-  border-radius: 8px; /* optional, if you want rounded corners */
+  max-width: 80%;    /* keep video inside header */
+  max-height: 150px; /* limit height */
+  border-radius: 8px; /* optional */
+  margin-bottom: 12px; /* space between video and text */
 }
+
+.modal-card-header h3 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
 
 /* White card body */
 .modal-card {
