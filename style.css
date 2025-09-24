@@ -614,7 +614,7 @@ footer {
 }
 .modal-card-image figcaption {
   font-size: 1rem;
-  text-align: center;
+  text-align: left;
   margin-top: 8px;
   color: #555;
 }
@@ -629,6 +629,9 @@ footer {
 /* Right side (text) */
 .modal-card-content {
   flex: 1;
+  padding-right: 30px;   /* add breathing room on the right */
+  text-align: justify; 
+  flex: 1;
 }
 .modal-card-content h3 {
   margin-top: 0;
@@ -638,9 +641,13 @@ footer {
 }
 .modal-card-content p {
   font-size: 1.3rem;
-  line-height: 1.6;
+  line-height: 1.7;      /* good readability */
+  margin-bottom: 16px;   /* even spacing between paragraphs */
+  text-align: justify;   /* aligns both left & right edges */
+  hyphens: auto;         /* breaks long words cleanly if needed */
   color: #333;
 }
+
 
 /* Responsive (stack vertically on small screens) */
 @media (max-width: 768px) {
