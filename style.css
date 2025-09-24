@@ -650,6 +650,47 @@ footer {
 }
 
 
+.modal-card-notes {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;   /* ensures equal height */
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.modal-card-notes .note {
+  flex: 1;
+  padding: 20px;
+  background: #fff7cc;  /* sticky-note yellow */
+  border: 2px solid #f0d36d;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column; /* stack headline and text */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Headline inside each note */
+.note-headline {
+  font-size: 0.9rem;        /* smaller than text */
+  font-weight: 500;
+  color: #777;              /* soft grey */
+  margin-bottom: 8px;       /* spacing before main text */
+  font-family: inherit;     /* keep consistent with site */
+}
+
+/* Main text inside each note */
+.note-text {
+  font-size: 1.1rem;        /* larger than headline */
+  font-weight: 600;
+  color: #333;
+  font-family: inherit;
+}
+
+
+
 /* Responsive (stack vertically on small screens) */
 @media (max-width: 768px) {
   .modal-card-body {
@@ -660,6 +701,17 @@ footer {
     margin: 0 auto;    /* center it */
   }
 }
+@media (max-width: 768px) {
+  .modal-card-notes {
+    flex-direction: column;
+  }
+  .modal-card-notes .note {
+    min-height: 100px; /* keep them even when stacked */
+  }
+}
+
+
+
 
 /* Close button */
 .close-btn { 
