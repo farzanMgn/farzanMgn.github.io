@@ -548,7 +548,7 @@ footer {
 .modal-card-header {
   background-color: #000;
   color: #fff;
-  padding: 50px 20px 0 20px;   /* keep top + sides, remove bottom padding */
+  padding: 80px 20px 0 20px;   /* keep top + sides, remove bottom padding */
   display: flex;
   justify-content: center;     /* center video */
   align-items: center;
@@ -562,7 +562,7 @@ footer {
 
 
 .modal-card-header video {
-  max-height: 300px;
+  max-height: 350px;
   width: auto;
   border-top-left-radius: 8px;   /* only top corners rounded */
   border-top-right-radius: 8px;
@@ -596,7 +596,7 @@ footer {
 .modal-card-body {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 60px;
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
