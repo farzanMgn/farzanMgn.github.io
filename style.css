@@ -655,18 +655,21 @@ footer {
 
 .modal-card-notes {
   display: flex;
-  justify-content: center;   /* center notes row */
-  gap: 20px;                 /* space between notes */
-  margin: 30px auto;         /* spacing above/below + center row */
-  padding: 10px 0;           /* breathing room inside row */
-  flex-wrap: wrap;           /* allow wrap on smaller screens */
+  justify-content: center;   /* center the row */
+  gap: 30px;                 /* more space between notes */
+  margin: 40px auto;         /* spacing above/below */
+  padding: 10px 0;           /* breathing room */
+  flex-wrap: wrap;           /* wrap on small screens */
 }
 
 .modal-card-notes img {
-  width: 220px;              /* fixed clean size */
-  height: auto;              /* keep proportions */
-  padding: 4px;              /* space inside frame */ 
+  flex: 1;                   /* let them share available space */
+  max-width: 250px;          /* but don’t shrink below this */
+  min-width: 200px;          /* keeps them from collapsing */
+  height: auto;              /* keep aspect ratio */
+          
 }
+
 
 
 
@@ -689,11 +692,10 @@ footer {
     align-items: center;
   }
   .modal-card-notes img {
-    width: 80%;   /* scale nicely on small screens */
-    max-width: 300px;
+    width: 80%;
+    max-width: 350px;        /* allow bigger notes on mobile */
   }
 }
-
 
 
 
