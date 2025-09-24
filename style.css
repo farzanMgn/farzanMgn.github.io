@@ -652,22 +652,19 @@ footer {
 
 /*sticky note photos*/
 
-
 .modal-card-notes {
   display: flex;
   justify-content: center;   /* center the row */
-  gap: 30px;                 /* more space between notes */
+  gap: 0px;                 /* minimal space between notes */
   margin: 40px auto;         /* spacing above/below */
-  padding: 10px 0;           /* breathing room */
   flex-wrap: wrap;           /* wrap on small screens */
 }
 
 .modal-card-notes img {
-  flex: 1;                   /* let them share available space */
-  max-width: 250px;          /* but don’t shrink below this */
-  min-width: 200px;          /* keeps them from collapsing */
-  height: auto;              /* keep aspect ratio */
-          
+  flex: 1;                   /* share available space */
+  max-width: 280px;          /* make each note bigger */
+  min-width: 220px;          /* don’t let them collapse */
+  height: auto;              /* keep proportions */
 }
 
 
@@ -690,10 +687,11 @@ footer {
   .modal-card-notes {
     flex-direction: column;
     align-items: center;
+    gap: 20px;   /* add spacing when stacked */
   }
   .modal-card-notes img {
-    width: 80%;
-    max-width: 350px;        /* allow bigger notes on mobile */
+    width: 90%;
+    max-width: 400px;   /* allow larger size on mobile */
   }
 }
 
