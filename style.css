@@ -515,26 +515,40 @@ footer {
 }
 
 /* ============================== MODAL ============================== */
-.modal { 
-  display: none; 
-  position: fixed; 
-  z-index: 2000; 
-  left: 0; top: 0; 
-  width: 100%; height: 100%; 
-  overflow-y: auto; 
-  background-color: rgba(0, 0, 0, 0.6); 
-  animation: fadeIn 0.3s ease; 
-} 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;  /* solid white page background */
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease;
+}
 
+.modal-content {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 40px; /* breathing room inside */
+  background: none; /* modal inherits background from .modal */
+}
 
+.modal.dark {
+  background-color: #000;  /* black background */
+  color: #fff;             /* white text */
+}
 
-.modal-content { 
-  width: 100%;  
-  height: 100%; 
-  margin: 0; 
-  border-radius: 0;    /* remove rounded corners for true full-screen */
-  padding: 40px;
-} 
+.modal.dark .modal-card-content h3,
+.modal.dark .modal-card-content p,
+.modal.dark .modal-card-image figcaption {
+  color: #fff;
+}
+
 /* .modal-content h2 { 
   margin-bottom: 15px; 
   font-size: 1.5rem; 
