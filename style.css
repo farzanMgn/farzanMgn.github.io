@@ -628,18 +628,31 @@ footer {
     max-width: 100%;
   }
 }
-
 /* Close button */
-.close-btn { 
-  position: absolute; 
-  top: 20px; right: 30px; 
-  font-size: 1.8rem; 
-  font-weight: bold; 
-  color: #666; 
-  cursor: pointer; 
-  transition: color 0.3s ease; 
+.close-btn {
+  position: fixed;   /* instead of absolute */
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  z-index: 3000;     /* stays above everything */
+  transition: color 0.3s ease;
 }
-.close-btn:hover { color: #000; }
+
+.close-btn:hover {
+  color: #000;
+}
+
+/* In dark mode, make sure it's visible */
+.modal.dark .close-btn {
+  color: #fff;
+}
+.modal.dark .close-btn:hover {
+  color: #ccc;
+}
+
 
 #modal-body {
   max-height: 70vh;
