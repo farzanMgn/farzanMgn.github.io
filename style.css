@@ -536,6 +536,7 @@ footer {
   animation: slideUp 0.3s ease; 
   position: relative; 
 } 
+
 /* .modal-content h2 { 
   margin-bottom: 15px; 
   font-size: 1.5rem; 
@@ -559,6 +560,16 @@ footer {
   display: flex;
   gap: 20px;
   align-items: flex-start;
+}
+.modal-card-banner {
+  background-color: #000;     /* Black background */
+  color: #fff;                /* White text */
+  padding: 10px 15px;         /* Spacing inside */
+  text-align: center;         /* Center the text */
+  border-top-left-radius: 8px;  /* Match your card rounding if any */
+  border-top-right-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 /* Left image */
