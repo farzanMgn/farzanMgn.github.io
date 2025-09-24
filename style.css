@@ -540,12 +540,19 @@ footer {
   position: relative; 
 }
 
+
+
+
+
 /* Full-width Black Header */
 .modal-card-header {
   background-color: #000;
   color: #fff;
   padding: 20px;
+  display: flex;
   font-size: 1.4rem;
+  justify-content: center;
+  align-items: center;
   font-weight: 600;
   text-align: center;
   border-top-left-radius: 12px;
@@ -553,6 +560,11 @@ footer {
   margin: 0;
   width: 100%;
   box-sizing: border-box;
+}
+.modal-card-header video {
+  max-width: 80%;   /* keep video inside header */
+  max-height: 150px; /* control header height */
+  border-radius: 8px; /* optional, if you want rounded corners */
 }
 
 /* White card body */
@@ -580,7 +592,8 @@ footer {
 
 /* Left side (image) */
 .modal-card-image {
-  flex: 0 0 30%; 
+  flex: 0 0 20%; 
+  max-width: 200px;
 }
 .modal-card-image img {
   width: 100%;
@@ -623,7 +636,8 @@ footer {
     flex-direction: column;
   }
   .modal-card-image {
-    max-width: 100%;
+    max-width: 200px;  /* make smaller on mobile */
+    margin: 0 auto;    /* center it */
   }
 }
 
