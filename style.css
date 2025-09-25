@@ -630,7 +630,7 @@ footer {
 /* Right side (text) */
 .modal-card-content {
   flex: 1;
-  padding-right: 40px;   /* add breathing room on the right */
+  padding-right: 60px;   /* add breathing room on the right */
   text-align: justify; 
   flex: 1;
 }
