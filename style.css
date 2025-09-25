@@ -687,9 +687,8 @@ footer {
   }
 }
 @media (max-width: 768px) {
-  .modal-card-notes img {
-    flex: 1 1 100%; 
-    max-width: 90%;
+  .modal-card-notes {
+    grid-template-columns: 1fr; /* single column */
   }
 }
 
