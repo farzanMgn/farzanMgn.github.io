@@ -653,20 +653,21 @@ footer {
 /*sticky note photos*/
 
 .modal-card-notes {
-  display: flex;
-  justify-content: center;    /* center the row */
-  gap: 30px;                  /* space between notes */
-  margin: 10px auto;          /* spacing above/below */
-  flex-wrap: wrap;            /* wrap to next row */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
+  gap: 10px;                             /* controls spacing between items */
+  margin: 10px auto;                     /* spacing above/below section */
+  width: 100%;
+  max-width: 900px;                      /* keeps grid from stretching too wide */
 }
 
 .modal-card-notes img {
-  flex: 1 1 calc(50% - 30px); /* 👈 2 per row, minus the gap */
-  max-width: 420px;           /* allow them to be nice and big */
-  min-width: 320px;           /* don’t shrink too small */
-  height: auto;               /* keep proportions */
+  width: 100%;      /* each note fills its grid cell */
+  height: auto;     /* keep aspect ratio */
   display: block;
+  border-radius: 8px;
 }
+
 
 
 
