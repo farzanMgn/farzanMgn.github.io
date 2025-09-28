@@ -669,7 +669,7 @@ footer {
 }
 
 .modal-card-textblock {
-  max-width: 700px;      /*  controls the "reading width" */
+  max-width: 800px;      /*  controls the "reading width" */
   margin: 60px auto;     /* auto centers it horizontally */
   padding: 0 20px;       /* small inner padding so text doesn't hug the edge */
   text-align: center;    /* center-align text (optional) */
