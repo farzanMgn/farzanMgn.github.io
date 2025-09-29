@@ -683,6 +683,19 @@ footer {
 
 
 
+/* itemize the listing without indentation */
+.clean-list {
+  list-style-position: inside;  /* numbers inside, aligned with text */
+  padding-left: 0;              /* remove default indent */
+  margin: 20px auto;
+  max-width: 700px;             /* optional: center nicely */
+}
+.clean-list li {
+  margin-bottom: 12px;          /* space between lines */
+  font-size: 1.2rem;
+}
+
+
 
 
 
