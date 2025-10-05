@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".pill");
   const sections = document.querySelectorAll(".content-section");
-  const aboutLinks = document.querySelectorAll(".about-link");
   const modal = document.getElementById("modal");
   const modalBody = document.getElementById("modal-body");
   const closeBtn = modal?.querySelector(".close-btn");
@@ -34,9 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
   highlightNavLink("experience");
 
   // ----------------------------
-  // Nav events (top + inline About links)
-  // ----------------------------
-  [...navLinks, ...aboutLinks].forEach((link) => {
+
+  // Nav events
+  navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       const sectionId = link.getAttribute("data-section");
@@ -46,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
 
   // ----------------------------
   // Intersection Observer (1 shared observer)
@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (content && modal && modalBody) {
         modalBody.innerHTML = content.innerHTML;
         modal.style.display = "block";
+        document.body.classList.add("modal-open");
       }
     });
   });
@@ -84,18 +85,21 @@ document.addEventListener("DOMContentLoaded", () => {
   if (closeBtn) {
     closeBtn.addEventListener("click", () => {
       modal.style.display = "none";
+      document.body.classList.remove("modal-open");
     });
   }
 
   window.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.style.display = "none";
+      document.body.classList.remove("modal-open");
     }
   });
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modal.style.display === "block") {
       modal.style.display = "none";
+      document.body.classList.remove("modal-open");
     }
   });
 
