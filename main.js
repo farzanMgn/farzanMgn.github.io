@@ -59,12 +59,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.3 }
+    { threshold: 0.2 }
   );
 
-  document.querySelectorAll(".news-article, .media-card, .case-card").forEach((el) => {
+  // document.querySelectorAll(".news-article, .media-card, .case-card").forEach((el) => {
+  //   observer.observe(el);
+  // });
+    document.querySelectorAll(".news-article, .media-card, .case-card, .section-title").forEach((el) => {
     observer.observe(el);
   });
+
 
   // ----------------------------
   // Case study modals

@@ -201,7 +201,7 @@ main {
   cursor: pointer;
   opacity: 0;
   transform: translateY(50px);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.8s ease, box-shadow 0.4s ease;
 }
 .case-card::before {
   content: "";
@@ -216,6 +216,16 @@ main {
 .case-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+/* Animate section title like cards */
+.section-title {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+.section-title.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 .case-media {
   width: 100%;
