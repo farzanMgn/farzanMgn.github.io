@@ -383,15 +383,86 @@ main {
 }
 
 
-/* Responsive About */
+/* ============================== ABOUT — MOBILE OPTIMIZATION ============================== */
 @media (max-width: 992px) {
+  /* Stack all columns vertically */
   .newspaper-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 30px;
   }
+
   .news-column {
     gap: 20px;
   }
+
+  /* Center and widen text blocks */
+  .news-article h2 {
+    font-size: 1.4rem;
+    text-align: left;
+  }
+
+  .news-article p {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  /* Make media cards adapt */
+  .media-card img,
+  .media-card video {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /* Sidebar boxes appear under main content, full width */
+  .sidebar-box {
+    max-width: 100%;
+    padding: 20px;
+    background: #fdfdfd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+  }
+
+  .sidebar-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
 }
+
+@media (max-width: 600px) {
+  .news-article h2 {
+    font-size: 1.2rem;
+  }
+
+  .news-article p {
+    font-size: 0.95rem;
+  }
+
+  .media-card img,
+  .media-card video {
+    max-height: 220px;
+  }
+
+  .sidebar-box {
+    padding: 15px;
+  }
+
+  .sidebar-box h3 {
+    font-size: 1rem;
+  }
+}
+
 
 /* ============================== CONTACT ============================== */
 #contact-form {
