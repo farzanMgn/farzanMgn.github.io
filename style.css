@@ -1,0 +1,911 @@
+/* ============================== RESET & GLOBAL ============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --accent: #c0777c;
+  --accent-dark: #a85f64;
+  --accent-darker: #8f4c52;
+}
+
+/* ============================== HERO SECTION ============================== */
+/* ===== HERO (Magazine Cover Style) ===== */
+
+.hero {
+  position: relative;
+  padding: 60px 20px 0;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  overflow: hidden;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* CHANGED: better spacing */
+  gap: 23px; /* smaller gap */
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+
+/* Middle = Portrait photo, partly overlapped */
+.hero-photo {
+  flex: 3;
+  display: flex;
+  justify-content: flex-start;
+  background: transparent; 
+}
+.hero-img {
+  width: 100%;
+  max-width: 700px;  /* adjust based on how large you want it */
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 0; 
+}
+
+
+/* Right = Editorial tagline */
+.hero-right {
+  flex: 2;
+  font-family: 'Work Sans', serif;
+  text-align: left;
+}
+.hero-greeting {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-role {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.hero-detail {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  color: #333;
+}
+.hero-detail.highlight {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--accent-darker);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+/* Social Links (keep accent color) */
+.hero-links {
+  margin-top: 15px;    /* space under â€œBased in Alexandriaâ€ */
+  text-align: left;    /* align with the text on the right */
+}
+.hero-links a {
+  color: var(--accent);
+  font-size: 1.5rem;
+  margin-right: 16px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.hero-links a:hover {
+  color: var(--accent-dark);
+  transform: scale(1.1);
+}
+h1, h2, h3, .hero-greeting {
+  font-weight: 700; /* bold and confident */
+}
+
+
+
+/************************************************************/
+/* .hero {
+  position: relative;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1400px;
+  width: 100%;
+} */
+
+/* Left */
+/* .hero-left {
+  flex: 1;
+  text-align: center;
+}
+.hero-greeting {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.hero-greeting .accent {
+  color: var(--accent);
+}
+.hero-role {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+.hero-links a {
+  color: var(--accent);
+  font-size: 1.5rem;
+  margin-left: 12px;
+  transition: color 0.3s ease;
+}
+.hero-links a:hover {
+  color: var(--accent-dark);
+} */
+
+/* Middle */
+/* .hero-photo {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+.hero-img {
+  width: 420px;
+  height: auto;
+  object-fit: cover;
+} */
+
+/* Right */
+/* .hero-right {
+  flex: 1;
+  font-size: 1rem;
+  text-align: left;
+}
+.hero-detail {
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.hero-detail.highlight {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+ */
+
+
+/* Pills top right */
+.hero-pills {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  display: flex;
+  gap: 10px;
+}
+.pill {
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--accent);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+.pill:hover {
+  background-color: var(--accent-dark);
+}
+.pill.active {
+  background-color: var(--accent-darker);
+}
+
+
+
+/* Responsive Hero */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+   .hero-photo, .hero-right {
+    flex: 1;
+  }
+
+  .hero-img {
+    max-width: 100%;
+  }
+}
+
+/* ============================== MAIN CONTENT ============================== */
+main {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.content-section {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+.content-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================== EXPERIENCE (Case Studies) ============================== */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 65px;
+  row-gap: 50px;
+  max-width: 1500px;
+  margin: 40px auto 0; 
+  width: 100%;
+}
+
+.case-card {
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.6s ease, box-shadow 0.4s ease;
+}
+.case-card::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: var(--accent);
+}
+.case-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.case-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.15);
+}
+.case-media {
+  width: 100%;
+  height: 260px;
+  background: #f5f5f5;
+  overflow: hidden;
+  border-bottom: 4px solid #eee;
+  position: relative;
+}
+.case-media img,
+.case-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.case-arrow {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 1.4rem;
+  color: white;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.case-card:hover .case-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+.case-content {
+  padding: 22px 24px;
+}
+.case-content h3 {
+  font-family: 'Work Sans', serif;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: #222;
+}
+.case-content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive Experience */
+@media (max-width: 768px) {
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================== ABOUT (Newspaper Layout) ============================== */
+.custom-link {
+  color: inherit; /* same color as surrounding text */
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor; /* dotted underline */
+  font-weight: 500;
+}
+
+.custom-link::after {
+  content: "↗"; /* little arrow */
+  font-size: 0.8em;
+  margin-left: 4px;
+}
+
+.newspaper-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr; 
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.news-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.news-article h2 {
+  font-family: 'Work Sans', serif;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.news-article p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+}
+.news-article {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+.news-article.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.media-card img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+.media-card video {
+  width: 100%;
+/*   height: 200px;      */
+  object-fit: cover; 
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.media-card {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.8s ease;
+}
+.media-card.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidebar-box {
+  background: #f8f8f8;
+  padding: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.sidebar-box h3 {
+  color: var(--accent-dark);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  font-family: 'Work Sans', serif;
+}
+.sidebar-box p, 
+.sidebar-box ul {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Sidebar photos (uniform size) */
+.sidebar-photo {
+  width: 100%;             /* scale with sidebar width */
+  max-width: 180px;        /* fixed maximum width */
+  height: 220px;           /* fixed height (adjust to match listening.jpg) */
+  object-fit: cover;       /* crop to fill without distortion */
+  border-radius: 8px;
+  margin: 0 auto 15px auto;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+
+/* Responsive About */
+@media (max-width: 992px) {
+  .newspaper-grid {
+    grid-template-columns: 1fr;
+  }
+  .news-column {
+    gap: 20px;
+  }
+}
+
+/* ============================== CONTACT ============================== */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 600px;
+  margin-top: 30px;
+}
+#contact-form input,
+#contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1rem;
+  resize: vertical;
+}
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: #666;
+  outline: none;
+}
+#contact-form button {
+  background-color: var(--accent);
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: fit-content;
+}
+#contact-form button:hover {
+  background-color: var(--accent-dark);
+}
+.form-message {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #28a745;
+}
+
+/* ============================== FOOTER ============================== */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #fdfdfd;
+  border-top: 1px solid #eee;
+  margin-top: 60px;
+}
+.footer-links a {
+  color: #555;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* ============================== MODAL ============================== */
+.modal { 
+  display: none; 
+  position: fixed; 
+  z-index: 2000; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  overflow-y: auto; 
+  background-color: rgba(0, 0, 0, 0.6); 
+  animation: fadeIn 0.3s ease; 
+} 
+
+.modal-content { 
+  background-color: transparent;   /* no background so header can go edge-to-edge */
+  margin: 80px auto; 
+  padding: 0;                      /* remove default padding */
+  border-radius: 12px; 
+  max-width: 1200px; 
+  min-height: 98vh;
+  width: 95%; 
+  box-shadow: none;                /* card itself will have shadow */
+  animation: slideUp 0.3s ease; 
+  position: relative; 
+}
+
+
+
+
+
+/* Full-width Black Header */
+.modal-card-header {
+  background-color: #000;
+  color: #fff;
+  padding: 80px 20px 0 20px;   /* keep top + sides, remove bottom padding */
+  display: flex;
+  justify-content: center;     /* center video */
+  align-items: center;
+  text-align: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.modal-card-header video,
+.modal-card-header img {
+  max-height: 350px;
+  width: auto;
+  border-top-left-radius: 8px;   /* only top corners rounded */
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 0;  /* bottom corners square */
+  border-bottom-right-radius: 0;
+  margin: 0;
+  display: block;
+}
+
+
+.modal-card-header h3 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+.modal-card-header p.header-text {
+  
+  color: #fff;             /* white text */
+  font-size: 1.7rem;
+  max-width: 800px;      /*  controls the "reading width" */
+  margin: 60px auto;     /* auto centers it horizontally */
+  padding: 0 20px;       /* small inner padding so text doesn't hug the edge */
+  text-align: center;   /* center-align text (optional) */
+  hyphens: auto;          /* break long words cleanly */
+  line-height: 1.7; 
+}
+
+
+
+/* White card body */
+.modal-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: none;                /* so header and body join seamlessly */
+  border-radius: 0 0 12px 12px;    /* rounded only at bottom */
+  overflow: hidden;
+  width: 100%;          
+  max-width: 1200px;     
+  margin: 0 auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Body split */
+.modal-card-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 40px 40px 40px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Left side (image) */
+.modal-card-image {
+  flex: 0 0 40%; 
+  max-width: 200px;
+}
+.modal-card-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.modal-card-image figcaption {
+  font-size: 0.9rem;
+  text-align: left;
+  margin-top: 8px;
+  color: #555;
+}
+
+.modal-card-image figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Right side (text) */
+.modal-card-content {
+  flex: 1;
+  padding-right: 60px;   /* add breathing room on the right */
+  text-align: justify; 
+  flex: 1;
+}
+.modal-card-content h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.modal-card-content p {
+  font-size: 1.3rem;
+  line-height: 1.7;      /* good readability */
+  margin-bottom: 16px;   /* even spacing between paragraphs */
+  text-align: justify;   /* aligns both left & right edges */
+  hyphens: auto;         /* breaks long words cleanly if needed */
+  color: #333;
+}
+
+
+/*sticky note photos*/
+
+.modal-card-notes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
+  gap: 10px;                             /* controls spacing between items */
+  margin: 10px auto;                     /* spacing above/below section */
+  width: 100%;
+  max-width: 900px;                      /* keeps grid from stretching too wide */
+}
+
+.modal-card-notes img {
+  width: 100%;      /* each note fills its grid cell */
+  height: auto;     /* keep aspect ratio */
+  display: block;
+  border-radius: 8px;
+}
+
+.modal-card-textblock {
+  max-width: 800px;      /*  controls the "reading width" */
+  margin: 60px auto;     /* auto centers it horizontally */
+  padding: 0 20px;       /* small inner padding so text doesn't hug the edge */
+  text-align: justify;   /* center-align text (optional) */
+  hyphens: auto;          /* break long words cleanly */
+  line-height: 1.7;       /* improve readability */
+}
+
+.modal-card-textblock p {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+
+
+/* itemize the listing without indentation */
+.clean-list {
+  list-style-position: inside;  /* numbers inside, aligned with text */
+  padding-left: 0;              /* remove default indent */
+  margin: 20px auto;
+  max-width: 700px;             /* optional: center nicely */
+}
+.clean-list li {
+  margin-bottom: 12px;          /* space between lines */
+  font-size: 1.2rem;
+}
+
+
+/* New layout: 30% text, 70% image */
+.modal-card-split-wide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin: 60px auto;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 40px;   
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-card-split-wide .split-text {
+  flex: 0 0 30%;  /* fixed 30% width for text */
+}
+
+.modal-card-split-wide .split-image,
+.modal-card-split-wide .split-video {
+  flex: 0 0 70%;  /* fixed 70% width for image/video */
+}
+
+.modal-card-split-wide .split-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  object-fit: cover;
+}
+
+.modal-card-split-wide .split-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.modal-card-split-wide .split-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+/*split photo text 50/50*/
+.modal-card-split {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;            /* spacing between photo and text */
+  margin: 60px auto;    /* spacing around this section */
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-card-split .split-image,
+.modal-card-split .split-text,
+.modal-card-split .split-video  {
+  flex: 1;              /* each takes 50% */
+}
+
+.modal-card-split .split-image img {
+  width: 100%;
+  height: auto;
+  max-height: 800px;
+  border-radius: 8px;
+  display: block;
+}
+.modal-card-split .split-image .caption {
+  font-size: 0.9rem;     /* smaller than body text */
+  color: #666;           /* subtle gray */
+  margin-top: 8px;       /* space under the image */
+  text-align: center;    /* center align caption */
+  font-style: italic;    /* optional, for note-like feel */
+}
+
+.modal-card-split .split-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.modal-card-split .split-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+.modal-card-combined {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px 40px;
+  background: #fff;      /* same background for both */
+  border-radius: 8px;    /* rounded edges */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.modal-card-textblock {
+  margin-bottom: 30px;   /* space before the split */
+  text-align: justify;
+  hyphens: auto;
+}
+
+
+
+
+.modal-card-split .split-video video {
+  width: 100%;
+  border-radius: 8px;
+}
+
+
+
+
+.workflow-image {
+  display: block;
+  width: 100%;            /* take full width of container */
+  max-width: 1000px;      /* limit so it doesn’t stretch too large */
+  margin: 40px auto;      /* center + spacing above/below */
+  /* border-radius: 8px;     /* optional rounded corners */
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* subtle shadow */
+}
+
+
+
+
+
+
+/* Responsive (stack vertically on small screens) */
+@media (max-width: 768px) {
+  .modal-card-body {
+    flex-direction: column;
+  }
+  .modal-card-image {
+    max-width: 200px;  /* make smaller on mobile */
+    margin: 0 auto;    /* center it */
+  }
+}
+@media (max-width: 768px) {
+  .modal-card-notes {
+    grid-template-columns: 1fr; /* single column */
+  }
+}
+@media (max-width: 768px) {
+  .modal-card-split {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .modal-card-split,
+  .modal-card-split.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal-card-split .split-video video {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-card-split .split-image .caption {
+    font-size: 0.8rem;
+    margin-top: 6px;
+  }
+}
+
+
+
+
+
+
+/* Close button */
+.close-btn { 
+  position: absolute; 
+  top: 20px; 
+  right: 30px; 
+  font-size: 1.8rem; 
+  font-weight: bold; 
+  color: #fff;                  /* white so it’s visible on black header */
+  cursor: pointer; 
+  transition: color 0.3s ease; 
+}
+.close-btn:hover { 
+  color: #ccc; 
+}
+
+#modal-body {
+  max-height: 70vh; 
+  overflow-y: auto;
+  padding-right: 10px; 
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; } 
+  to { transform: translateY(0); opacity: 1; } 
+}
