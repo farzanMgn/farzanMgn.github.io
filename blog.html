@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farzaneh’s Blog — Succeeding as a PM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fdfdfd;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 60px;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .brand h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .subscribe-btn {
+      background: var(--accent, #c0777c);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 8px 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+
+    .subscribe-btn:hover {
+      background: var(--accent-dark, #a85f64);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 60px;
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 40px;
+    }
+
+    /* Left profile sidebar */
+    .profile {
+      text-align: left;
+      position: sticky;
+      top: 100px;
+      align-self: start;
+    }
+
+    .profile img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 14px;
+    }
+
+    .profile h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .profile p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Blog section */
+    .blog-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--accent, #c0777c);
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .blog-card {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+    }
+
+    .blog-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: #000;
+      cursor: pointer;
+    }
+
+    .blog-card p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+    }
+    .blog-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.2s ease;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    .blog-link:hover {
+      background: #fafafa;
+        }
+
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .profile {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <img src="./assets/profileme.png" alt="Farzaneh">
+    </div>
+    <button class="subscribe-btn">Subscribe</button>
+  </header>
+
+  <main>
+    <aside class="profile">
+      <!-- <img src="./assets/profile.png" alt="Farzaneh"> -->
+      <h2>About Me</h2>
+      <p>Product-minded engineer documenting insights, experiments, and reflections on growing as an AI-powered PM.</p>
+    </aside>
+
+    <section class="blog-section">
+      <h2>Succeeding as a PM</h2>
+
+      <div class="blog-list">
+        <div class="blog-card">
+            <a href="post-ai-powered-pm.html" class="blog-link">
+                <h3>1. What Makes an AI-Powered Product Manager Different?</h3>
+                <p>Exploring how the role of PM evolves when AI becomes part of your product’s DNA — from data-driven decisions to ethical design.</p>
+            </a>
+        </div>
+
+        <div class="blog-card">
+            <a href="post-prioritization.html" class="blog-link">
+                <h3>2. The Art of Prioritization: Balancing Data, Design, and Intuition</h3>
+                <p>How to make prioritization decisions when user signals, metrics, and creative instincts pull in different directions.</p>
+            </a>
+        </div>
+
+        <div class="blog-card">
+            <a href="post-data-to-impact.html" class="blog-link">
+                <h3>3. From Data Scientist to PM: Translating Insights into Impact</h3>
+                <p>My personal journey and lessons learned while shifting from data analysis to shaping user-focused AI products.</p>
+            </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
