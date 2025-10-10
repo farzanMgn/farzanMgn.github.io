@@ -35,16 +35,34 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----------------------------
 
   // Nav events
+  // navLinks.forEach((link) => {
+  //   link.addEventListener("click", (e) => {
+  //     e.preventDefault();
+  //     const sectionId = link.getAttribute("data-section");
+  //     if (sectionId) {
+  //       showSection(sectionId);
+  //       highlightNavLink(sectionId);
+  //     }
+  //   });
+  // });
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
-      e.preventDefault();
       const sectionId = link.getAttribute("data-section");
+
+      // ✅ If it's the Blog pill, open in new tab and exit early
+      if (link.textContent.trim().toLowerCase() === "blog") {
+        return; // Do nothing — the native <a href="blog.html" target="_blank"> will handle it
+      }
+
+      // Prevent default for internal sections
+      e.preventDefault();
       if (sectionId) {
         showSection(sectionId);
         highlightNavLink(sectionId);
       }
     });
   });
+
 
 
   // ----------------------------
